@@ -1,0 +1,45 @@
+---
+title: Modos de consola de bajo nivel
+description: Los tipos de eventos de entrada que se indican en el búfer de entrada de la consola dependen de los modos de entrada del mouse y de la ventana de la consola.
+author: miniksa
+ms.author: miniksa
+ms.topic: article
+keywords: consola, aplicaciones de modo de carácter, aplicaciones de línea de comandos, aplicaciones de terminal, API de consola
+MS-HAID:
+- '\_win32\_low\_level\_console\_modes'
+- base.low\_level\_console\_modes
+- consoles.low\_level\_console\_modes
+MSHAttr:
+- PreferredSiteName:MSDN
+- PreferredLib:/library/windows/desktop
+ms.assetid: 41bfdc51-27cb-4d5e-898c-507ffc8789b9
+ms.openlocfilehash: 375b3b6eaef499324bdbde24ec973d91c50dda5b
+ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "89060820"
+---
+# <a name="low-level-console-modes"></a><span data-ttu-id="c19e2-104">Modos de consola de bajo nivel</span><span class="sxs-lookup"><span data-stu-id="c19e2-104">Low-Level Console Modes</span></span>
+
+
+<span data-ttu-id="c19e2-105">Los tipos de eventos de entrada que se indican en el búfer de entrada de la consola dependen de los modos de entrada del mouse y de la ventana de la consola.</span><span class="sxs-lookup"><span data-stu-id="c19e2-105">The types of input events reported in a console's input buffer depend on the console's mouse and window input modes.</span></span> <span data-ttu-id="c19e2-106">El modo de entrada procesado de la consola determina cómo controla el sistema la combinación de teclas CTRL + C.</span><span class="sxs-lookup"><span data-stu-id="c19e2-106">The console's processed input mode determines how the system handles the CTRL+C key combination.</span></span> <span data-ttu-id="c19e2-107">Para establecer o recuperar el estado de los modos de entrada de una consola, una aplicación puede especificar un identificador de búfer de entrada de la consola en una llamada a la función [**SetConsoleMode**](setconsolemode.md) o [**GetConsoleMode**](getconsolemode.md) .</span><span class="sxs-lookup"><span data-stu-id="c19e2-107">To set or retrieve the state of a console's input modes, an application can specify a console input buffer handle in a call to the [**SetConsoleMode**](setconsolemode.md) or [**GetConsoleMode**](getconsolemode.md) function.</span></span> <span data-ttu-id="c19e2-108">Los siguientes modos se usan con los identificadores de entrada de la consola.</span><span class="sxs-lookup"><span data-stu-id="c19e2-108">The following modes are used with console input handles.</span></span>
+
+
+| <span data-ttu-id="c19e2-109">Mode</span><span class="sxs-lookup"><span data-stu-id="c19e2-109">Mode</span></span>                         | <span data-ttu-id="c19e2-110">Descripción</span><span class="sxs-lookup"><span data-stu-id="c19e2-110">Description</span></span>                                                                                                                                                                                                                                                                                                                                                                                           |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <span data-ttu-id="c19e2-111">**HABILITAR \_ la \_ entrada del mouse**</span><span class="sxs-lookup"><span data-stu-id="c19e2-111">**ENABLE\_MOUSE\_INPUT**</span></span>     | <span data-ttu-id="c19e2-112">Controla si los eventos del mouse se muestran en el búfer de entrada.</span><span class="sxs-lookup"><span data-stu-id="c19e2-112">Controls whether mouse events are reported in the input buffer.</span></span> <span data-ttu-id="c19e2-113">De forma predeterminada, la entrada de mouse está habilitada y la entrada de ventana está deshabilitada.</span><span class="sxs-lookup"><span data-stu-id="c19e2-113">By default, mouse input is enabled and window input is disabled.</span></span> <span data-ttu-id="c19e2-114">Cambiar cualquiera de estos modos afecta solo a la entrada que se produce después de establecer el modo; los eventos de mouse o de ventana pendientes en el búfer de entrada no se vacían.</span><span class="sxs-lookup"><span data-stu-id="c19e2-114">Changing either of these modes affects only input that occurs after the mode is set; pending mouse or window events in the input buffer are not flushed.</span></span> <span data-ttu-id="c19e2-115">El puntero del mouse se muestra independientemente del modo del mouse.</span><span class="sxs-lookup"><span data-stu-id="c19e2-115">The mouse pointer is displayed regardless of the mouse mode.</span></span>                                                |
+| <span data-ttu-id="c19e2-116">**HABILITAR \_ entrada de ventana \_**</span><span class="sxs-lookup"><span data-stu-id="c19e2-116">**ENABLE\_WINDOW\_INPUT**</span></span>    | <span data-ttu-id="c19e2-117">Controla si se registran los eventos de cambio de tamaño del búfer en el búfer de entrada.</span><span class="sxs-lookup"><span data-stu-id="c19e2-117">Controls whether buffer-resizing events are reported in the input buffer.</span></span> <span data-ttu-id="c19e2-118">De forma predeterminada, la entrada de mouse está habilitada y la entrada de ventana está deshabilitada.</span><span class="sxs-lookup"><span data-stu-id="c19e2-118">By default, mouse input is enabled and window input is disabled.</span></span> <span data-ttu-id="c19e2-119">Cambiar cualquiera de estos modos afecta solo a la entrada que se produce después de establecer el modo; los eventos de mouse o de ventana pendientes en el búfer de entrada no se vacían.</span><span class="sxs-lookup"><span data-stu-id="c19e2-119">Changing either of these modes affects only input that occurs after the mode is set; pending mouse or window events in the input buffer are not flushed.</span></span> <span data-ttu-id="c19e2-120">El puntero del mouse se muestra independientemente del modo del mouse.</span><span class="sxs-lookup"><span data-stu-id="c19e2-120">The mouse pointer is displayed regardless of the mouse mode.</span></span>                                      |
+| <span data-ttu-id="c19e2-121">**HABILITAR \_ entrada procesada \_**</span><span class="sxs-lookup"><span data-stu-id="c19e2-121">**ENABLE\_PROCESSED\_INPUT**</span></span> | <span data-ttu-id="c19e2-122">Controla el procesamiento de entradas de las aplicaciones mediante las funciones de e/s de la consola de alto nivel.</span><span class="sxs-lookup"><span data-stu-id="c19e2-122">Controls the processing of input for applications using the high-level console I/O functions.</span></span> <span data-ttu-id="c19e2-123">Sin embargo, si está habilitado el modo de entrada procesado, la combinación de teclas CTRL + C no se muestra en el búfer de entrada de la consola.</span><span class="sxs-lookup"><span data-stu-id="c19e2-123">However, if processed input mode is enabled, the CTRL+C key combination is not reported in the console's input buffer.</span></span> <span data-ttu-id="c19e2-124">En su lugar, se pasa a la función de controlador de control adecuada.</span><span class="sxs-lookup"><span data-stu-id="c19e2-124">Instead, it is passed on to the appropriate control handler function.</span></span> <span data-ttu-id="c19e2-125">Para obtener más información sobre los controladores de control, vea [controladores de control de consola](console-control-handlers.md).</span><span class="sxs-lookup"><span data-stu-id="c19e2-125">For more information about control handlers, see [Console Control Handlers](console-control-handlers.md).</span></span> |
+
+
+
+<span data-ttu-id="c19e2-126">Los modos de salida de un búfer de pantalla no afectan al comportamiento de las funciones de salida de bajo nivel.</span><span class="sxs-lookup"><span data-stu-id="c19e2-126">The output modes of a screen buffer do not affect the behavior of the low-level output functions.</span></span>
+
+
+
+
+
+
+
+

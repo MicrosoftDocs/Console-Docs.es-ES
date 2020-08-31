@@ -1,0 +1,49 @@
+---
+title: E/s de consola de alto nivel
+description: Las funciones de e/s de alto nivel proporcionan una manera sencilla de leer un flujo de caracteres de la entrada de la consola o de escribir un flujo de caracteres en la salida de la consola.
+author: miniksa
+ms.author: miniksa
+ms.topic: article
+keywords: consola, aplicaciones de modo de carácter, aplicaciones de línea de comandos, aplicaciones de terminal, API de consola
+MS-HAID:
+- '\_win32\_high\_level\_console\_i\_o'
+- base.high\_level\_console\_i\_o
+- consoles.high\_level\_console\_i\_o
+MSHAttr:
+- PreferredSiteName:MSDN
+- PreferredLib:/library/windows/desktop
+ms.assetid: 6d191fee-87bb-4659-8056-910149e591f7
+ms.openlocfilehash: 2209259f604bb8653bca6ab38ca763b63f65713f
+ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "89060612"
+---
+# <a name="high-level-console-io"></a><span data-ttu-id="bc990-104">E/s de consola de alto nivel</span><span class="sxs-lookup"><span data-stu-id="bc990-104">High-Level Console I/O</span></span>
+
+
+<span data-ttu-id="bc990-105">Las funciones de e/s de alto nivel proporcionan una manera sencilla de leer un flujo de caracteres de la entrada de la consola o de escribir un flujo de caracteres en la salida de la consola.</span><span class="sxs-lookup"><span data-stu-id="bc990-105">The high-level I/O functions provide a simple way to read a stream of characters from console input or to write a stream of characters to console output.</span></span> <span data-ttu-id="bc990-106">Una operación de lectura de nivel superior obtiene los caracteres de entrada del búfer de entrada de la consola y los almacena en un búfer especificado.</span><span class="sxs-lookup"><span data-stu-id="bc990-106">A high-level read operation gets input characters from a console's input buffer and stores them in a specified buffer.</span></span> <span data-ttu-id="bc990-107">Una operación de escritura de alto nivel toma los caracteres de un búfer especificado y los escribe en un búfer de pantalla en la ubicación actual del cursor, adelantando el cursor a medida que se escribe cada carácter.</span><span class="sxs-lookup"><span data-stu-id="bc990-107">A high-level write operation takes characters from a specified buffer and writes them to a screen buffer at the current cursor location, advancing the cursor as each character is written.</span></span>
+
+<span data-ttu-id="bc990-108">La e/s de alto nivel le permite elegir entre las funciones [**readfile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) y [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) y las funciones [**ReadConsole**](readconsole.md) y [**WriteConsole**](writeconsole.md) .</span><span class="sxs-lookup"><span data-stu-id="bc990-108">High-level I/O gives you a choice between the [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) and [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) functions and the [**ReadConsole**](readconsole.md) and [**WriteConsole**](writeconsole.md) functions.</span></span> <span data-ttu-id="bc990-109">Son idénticos, salvo por dos diferencias importantes.</span><span class="sxs-lookup"><span data-stu-id="bc990-109">They are identical, except for two important differences.</span></span> <span data-ttu-id="bc990-110">Las funciones de la consola de admiten el uso de caracteres Unicode o del juego de caracteres ANSI; las funciones de e/s de archivo no admiten Unicode.</span><span class="sxs-lookup"><span data-stu-id="bc990-110">The console functions support the use of either Unicode characters or the ANSI character set; the file I/O functions do not support Unicode.</span></span> <span data-ttu-id="bc990-111">Además, las funciones de e/s de archivo se pueden usar para tener acceso a archivos, canalizaciones y dispositivos de comunicaciones serie; las funciones de consola solo se pueden usar con los identificadores de consola.</span><span class="sxs-lookup"><span data-stu-id="bc990-111">Also, the file I/O functions can be used to access files, pipes, and serial communications devices; the console functions can only be used with console handles.</span></span> <span data-ttu-id="bc990-112">Esta distinción es importante si una aplicación se basa en identificadores estándar que pueden haberse redirigido.</span><span class="sxs-lookup"><span data-stu-id="bc990-112">This distinction is important if an application relies on standard handles that may have been redirected.</span></span>
+
+<span data-ttu-id="bc990-113">Cuando se usa cualquier conjunto de funciones de alto nivel, una aplicación puede controlar el texto y los colores de fondo utilizados para mostrar los caracteres que se escriben posteriormente en un búfer de pantalla.</span><span class="sxs-lookup"><span data-stu-id="bc990-113">When using either set of high-level functions, an application can control the text and background colors used to display characters subsequently written to a screen buffer.</span></span> <span data-ttu-id="bc990-114">Una aplicación también puede usar los modos de consola que afectan a la e/s de la consola de alto nivel para habilitar o deshabilitar las siguientes propiedades:</span><span class="sxs-lookup"><span data-stu-id="bc990-114">An application can also use the console modes that affect high-level console I/O to enable or disable the following properties:</span></span>
+
+- <span data-ttu-id="bc990-115">Eco de la entrada del teclado en el búfer de pantalla activo</span><span class="sxs-lookup"><span data-stu-id="bc990-115">Echoing of keyboard input to the active screen buffer</span></span>
+- <span data-ttu-id="bc990-116">Entrada de línea, en la que una operación de lectura no vuelve hasta que se presiona la tecla entrar.</span><span class="sxs-lookup"><span data-stu-id="bc990-116">Line input, in which a read operation does not return until the ENTER key is pressed</span></span>
+- <span data-ttu-id="bc990-117">Procesamiento automático de entradas de teclado para controlar los retornos de carro, CTRL + C y otros detalles de entrada</span><span class="sxs-lookup"><span data-stu-id="bc990-117">Automatic processing of keyboard input to handle carriage returns, CTRL+C, and other input details</span></span>
+- <span data-ttu-id="bc990-118">Procesamiento automático de la salida para controlar el ajuste de línea, los retornos de carro, los retroceso y otros detalles de salida</span><span class="sxs-lookup"><span data-stu-id="bc990-118">Automatic processing of output to handle line wrapping, carriage returns, backspaces, and other output details</span></span>
+
+<span data-ttu-id="bc990-119">Para obtener más información, vea los temas siguientes:</span><span class="sxs-lookup"><span data-stu-id="bc990-119">For more information, see the following topics:</span></span>
+
+- [<span data-ttu-id="bc990-120">Modos de consola</span><span class="sxs-lookup"><span data-stu-id="bc990-120">Console Modes</span></span>](console-modes.md)
+- [<span data-ttu-id="bc990-121">Modos de consola de alto nivel</span><span class="sxs-lookup"><span data-stu-id="bc990-121">High-Level Console Modes</span></span>](high-level-console-modes.md)
+- [<span data-ttu-id="bc990-122">Funciones de entrada y salida de la consola de alto nivel</span><span class="sxs-lookup"><span data-stu-id="bc990-122">High-Level Console Input and Output Functions</span></span>](high-level-console-input-and-output-functions.md)
+
+ 
+
+ 
+
+
+
+
