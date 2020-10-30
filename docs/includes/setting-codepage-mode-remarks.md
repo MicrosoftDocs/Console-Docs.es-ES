@@ -1,0 +1,9 @@
+---
+ms.openlocfilehash: 2e5222bba5878d98c6f703b8aa25dfd1a22197db
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037040"
+---
+<span data-ttu-id="26e2d-101">Esta función usa caracteres Unicode o caracteres de 8 bits de la página de códigos actual de la consola.</span><span class="sxs-lookup"><span data-stu-id="26e2d-101">This function uses either Unicode characters or 8-bit characters from the console's current code page.</span></span> <span data-ttu-id="26e2d-102">La página de códigos de la consola tiene como valor predeterminado la página de códigos OEM del sistema.</span><span class="sxs-lookup"><span data-stu-id="26e2d-102">The console's code page defaults initially to the system's OEM code page.</span></span> <span data-ttu-id="26e2d-103">Para cambiar la página de códigos de la consola, use las funciones [**SetConsoleCP**](../setconsolecp.md) o [**SetConsoleOutputCP**](../setconsoleoutputcp.md) .</span><span class="sxs-lookup"><span data-stu-id="26e2d-103">To change the console's code page, use the [**SetConsoleCP**](../setconsolecp.md) or [**SetConsoleOutputCP**](../setconsoleoutputcp.md) functions.</span></span> <span data-ttu-id="26e2d-104">Los consumidores heredados también pueden usar los comandos **chcp** o **mode con CP Select =** , pero no se recomienda para el desarrollo nuevo.</span><span class="sxs-lookup"><span data-stu-id="26e2d-104">Legacy consumers may also use the **chcp** or **mode con cp select=** commands, but it is not recommended for new development.</span></span>

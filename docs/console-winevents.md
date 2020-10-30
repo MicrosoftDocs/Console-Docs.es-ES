@@ -42,106 +42,37 @@ api_location:
 - Winuser.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: ab58df01b3fb29e6efea3ecd0aab145fe2f298c2
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 2c5d641140316089b38b836bf3fba7534ccd5600
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060780"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038333"
 ---
-# <a name="console-winevents"></a><span data-ttu-id="55e76-105">WinEvents de consola</span><span class="sxs-lookup"><span data-stu-id="55e76-105">Console WinEvents</span></span>
+# <a name="console-winevents"></a><span data-ttu-id="a40a5-105">WinEvents de consola</span><span class="sxs-lookup"><span data-stu-id="a40a5-105">Console WinEvents</span></span>
 
+> [!IMPORTANT]
+> <span data-ttu-id="a40a5-106">WinEvents forman parte de **[Microsoft Active Accessibility](https://docs.microsoft.com/windows/win32/winauto/microsoft-active-accessibility)** Framework heredado.</span><span class="sxs-lookup"><span data-stu-id="a40a5-106">WinEvents are part of the legacy **[Microsoft Active Accessibility](https://docs.microsoft.com/windows/win32/winauto/microsoft-active-accessibility)** framework.</span></span> <span data-ttu-id="a40a5-107">No se recomienda el desarrollo mediante estos eventos en favor del marco de **[automatización](https://docs.microsoft.com/windows/win32/winauto/entry-uiauto-win32)** de la interfaz de usuario de Microsoft, que proporciona un conjunto de interfaces más sólido y completo para que las aplicaciones de accesibilidad y automatización interactúen con la consola.</span><span class="sxs-lookup"><span data-stu-id="a40a5-107">Development using these events is strongly discouraged in favor of the **[Microsoft UI Automation](https://docs.microsoft.com/windows/win32/winauto/entry-uiauto-win32)** framework which provides a more robust and comprehensive suite of interfaces for accessibility and automation applications to interact with the console.</span></span> 
 
-<span data-ttu-id="55e76-106">Las constantes de eventos siguientes se usan en el parámetro *Event* de la función de devolución de llamada [*WinEventProc*](https://msdn.microsoft.com/library/windows/desktop/dd373885(v=vs.85).aspx) .</span><span class="sxs-lookup"><span data-stu-id="55e76-106">The following event constants are used in the *event* parameter of the [*WinEventProc*](https://msdn.microsoft.com/library/windows/desktop/dd373885(v=vs.85).aspx) callback function.</span></span> <span data-ttu-id="55e76-107">Para obtener más información, vea [WinEvents](https://msdn.microsoft.com/library/windows/desktop/dd373889).</span><span class="sxs-lookup"><span data-stu-id="55e76-107">For more information, see [WinEvents](https://msdn.microsoft.com/library/windows/desktop/dd373889).</span></span>
+> [!WARNING]
+> <span data-ttu-id="a40a5-108">El registro de estos eventos es una actividad global y afecta significativamente al rendimiento de todas las aplicaciones de línea de comandos que se ejecutan en un sistema al mismo tiempo, incluidos los servicios y las utilidades en segundo plano.</span><span class="sxs-lookup"><span data-stu-id="a40a5-108">Registering for these events is a global activity and will significantly impact performance of all command-line applications running on a system at the same time, including services and background utilities.</span></span> <span data-ttu-id="a40a5-109">El marco de automatización de la **interfaz de usuario de Microsoft** es específico de la sesión de consola y supera esta limitación.</span><span class="sxs-lookup"><span data-stu-id="a40a5-109">The **Microsoft UI Automation** framework is console session specific and overcomes this limitation.</span></span>
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><span data-ttu-id="55e76-108">Constante o valor</span><span class="sxs-lookup"><span data-stu-id="55e76-108">Constant/value</span></span></th>
-<th><span data-ttu-id="55e76-109">Descripción</span><span class="sxs-lookup"><span data-stu-id="55e76-109">Description</span></span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span data-ttu-id="55e76-110"><span id="EVENT_CONSOLE_CARET"></span><span id="event_console_caret"></span>
-<strong>EVENT_CONSOLE_CARET</strong> 0x4001</span><span class="sxs-lookup"><span data-stu-id="55e76-110"><span id="EVENT_CONSOLE_CARET"></span><span id="event_console_caret"></span>
-<strong>EVENT_CONSOLE_CARET</strong> 0x4001</span></span></td>
-<td><p><span data-ttu-id="55e76-111">Se ha cambiado el símbolo de intercalación de la consola.</span><span class="sxs-lookup"><span data-stu-id="55e76-111">The console caret has moved.</span></span> <span data-ttu-id="55e76-112">El parámetro <em>idObject</em> es uno o varios de los siguientes valores: <strong>CONSOLE_CARET_SELECTION</strong> o <strong>CONSOLE_CARET_VISIBLE</strong>.</span><span class="sxs-lookup"><span data-stu-id="55e76-112">The <em>idObject</em> parameter is one or more of the following values: <strong>CONSOLE_CARET_SELECTION</strong> or <strong>CONSOLE_CARET_VISIBLE</strong>.</span></span></p>
-<p><span data-ttu-id="55e76-113">El parámetro <em>idChild</em> es una estructura de <strong><a href="https://docs.microsoft.com/windows/console/coord-str">coordenadas</a></strong> que especifica la posición actual del cursor.</span><span class="sxs-lookup"><span data-stu-id="55e76-113">The <em>idChild</em> parameter is a <strong><a href="https://docs.microsoft.com/windows/console/coord-str">COORD</a></strong> structure that specifies the cursor's current position.</span></span></p></td>
-</tr>
-<tr class="even">
-<td><span data-ttu-id="55e76-114"><span id="EVENT_CONSOLE_END_APPLICATION"></span><span id="event_console_end_application"></span>
-<strong>EVENT_CONSOLE_END_APPLICATION</strong> 0x4007</span><span class="sxs-lookup"><span data-stu-id="55e76-114"><span id="EVENT_CONSOLE_END_APPLICATION"></span><span id="event_console_end_application"></span>
-<strong>EVENT_CONSOLE_END_APPLICATION</strong> 0x4007</span></span></td>
-<td><p><span data-ttu-id="55e76-115">Se ha salido de un proceso de consola.</span><span class="sxs-lookup"><span data-stu-id="55e76-115">A console process has exited.</span></span> <span data-ttu-id="55e76-116">El parámetro <em>idObject</em> contiene el identificador de proceso del proceso terminado.</span><span class="sxs-lookup"><span data-stu-id="55e76-116">The <em>idObject</em> parameter contains the process identifier of the terminated process.</span></span></p></td>
-</tr>
-<tr class="odd">
-<td><span data-ttu-id="55e76-117"><span id="EVENT_CONSOLE_LAYOUT"></span><span id="event_console_layout"></span>
-<strong>EVENT_CONSOLE_LAYOUT</strong> 0x4005</span><span class="sxs-lookup"><span data-stu-id="55e76-117"><span id="EVENT_CONSOLE_LAYOUT"></span><span id="event_console_layout"></span>
-<strong>EVENT_CONSOLE_LAYOUT</strong> 0x4005</span></span></td>
-<td><p><span data-ttu-id="55e76-118">El diseño de la consola ha cambiado.</span><span class="sxs-lookup"><span data-stu-id="55e76-118">The console layout has changed.</span></span></p></td>
-</tr>
-<tr class="even">
-<td><span data-ttu-id="55e76-119"><span id="EVENT_CONSOLE_START_APPLICATION"></span><span id="event_console_start_application"></span>
-<strong>EVENT_CONSOLE_START_APPLICATION</strong> 0x4006</span><span class="sxs-lookup"><span data-stu-id="55e76-119"><span id="EVENT_CONSOLE_START_APPLICATION"></span><span id="event_console_start_application"></span>
-<strong>EVENT_CONSOLE_START_APPLICATION</strong> 0x4006</span></span></td>
-<td><p><span data-ttu-id="55e76-120">Se ha iniciado un nuevo proceso de consola.</span><span class="sxs-lookup"><span data-stu-id="55e76-120">A new console process has started.</span></span> <span data-ttu-id="55e76-121">El parámetro <em>idObject</em> contiene el identificador de proceso del proceso recién creado.</span><span class="sxs-lookup"><span data-stu-id="55e76-121">The <em>idObject</em> parameter contains the process identifier of the newly created process.</span></span> <span data-ttu-id="55e76-122">Si la aplicación es una aplicación de 16 bits, el parámetro <em>idChild</em> es <strong>CONSOLE_APPLICATION_16BIT</strong> y <em>idObject</em> es el identificador de proceso de la sesión de NTVDM asociada a la consola.</span><span class="sxs-lookup"><span data-stu-id="55e76-122">If the application is a 16-bit application, the <em>idChild</em> parameter is <strong>CONSOLE_APPLICATION_16BIT</strong> and <em>idObject</em> is the process identifier of the NTVDM session associated with the console.</span></span></p></td>
-</tr>
-<tr class="odd">
-<td><span data-ttu-id="55e76-123"><span id="EVENT_CONSOLE_UPDATE_REGION"></span><span id="event_console_update_region"></span>
-<strong>EVENT_CONSOLE_UPDATE_REGION</strong> 0x4002</span><span class="sxs-lookup"><span data-stu-id="55e76-123"><span id="EVENT_CONSOLE_UPDATE_REGION"></span><span id="event_console_update_region"></span>
-<strong>EVENT_CONSOLE_UPDATE_REGION</strong> 0x4002</span></span></td>
-<td><p><span data-ttu-id="55e76-124">Ha cambiado más de un carácter.</span><span class="sxs-lookup"><span data-stu-id="55e76-124">More than one character has changed.</span></span> <span data-ttu-id="55e76-125">El parámetro <em>idObject</em> es una estructura de <a href="coord-str.md" data-raw-source="[&lt;strong&gt;COORD&lt;/strong&gt;](coord-str.md)"><strong>coordenadas</strong></a> que especifica el inicio de la región modificada.</span><span class="sxs-lookup"><span data-stu-id="55e76-125">The <em>idObject</em> parameter is a <a href="coord-str.md" data-raw-source="[&lt;strong&gt;COORD&lt;/strong&gt;](coord-str.md)"><strong>COORD</strong></a> structure that specifies the start of the changed region.</span></span> <span data-ttu-id="55e76-126">El parámetro <em>idChild</em> es una estructura de <strong>coordenadas</strong> que especifica el final de la región modificada.</span><span class="sxs-lookup"><span data-stu-id="55e76-126">The <em>idChild</em> parameter is a <strong>COORD</strong> structure that specifies the end of the changed region.</span></span></p></td>
-</tr>
-<tr class="even">
-<td><span data-ttu-id="55e76-127"><span id="EVENT_CONSOLE_UPDATE_SCROLL"></span><span id="event_console_update_scroll"></span>
-<strong>EVENT_CONSOLE_UPDATE_SCROLL</strong> 0x4004</span><span class="sxs-lookup"><span data-stu-id="55e76-127"><span id="EVENT_CONSOLE_UPDATE_SCROLL"></span><span id="event_console_update_scroll"></span>
-<strong>EVENT_CONSOLE_UPDATE_SCROLL</strong> 0x4004</span></span></td>
-<td><p><span data-ttu-id="55e76-128">La consola se ha desplazado.</span><span class="sxs-lookup"><span data-stu-id="55e76-128">The console has scrolled.</span></span> <span data-ttu-id="55e76-129">El parámetro <em>idObject</em> es la distancia horizontal que se ha desplazado la consola.</span><span class="sxs-lookup"><span data-stu-id="55e76-129">The <em>idObject</em> parameter is the horizontal distance the console has scrolled.</span></span> <span data-ttu-id="55e76-130">El parámetro <em>idChild</em> es la distancia vertical que se ha desplazado la consola.</span><span class="sxs-lookup"><span data-stu-id="55e76-130">The <em>idChild</em> parameter is the vertical distance the console has scrolled.</span></span></p></td>
-</tr>
-<tr class="odd">
-<td><span data-ttu-id="55e76-131"><span id="EVENT_CONSOLE_UPDATE_SIMPLE"></span><span id="event_console_update_simple"></span>
-<strong>EVENT_CONSOLE_UPDATE_SIMPLE</strong> 0x4003</span><span class="sxs-lookup"><span data-stu-id="55e76-131"><span id="EVENT_CONSOLE_UPDATE_SIMPLE"></span><span id="event_console_update_simple"></span>
-<strong>EVENT_CONSOLE_UPDATE_SIMPLE</strong> 0x4003</span></span></td>
-<td><p><span data-ttu-id="55e76-132">Ha cambiado un solo carácter.</span><span class="sxs-lookup"><span data-stu-id="55e76-132">A single character has changed.</span></span> <span data-ttu-id="55e76-133">El parámetro <em>idObject</em> es una estructura de <a href="coord-str.md" data-raw-source="[&lt;strong&gt;COORD&lt;/strong&gt;](coord-str.md)"><strong>coordenadas</strong></a> que especifica el carácter que ha cambiado.</span><span class="sxs-lookup"><span data-stu-id="55e76-133">The <em>idObject</em> parameter is a <a href="coord-str.md" data-raw-source="[&lt;strong&gt;COORD&lt;/strong&gt;](coord-str.md)"><strong>COORD</strong></a> structure that specifies the character that has changed.</span></span> <span data-ttu-id="55e76-134">El parámetro <em>idChild</em> especifica el carácter de la palabra baja y los <a href="console-screen-buffers.md#_win32_font_attributes" data-raw-source="[character attributes](console-screen-buffers.md#_win32_font_attributes)">atributos de carácter</a> de la palabra alta.</span><span class="sxs-lookup"><span data-stu-id="55e76-134">The <em>idChild</em> parameter specifies the character in the low word and the <a href="console-screen-buffers.md#_win32_font_attributes" data-raw-source="[character attributes](console-screen-buffers.md#_win32_font_attributes)">character attributes</a> in the high word.</span></span></p></td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+<span data-ttu-id="a40a5-110">Las constantes de eventos siguientes se usan en el parámetro *Event* de la función de devolución de llamada [*WinEventProc*](https://msdn.microsoft.com/library/windows/desktop/dd373885(v=vs.85).aspx) .</span><span class="sxs-lookup"><span data-stu-id="a40a5-110">The following event constants are used in the *event* parameter of the [*WinEventProc*](https://msdn.microsoft.com/library/windows/desktop/dd373885(v=vs.85).aspx) callback function.</span></span> <span data-ttu-id="a40a5-111">Para obtener más información, vea [WinEvents](https://msdn.microsoft.com/library/windows/desktop/dd373889).</span><span class="sxs-lookup"><span data-stu-id="a40a5-111">For more information, see [WinEvents](https://msdn.microsoft.com/library/windows/desktop/dd373889).</span></span>
 
-<a name="requirements"></a><span data-ttu-id="55e76-135">Requisitos</span><span class="sxs-lookup"><span data-stu-id="55e76-135">Requirements</span></span>
-------------
+| <span data-ttu-id="a40a5-112">Constante o valor</span><span class="sxs-lookup"><span data-stu-id="a40a5-112">Constant/value</span></span> | <span data-ttu-id="a40a5-113">Description</span><span class="sxs-lookup"><span data-stu-id="a40a5-113">Description</span></span> |
+|-|-|
+| <span data-ttu-id="a40a5-114">**EVENT_CONSOLE_CARET** 0x4001</span><span class="sxs-lookup"><span data-stu-id="a40a5-114">**EVENT_CONSOLE_CARET** 0x4001</span></span> | <span data-ttu-id="a40a5-115">Se ha cambiado el símbolo de intercalación de la consola.</span><span class="sxs-lookup"><span data-stu-id="a40a5-115">The console caret has moved.</span></span> <span data-ttu-id="a40a5-116">El parámetro *idObject* es uno o varios de los siguientes valores: **CONSOLE_CARET_SELECTION** o **CONSOLE_CARET_VISIBLE** .</span><span class="sxs-lookup"><span data-stu-id="a40a5-116">The *idObject* parameter is one or more of the following values: **CONSOLE_CARET_SELECTION** or **CONSOLE_CARET_VISIBLE** .</span></span> <span data-ttu-id="a40a5-117">El parámetro *idChild* es una estructura de **[coordenadas](coord-str.md)** que especifica la posición actual del cursor.</span><span class="sxs-lookup"><span data-stu-id="a40a5-117">The *idChild* parameter is a **[COORD](coord-str.md)** structure that specifies the cursor's current position.</span></span> |
+| <span data-ttu-id="a40a5-118">**EVENT_CONSOLE_END_APPLICATION** 0x4007</span><span class="sxs-lookup"><span data-stu-id="a40a5-118">**EVENT_CONSOLE_END_APPLICATION** 0x4007</span></span> | <span data-ttu-id="a40a5-119">Se ha salido de un proceso de consola.</span><span class="sxs-lookup"><span data-stu-id="a40a5-119">A console process has exited.</span></span> <span data-ttu-id="a40a5-120">El parámetro *idObject* contiene el identificador de proceso del proceso terminado.</span><span class="sxs-lookup"><span data-stu-id="a40a5-120">The *idObject* parameter contains the process identifier of the terminated process.</span></span> |
+| <span data-ttu-id="a40a5-121">**EVENT_CONSOLE_LAYOUT** 0x4005</span><span class="sxs-lookup"><span data-stu-id="a40a5-121">**EVENT_CONSOLE_LAYOUT** 0x4005</span></span> | <span data-ttu-id="a40a5-122">El diseño de la consola ha cambiado.</span><span class="sxs-lookup"><span data-stu-id="a40a5-122">The console layout has changed.</span></span> |
+| <span data-ttu-id="a40a5-123">**EVENT_CONSOLE_START_APPLICATION** 0x4006</span><span class="sxs-lookup"><span data-stu-id="a40a5-123">**EVENT_CONSOLE_START_APPLICATION** 0x4006</span></span> | <span data-ttu-id="a40a5-124">Se ha iniciado un nuevo proceso de consola.</span><span class="sxs-lookup"><span data-stu-id="a40a5-124">A new console process has started.</span></span> <span data-ttu-id="a40a5-125">El parámetro *idObject* contiene el identificador de proceso del proceso recién creado.</span><span class="sxs-lookup"><span data-stu-id="a40a5-125">The *idObject* parameter contains the process identifier of the newly created process.</span></span> <span data-ttu-id="a40a5-126">Si la aplicación es una aplicación de 16 bits, el parámetro *idChild* es **CONSOLE_APPLICATION_16BIT** y *idObject* es el identificador de proceso de la sesión de NTVDM asociada a la consola.</span><span class="sxs-lookup"><span data-stu-id="a40a5-126">If the application is a 16-bit application, the *idChild* parameter is **CONSOLE_APPLICATION_16BIT** and *idObject* is the process identifier of the NTVDM session associated with the console.</span></span> |
+|<span data-ttu-id="a40a5-127">**EVENT_CONSOLE_UPDATE_REGION** 0x4002</span><span class="sxs-lookup"><span data-stu-id="a40a5-127">**EVENT_CONSOLE_UPDATE_REGION** 0x4002</span></span> | <span data-ttu-id="a40a5-128">Ha cambiado más de un carácter.</span><span class="sxs-lookup"><span data-stu-id="a40a5-128">More than one character has changed.</span></span> <span data-ttu-id="a40a5-129">El parámetro  *idObject* es una estructura de **[coordenadas](coord-str.md)** que especifica el inicio de la región modificada.</span><span class="sxs-lookup"><span data-stu-id="a40a5-129">The  *idObject* parameter is a **[COORD](coord-str.md)** structure that specifies the start of the changed region.</span></span> <span data-ttu-id="a40a5-130">El parámetro *idChild* es una estructura de **coordenadas** que especifica el final de la región modificada.</span><span class="sxs-lookup"><span data-stu-id="a40a5-130">The *idChild* parameter is a **COORD** structure that specifies the end of the changed region.</span></span> |
+|<span data-ttu-id="a40a5-131">**EVENT_CONSOLE_UPDATE_SCROLL** 0x4004</span><span class="sxs-lookup"><span data-stu-id="a40a5-131">**EVENT_CONSOLE_UPDATE_SCROLL** 0x4004</span></span> | <span data-ttu-id="a40a5-132">La consola se ha desplazado.</span><span class="sxs-lookup"><span data-stu-id="a40a5-132">The console has scrolled.</span></span> <span data-ttu-id="a40a5-133">El parámetro *idObject* es la distancia horizontal que se ha desplazado la consola.</span><span class="sxs-lookup"><span data-stu-id="a40a5-133">The *idObject* parameter is the horizontal distance the console has scrolled.</span></span> <span data-ttu-id="a40a5-134">El parámetro *idChild* es la distancia vertical que se ha desplazado la consola.</span><span class="sxs-lookup"><span data-stu-id="a40a5-134">The *idChild* parameter is the vertical distance the console has scrolled.</span></span> |
+|<span data-ttu-id="a40a5-135">**EVENT_CONSOLE_UPDATE_SIMPLE** 0x4003</span><span class="sxs-lookup"><span data-stu-id="a40a5-135">**EVENT_CONSOLE_UPDATE_SIMPLE** 0x4003</span></span> | <span data-ttu-id="a40a5-136">Ha cambiado un solo carácter.</span><span class="sxs-lookup"><span data-stu-id="a40a5-136">A single character has changed.</span></span> <span data-ttu-id="a40a5-137">El parámetro *idObject* es una estructura de **[coordenadas](coord-str.md)** que especifica el carácter que ha cambiado.</span><span class="sxs-lookup"><span data-stu-id="a40a5-137">The *idObject* parameter is a **[COORD](coord-str.md)** structure that specifies the character that has changed.</span></span> <span data-ttu-id="a40a5-138">El parámetro *idChild* especifica el carácter de la palabra baja y los **[atributos de carácter](console-screen-buffers.md#character-attributes)** de la palabra alta.</span><span class="sxs-lookup"><span data-stu-id="a40a5-138">The *idChild* parameter specifies the character in the low word and the **[character attributes](console-screen-buffers.md#character-attributes)** in the high word.</span></span> |
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><span data-ttu-id="55e76-136">Cliente mínimo compatible</span><span class="sxs-lookup"><span data-stu-id="55e76-136">Minimum supported client</span></span></p></td>
-<td><p><span data-ttu-id="55e76-137">Windows 2000 Professional [solo aplicaciones de escritorio]</span><span class="sxs-lookup"><span data-stu-id="55e76-137">Windows 2000 Professional [desktop apps only]</span></span></p></td>
-</tr>
-<tr class="even">
-<td><p><span data-ttu-id="55e76-138">Servidor mínimo compatible</span><span class="sxs-lookup"><span data-stu-id="55e76-138">Minimum supported server</span></span></p></td>
-<td><p><span data-ttu-id="55e76-139">Windows 2000 Server [solo aplicaciones de escritorio]</span><span class="sxs-lookup"><span data-stu-id="55e76-139">Windows 2000 Server [desktop apps only]</span></span></p></td>
-</tr>
-<tr class="odd">
-<td><p><span data-ttu-id="55e76-140">Encabezado</span><span class="sxs-lookup"><span data-stu-id="55e76-140">Header</span></span></p></td>
-<td><span data-ttu-id="55e76-141">Winuser. h</span><span class="sxs-lookup"><span data-stu-id="55e76-141">Winuser.h</span></span></td>
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a><span data-ttu-id="a40a5-139">Requisitos</span><span class="sxs-lookup"><span data-stu-id="a40a5-139">Requirements</span></span>
+
+| &nbsp; | &nbsp; |
+|-|-|
+| <span data-ttu-id="a40a5-140">Cliente mínimo compatible</span><span class="sxs-lookup"><span data-stu-id="a40a5-140">Minimum supported client</span></span> | <span data-ttu-id="a40a5-141">Solo aplicaciones de escritorio de Windows 2000 Professional \[\]</span><span class="sxs-lookup"><span data-stu-id="a40a5-141">Windows 2000 Professional \[desktop apps only\]</span></span> |
+| <span data-ttu-id="a40a5-142">Servidor mínimo compatible</span><span class="sxs-lookup"><span data-stu-id="a40a5-142">Minimum supported server</span></span> | <span data-ttu-id="a40a5-143">Solo aplicaciones de escritorio de Windows 2000 Server \[\]</span><span class="sxs-lookup"><span data-stu-id="a40a5-143">Windows 2000 Server \[desktop apps only\]</span></span> |
+| <span data-ttu-id="a40a5-144">Encabezado</span><span class="sxs-lookup"><span data-stu-id="a40a5-144">Header</span></span> | <span data-ttu-id="a40a5-145">Winuser. h</span><span class="sxs-lookup"><span data-stu-id="a40a5-145">Winuser.h</span></span> |

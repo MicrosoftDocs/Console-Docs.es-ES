@@ -44,51 +44,50 @@ api_location:
 - API-MS-Win-Core-Kernel32-Legacy-L1-1-5.dll
 api_type:
 - DllExport
-ms.openlocfilehash: e1789243fd5c184221dd53038d8ec87c9b010749
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: fa4f79925af870f3d345f384dab52ff4b98c182c
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89061055"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037041"
 ---
-# <a name="setconsoletitle-function"></a><span data-ttu-id="e52bf-104">SetConsoleTitle función)</span><span class="sxs-lookup"><span data-stu-id="e52bf-104">SetConsoleTitle function</span></span>
+# <a name="setconsoletitle-function"></a><span data-ttu-id="d8d22-104">SetConsoleTitle función)</span><span class="sxs-lookup"><span data-stu-id="d8d22-104">SetConsoleTitle function</span></span>
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
-<span data-ttu-id="e52bf-105">Establece el título de la ventana de la consola actual.</span><span class="sxs-lookup"><span data-stu-id="e52bf-105">Sets the title for the current console window.</span></span>
+<span data-ttu-id="d8d22-105">Establece el título de la ventana de la consola actual.</span><span class="sxs-lookup"><span data-stu-id="d8d22-105">Sets the title for the current console window.</span></span>
 
-<a name="syntax"></a><span data-ttu-id="e52bf-106">Sintaxis</span><span class="sxs-lookup"><span data-stu-id="e52bf-106">Syntax</span></span>
-------
+## <a name="syntax"></a><span data-ttu-id="d8d22-106">Sintaxis</span><span class="sxs-lookup"><span data-stu-id="d8d22-106">Syntax</span></span>
 
 ```C
 BOOL WINAPI SetConsoleTitle(
-  _In_ LPCTSTR lpConsoleTitle
+  _In_ LPCTSTR lpConsoleTitle
 );
 ```
 
-<a name="parameters"></a><span data-ttu-id="e52bf-107">Parámetros</span><span class="sxs-lookup"><span data-stu-id="e52bf-107">Parameters</span></span>
-----------
+## <a name="parameters"></a><span data-ttu-id="d8d22-107">Parámetros</span><span class="sxs-lookup"><span data-stu-id="d8d22-107">Parameters</span></span>
 
-<span data-ttu-id="e52bf-108">*lpConsoleTitle* \[ de\]</span><span class="sxs-lookup"><span data-stu-id="e52bf-108">*lpConsoleTitle* \[in\]</span></span>  
-<span data-ttu-id="e52bf-109">Cadena que se va a mostrar en la barra de título de la ventana de la consola.</span><span class="sxs-lookup"><span data-stu-id="e52bf-109">The string to be displayed in the title bar of the console window.</span></span> <span data-ttu-id="e52bf-110">El tamaño total debe ser inferior a 64 k.</span><span class="sxs-lookup"><span data-stu-id="e52bf-110">The total size must be less than 64K.</span></span>
+<span data-ttu-id="d8d22-108">*lpConsoleTitle* \[ de\]</span><span class="sxs-lookup"><span data-stu-id="d8d22-108">*lpConsoleTitle* \[in\]</span></span>  
+<span data-ttu-id="d8d22-109">Cadena que se va a mostrar en la barra de título de la ventana de la consola.</span><span class="sxs-lookup"><span data-stu-id="d8d22-109">The string to be displayed in the title bar of the console window.</span></span> <span data-ttu-id="d8d22-110">El tamaño total debe ser inferior a 64 k.</span><span class="sxs-lookup"><span data-stu-id="d8d22-110">The total size must be less than 64K.</span></span>
 
-<a name="return-value"></a><span data-ttu-id="e52bf-111">Valor devuelto</span><span class="sxs-lookup"><span data-stu-id="e52bf-111">Return value</span></span>
-------------
+## <a name="return-value"></a><span data-ttu-id="d8d22-111">Valor devuelto</span><span class="sxs-lookup"><span data-stu-id="d8d22-111">Return value</span></span>
 
-<span data-ttu-id="e52bf-112">Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.</span><span class="sxs-lookup"><span data-stu-id="e52bf-112">If the function succeeds, the return value is nonzero.</span></span>
+<span data-ttu-id="d8d22-112">Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.</span><span class="sxs-lookup"><span data-stu-id="d8d22-112">If the function succeeds, the return value is nonzero.</span></span>
 
-<span data-ttu-id="e52bf-113">Si la función no se realiza correctamente, el valor devuelto es cero.</span><span class="sxs-lookup"><span data-stu-id="e52bf-113">If the function fails, the return value is zero.</span></span> <span data-ttu-id="e52bf-114">Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).</span><span class="sxs-lookup"><span data-stu-id="e52bf-114">To get extended error information, call [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).</span></span>
+<span data-ttu-id="d8d22-113">Si la función no se realiza correctamente, el valor devuelto es cero.</span><span class="sxs-lookup"><span data-stu-id="d8d22-113">If the function fails, the return value is zero.</span></span> <span data-ttu-id="d8d22-114">Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).</span><span class="sxs-lookup"><span data-stu-id="d8d22-114">To get extended error information, call [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).</span></span>
 
-<a name="remarks"></a><span data-ttu-id="e52bf-115">Observaciones</span><span class="sxs-lookup"><span data-stu-id="e52bf-115">Remarks</span></span>
--------
+## <a name="remarks"></a><span data-ttu-id="d8d22-115">Comentarios</span><span class="sxs-lookup"><span data-stu-id="d8d22-115">Remarks</span></span>
 
-<span data-ttu-id="e52bf-116">Cuando finaliza el proceso, el sistema restaura el título original de la consola.</span><span class="sxs-lookup"><span data-stu-id="e52bf-116">When the process terminates, the system restores the original console title.</span></span>
+<span data-ttu-id="d8d22-116">Cuando finaliza el proceso, el sistema restaura el título original de la consola.</span><span class="sxs-lookup"><span data-stu-id="d8d22-116">When the process terminates, the system restores the original console title.</span></span>
 
-<span data-ttu-id="e52bf-117">Esta función usa caracteres Unicode o caracteres de 8 bits de la página de códigos actual de la consola.</span><span class="sxs-lookup"><span data-stu-id="e52bf-117">This function uses either Unicode characters or 8-bit characters from the console's current code page.</span></span> <span data-ttu-id="e52bf-118">La página de códigos de la consola tiene como valor predeterminado la página de códigos OEM del sistema.</span><span class="sxs-lookup"><span data-stu-id="e52bf-118">The console's code page defaults initially to the system's OEM code page.</span></span> <span data-ttu-id="e52bf-119">Para cambiar la página de códigos de la consola, use las funciones [**SetConsoleCP**](setconsolecp.md) o [**SetConsoleOutputCP**](setconsoleoutputcp.md) , o bien use los comandos **chcp** o **mode con CP Select =** .</span><span class="sxs-lookup"><span data-stu-id="e52bf-119">To change the console's code page, use the [**SetConsoleCP**](setconsolecp.md) or [**SetConsoleOutputCP**](setconsoleoutputcp.md) functions, or use the **chcp** or **mode con cp select=** commands.</span></span>
+[!INCLUDE [setting-codepage-mode-remarks](./includes/setting-codepage-mode-remarks.md)]
 
-<a name="examples"></a><span data-ttu-id="e52bf-120">Ejemplos</span><span class="sxs-lookup"><span data-stu-id="e52bf-120">Examples</span></span>
---------
+> [!TIP]
+> <span data-ttu-id="d8d22-117">Esta API tiene un **[terminal virtual](console-virtual-terminal-sequences.md)** equivalente en las secuencias de **[título de ventana](console-virtual-terminal-sequences.md#window-title)** .</span><span class="sxs-lookup"><span data-stu-id="d8d22-117">This API has a **[virtual terminal](console-virtual-terminal-sequences.md)** equivalent in the **[window title](console-virtual-terminal-sequences.md#window-title)** sequences.</span></span> <span data-ttu-id="d8d22-118">Se recomiendan las _secuencias de terminal virtuales_ para todo el desarrollo nuevo y en curso.</span><span class="sxs-lookup"><span data-stu-id="d8d22-118">_Virtual terminal sequences_ are recommended for all new and ongoing development.</span></span>
 
-<span data-ttu-id="e52bf-121">En el ejemplo siguiente se muestra cómo recuperar y modificar el título de la consola.</span><span class="sxs-lookup"><span data-stu-id="e52bf-121">The following example shows how to retrieve and modify the console title.</span></span>
+## <a name="examples"></a><span data-ttu-id="d8d22-119">Ejemplos</span><span class="sxs-lookup"><span data-stu-id="d8d22-119">Examples</span></span>
+
+<span data-ttu-id="d8d22-120">En el ejemplo siguiente se muestra cómo recuperar y modificar el título de la consola.</span><span class="sxs-lookup"><span data-stu-id="d8d22-120">The following example shows how to retrieve and modify the console title.</span></span>
 
 ```C
 #include <windows.h>
@@ -124,67 +123,25 @@ int main( void )
 }
 ```
 
-<a name="requirements"></a><span data-ttu-id="e52bf-122">Requisitos</span><span class="sxs-lookup"><span data-stu-id="e52bf-122">Requirements</span></span>
-------------
+## <a name="requirements"></a><span data-ttu-id="d8d22-121">Requisitos</span><span class="sxs-lookup"><span data-stu-id="d8d22-121">Requirements</span></span>
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><span data-ttu-id="e52bf-123">Cliente mínimo compatible</span><span class="sxs-lookup"><span data-stu-id="e52bf-123">Minimum supported client</span></span></p></td>
-<td><p><span data-ttu-id="e52bf-124">Windows 2000 Professional [solo aplicaciones de escritorio]</span><span class="sxs-lookup"><span data-stu-id="e52bf-124">Windows 2000 Professional [desktop apps only]</span></span></p></td>
-</tr>
-<tr class="even">
-<td><p><span data-ttu-id="e52bf-125">Servidor mínimo compatible</span><span class="sxs-lookup"><span data-stu-id="e52bf-125">Minimum supported server</span></span></p></td>
-<td><p><span data-ttu-id="e52bf-126">Windows 2000 Server [solo aplicaciones de escritorio]</span><span class="sxs-lookup"><span data-stu-id="e52bf-126">Windows 2000 Server [desktop apps only]</span></span></p></td>
-</tr>
-<tr class="odd">
-<td><p><span data-ttu-id="e52bf-127">Encabezado</span><span class="sxs-lookup"><span data-stu-id="e52bf-127">Header</span></span></p></td>
-<td><span data-ttu-id="e52bf-128">ConsoleApi2. h (a través de winCon. h, include Windows. h)</span><span class="sxs-lookup"><span data-stu-id="e52bf-128">ConsoleApi2.h (via Wincon.h, include Windows.h)</span></span></td>
-</tr>
-<tr class="even">
-<td><p><span data-ttu-id="e52bf-129">Biblioteca</span><span class="sxs-lookup"><span data-stu-id="e52bf-129">Library</span></span></p></td>
-<td><span data-ttu-id="e52bf-130">Kernel32. lib</span><span class="sxs-lookup"><span data-stu-id="e52bf-130">Kernel32.lib</span></span></td>
-</tr>
-<tr class="odd">
-<td><p><span data-ttu-id="e52bf-131">Archivo DLL</span><span class="sxs-lookup"><span data-stu-id="e52bf-131">DLL</span></span></p></td>
-<td><span data-ttu-id="e52bf-132">Kernel32.dll</span><span class="sxs-lookup"><span data-stu-id="e52bf-132">Kernel32.dll</span></span></td>
-</tr>
-<tr class="even">
-<td><p><span data-ttu-id="e52bf-133">Nombres Unicode y ANSI</span><span class="sxs-lookup"><span data-stu-id="e52bf-133">Unicode and ANSI names</span></span></p></td>
-<td><p><span data-ttu-id="e52bf-134"><strong>SetConsoleTitleW</strong> (Unicode) y <strong>SetConsoleTitleA</strong> (ANSI)</span><span class="sxs-lookup"><span data-stu-id="e52bf-134"><strong>SetConsoleTitleW</strong> (Unicode) and <strong>SetConsoleTitleA</strong> (ANSI)</span></span></p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| <span data-ttu-id="d8d22-122">Cliente mínimo compatible</span><span class="sxs-lookup"><span data-stu-id="d8d22-122">Minimum supported client</span></span> | <span data-ttu-id="d8d22-123">Solo aplicaciones de escritorio de Windows 2000 Professional \[\]</span><span class="sxs-lookup"><span data-stu-id="d8d22-123">Windows 2000 Professional \[desktop apps only\]</span></span> |
+| <span data-ttu-id="d8d22-124">Servidor mínimo compatible</span><span class="sxs-lookup"><span data-stu-id="d8d22-124">Minimum supported server</span></span> | <span data-ttu-id="d8d22-125">Solo aplicaciones de escritorio de Windows 2000 Server \[\]</span><span class="sxs-lookup"><span data-stu-id="d8d22-125">Windows 2000 Server \[desktop apps only\]</span></span> |
+| <span data-ttu-id="d8d22-126">Encabezado</span><span class="sxs-lookup"><span data-stu-id="d8d22-126">Header</span></span> | <span data-ttu-id="d8d22-127">ConsoleApi2. h (a través de WinCon. h, include Windows. h)</span><span class="sxs-lookup"><span data-stu-id="d8d22-127">ConsoleApi2.h (via WinCon.h, include Windows.h)</span></span> |
+| <span data-ttu-id="d8d22-128">Biblioteca</span><span class="sxs-lookup"><span data-stu-id="d8d22-128">Library</span></span> | <span data-ttu-id="d8d22-129">Kernel32. lib</span><span class="sxs-lookup"><span data-stu-id="d8d22-129">Kernel32.lib</span></span> |
+| <span data-ttu-id="d8d22-130">Archivo DLL</span><span class="sxs-lookup"><span data-stu-id="d8d22-130">DLL</span></span> | <span data-ttu-id="d8d22-131">Kernel32.dll</span><span class="sxs-lookup"><span data-stu-id="d8d22-131">Kernel32.dll</span></span> |
+| <span data-ttu-id="d8d22-132">Nombres Unicode y ANSI</span><span class="sxs-lookup"><span data-stu-id="d8d22-132">Unicode and ANSI names</span></span> | <span data-ttu-id="d8d22-133">**SetConsoleTitleW** (Unicode) y **SetConsoleTitleA** (ANSI)</span><span class="sxs-lookup"><span data-stu-id="d8d22-133">**SetConsoleTitleW** (Unicode) and **SetConsoleTitleA** (ANSI)</span></span> |
 
-## <a name="span-idsee_alsospansee-also"></a><span data-ttu-id="e52bf-135"><span id="see_also"></span>Vea también</span><span class="sxs-lookup"><span data-stu-id="e52bf-135"><span id="see_also"></span>See also</span></span>
+## <a name="see-also"></a><span data-ttu-id="d8d22-134">Consulte también</span><span class="sxs-lookup"><span data-stu-id="d8d22-134">See also</span></span>
 
+[<span data-ttu-id="d8d22-135">Funciones de la consola</span><span class="sxs-lookup"><span data-stu-id="d8d22-135">Console Functions</span></span>](console-functions.md)
 
-[<span data-ttu-id="e52bf-136">Funciones de la consola</span><span class="sxs-lookup"><span data-stu-id="e52bf-136">Console Functions</span></span>](console-functions.md)
+[<span data-ttu-id="d8d22-136">**GetConsoleOriginalTitle**</span><span class="sxs-lookup"><span data-stu-id="d8d22-136">**GetConsoleOriginalTitle**</span></span>](getconsoleoriginaltitle.md)
 
-[<span data-ttu-id="e52bf-137">**GetConsoleOriginalTitle**</span><span class="sxs-lookup"><span data-stu-id="e52bf-137">**GetConsoleOriginalTitle**</span></span>](getconsoleoriginaltitle.md)
+[<span data-ttu-id="d8d22-137">**GetConsoleTitle**</span><span class="sxs-lookup"><span data-stu-id="d8d22-137">**GetConsoleTitle**</span></span>](getconsoletitle.md)
 
-[<span data-ttu-id="e52bf-138">**GetConsoleTitle**</span><span class="sxs-lookup"><span data-stu-id="e52bf-138">**GetConsoleTitle**</span></span>](getconsoletitle.md)
+[<span data-ttu-id="d8d22-138">**SetConsoleCP**</span><span class="sxs-lookup"><span data-stu-id="d8d22-138">**SetConsoleCP**</span></span>](setconsolecp.md)
 
-[<span data-ttu-id="e52bf-139">**SetConsoleCP**</span><span class="sxs-lookup"><span data-stu-id="e52bf-139">**SetConsoleCP**</span></span>](setconsolecp.md)
-
-[<span data-ttu-id="e52bf-140">**SetConsoleOutputCP**</span><span class="sxs-lookup"><span data-stu-id="e52bf-140">**SetConsoleOutputCP**</span></span>](setconsoleoutputcp.md)
-
- 
-
- 
-
-
-
-
+[<span data-ttu-id="d8d22-139">**SetConsoleOutputCP**</span><span class="sxs-lookup"><span data-stu-id="d8d22-139">**SetConsoleOutputCP**</span></span>](setconsoleoutputcp.md)
