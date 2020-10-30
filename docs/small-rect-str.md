@@ -22,23 +22,21 @@ topic_type:
 api_name:
 - SMALL_RECT
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: b0c0bfe93c85af89c5aaefeda032795de72ed627
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 93121864c8754b281b92051a5e4a174b2d5956a3
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89061118"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037103"
 ---
 # <a name="small_rect-structure"></a>PEQUEÑA \_ estructura Rect
 
-
 Define las coordenadas de las esquinas superior izquierda e inferior derecha de un rectángulo.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 typedef struct _SMALL_RECT {
@@ -49,8 +47,7 @@ typedef struct _SMALL_RECT {
 } SMALL_RECT;
 ```
 
-<a name="members"></a>Miembros
--------
+## <a name="members"></a>Miembros
 
 **Left**  
 Coordenada x de la esquina superior izquierda del rectángulo.
@@ -61,54 +58,27 @@ Coordenada y de la esquina superior izquierda del rectángulo.
 **Right**  
 Coordenada x de la esquina inferior derecha del rectángulo.
 
-**Inferior**  
+**Bottom**  
 Coordenada y de la esquina inferior derecha del rectángulo.
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
 Las funciones de consola utilizan esta estructura para especificar áreas rectangulares de búferes de pantalla de la consola, donde las coordenadas especifican las filas y columnas de las celdas de caracteres del búfer de pantalla.
 
-<a name="examples"></a>Ejemplos
---------
+## <a name="examples"></a>Ejemplos
 
 Para obtener un ejemplo, vea [desplazarse por el contenido de un búfer de pantalla](scrolling-a-screen-buffer-s-contents.md).
 
-<a name="requirements"></a>Requisitos
-------------
+## <a name="requirements"></a>Requisitos
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows 2000 Professional [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows 2000 Server [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>WinConTypes. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Encabezado | WinConTypes. h (a través de WinCon. h, include Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
-
+## <a name="see-also"></a>Consulte también
 
 [**RECT**](https://msdn.microsoft.com/library/windows/desktop/dd162897)
 
 [**RECTl**](https://msdn.microsoft.com/library/windows/desktop/dd162907)
-
- 
-
- 
-
-
-
-

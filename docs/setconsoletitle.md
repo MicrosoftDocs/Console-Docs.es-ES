@@ -44,49 +44,48 @@ api_location:
 - API-MS-Win-Core-Kernel32-Legacy-L1-1-5.dll
 api_type:
 - DllExport
-ms.openlocfilehash: e1789243fd5c184221dd53038d8ec87c9b010749
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: fa4f79925af870f3d345f384dab52ff4b98c182c
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89061055"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037041"
 ---
 # <a name="setconsoletitle-function"></a>SetConsoleTitle función)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Establece el título de la ventana de la consola actual.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 BOOL WINAPI SetConsoleTitle(
-  _In_ LPCTSTR lpConsoleTitle
+  _In_ LPCTSTR lpConsoleTitle
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *lpConsoleTitle* \[ de\]  
 Cadena que se va a mostrar en la barra de título de la ventana de la consola. El tamaño total debe ser inferior a 64 k.
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
 
 Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
 Cuando finaliza el proceso, el sistema restaura el título original de la consola.
 
-Esta función usa caracteres Unicode o caracteres de 8 bits de la página de códigos actual de la consola. La página de códigos de la consola tiene como valor predeterminado la página de códigos OEM del sistema. Para cambiar la página de códigos de la consola, use las funciones [**SetConsoleCP**](setconsolecp.md) o [**SetConsoleOutputCP**](setconsoleoutputcp.md) , o bien use los comandos **chcp** o **mode con CP Select =** .
+[!INCLUDE [setting-codepage-mode-remarks](./includes/setting-codepage-mode-remarks.md)]
 
-<a name="examples"></a>Ejemplos
---------
+> [!TIP]
+> Esta API tiene un **[terminal virtual](console-virtual-terminal-sequences.md)** equivalente en las secuencias de **[título de ventana](console-virtual-terminal-sequences.md#window-title)** . Se recomiendan las _secuencias de terminal virtuales_ para todo el desarrollo nuevo y en curso.
+
+## <a name="examples"></a>Ejemplos
 
 En el ejemplo siguiente se muestra cómo recuperar y modificar el título de la consola.
 
@@ -124,52 +123,18 @@ int main( void )
 }
 ```
 
-<a name="requirements"></a>Requisitos
-------------
+## <a name="requirements"></a>Requisitos
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows 2000 Professional [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows 2000 Server [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi2. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-<td><p>Nombres Unicode y ANSI</p></td>
-<td><p><strong>SetConsoleTitleW</strong> (Unicode) y <strong>SetConsoleTitleA</strong> (ANSI)</p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
+| Nombres Unicode y ANSI | **SetConsoleTitleW** (Unicode) y **SetConsoleTitleA** (ANSI) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
-
+## <a name="see-also"></a>Consulte también
 
 [Funciones de la consola](console-functions.md)
 
@@ -180,11 +145,3 @@ int main( void )
 [**SetConsoleCP**](setconsolecp.md)
 
 [**SetConsoleOutputCP**](setconsoleoutputcp.md)
-
- 
-
- 
-
-
-
-

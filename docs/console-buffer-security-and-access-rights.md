@@ -1,9 +1,9 @@
 ---
-title: Seguridad y derechos de acceso de búfer de la consola
-description: El modelo de seguridad de Windows permite controlar el acceso a los búferes de entrada y de pantalla de la consola. Para obtener más información sobre la seguridad, vea modelo de control de acceso.
+title: Seguridad y derechos de acceso del búfer de la consola
+description: El modelo de seguridad de Windows permite controlar el acceso a los búferes de entrada y de pantalla de la consola. Para obtener más información sobre la seguridad, vea modelo de Access-Control.
 author: miniksa
 ms.author: miniksa
-ms.topic: article
+ms.topic: conceptual
 keywords: consola, aplicaciones de modo de carácter, aplicaciones de línea de comandos, aplicaciones de terminal, API de consola
 MS-HAID:
 - '\_win32\_console\_buffer\_security\_and\_access\_rights'
@@ -13,36 +13,55 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: f9a50063-8fc8-4cd1-8f24-9ae3946d3119
-ms.openlocfilehash: 63cfdb91f4ab9696ade81c7a15bc62e1c93ab6e3
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: dfafdbd59c2b06929c35612d7dcf03b24439eba2
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060885"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93036983"
 ---
-# <a name="console-buffer-security-and-access-rights"></a>Seguridad y derechos de acceso de búfer de la consola
-
+# <a name="console-buffer-security-and-access-rights"></a>Seguridad y derechos de acceso del búfer de la consola
 
 El modelo de seguridad de Windows permite controlar el acceso a los búferes de entrada y de pantalla de la consola. Para obtener más información sobre la seguridad, vea [modelo de control de acceso](https://msdn.microsoft.com/library/windows/desktop/aa374876).
 
-Puede especificar un [descriptor de seguridad](https://msdn.microsoft.com/library/windows/desktop/aa379563) para los búferes de entrada y de pantalla de la consola cuando se llama a la función [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) o [**CreateConsoleScreenBuffer**](createconsolescreenbuffer.md) . Si especifica **null**, el objeto obtiene un descriptor de seguridad predeterminado. Las ACL del descriptor de seguridad predeterminado de un búfer de la consola proceden del token principal o de suplantación del creador.
+## <a name="console-object-security-descriptors"></a>Descriptores de seguridad de objetos de consola
 
-Los identificadores devueltos por [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858), [**CreateConsoleScreenBuffer**](createconsolescreenbuffer.md)y [**GetStdHandle**](getstdhandle.md) tienen derechos de acceso **genéricos de \_ lectura** y ** \_ escritura** .
+Puede especificar un [descriptor de seguridad](https://msdn.microsoft.com/library/windows/desktop/aa379563) para los búferes de entrada y de pantalla de la consola cuando se llama a la función [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) o [**CreateConsoleScreenBuffer**](createconsolescreenbuffer.md) . Si especifica **null** , el objeto obtiene un descriptor de seguridad predeterminado. Las ACL del descriptor de seguridad predeterminado de un búfer de la consola proceden del token principal o de suplantación del creador.
 
-Entre los derechos de acceso válidos se incluyen los [derechos de acceso](https://msdn.microsoft.com/library/windows/desktop/aa446632)genéricos de ** \_ lectura** y ** \_ escritura** genéricos.
+Los identificadores devueltos por [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858), [**CreateConsoleScreenBuffer**](createconsolescreenbuffer.md)y [**GetStdHandle**](getstdhandle.md) tienen derechos de acceso **genéricos de \_ lectura** y **\_ escritura** .
 
+Entre los derechos de acceso válidos se incluyen los [derechos de acceso](https://msdn.microsoft.com/library/windows/desktop/aa446632)genéricos de **\_ lectura** y **\_ escritura** genéricos.
 
-| Valor                            | Significado                                                                                               |
-|----------------------------------|-------------------------------------------------------------------------------------------------------|
+| Valor | Significado |
+|-|-|
 | **Genérico \_ LECTURA** (0x80000000L)  | Solicita acceso de lectura al búfer de pantalla de la consola, lo que permite al proceso leer datos del búfer. |
 | **Genérico \_ ESCRITURA** (0x40000000L) | Solicita acceso de escritura al búfer de pantalla de la consola, lo que permite que el proceso escriba datos en el búfer. |
 
+> [!NOTE]
+> Las **[aplicaciones de consola de plataforma universal de Windows](https://docs.microsoft.com/windows/uwp/launch-resume/console-uwp)** y las que tienen un nivel de **[integridad](https://docs.microsoft.com/windows/win32/secauthz/mandatory-integrity-control)** inferior al de la consola conectada no podrán leer el búfer de salida y escribir en el búfer de entrada, incluso si los descriptores de seguridad anteriores lo permiten normalmente. Para obtener más información, consulte la explicación de **[verbos equivocada de forma incorrecta](#wrong-way-verbs)** .
 
+## <a name="wrong-way-verbs"></a>Wrong-Way verbos)
 
+Algunas operaciones en los objetos de consola se denegarán aunque el objeto tenga un descriptor de seguridad que se indique específicamente para permitir la lectura o escritura. Esto se refiere específicamente a las aplicaciones de línea de comandos que se ejecutan en un contexto con privilegios reducidos que comparten una sesión de consola creada por una aplicación de línea de comandos en un contexto más permisivo.
 
+El término "verbos equivocado" se ha diseñado para aplicarse a la operación que es la opuesta del flujo normal de uno de los objetos de consola. En concreto, el flujo normal para el búfer de salida está escribiendo y el flujo normal para el búfer de entrada está leyendo. La "manera equivocada" sería la lectura del búfer de salida o la escritura del búfer de entrada. Estas son funciones que se describen en la documentación de **[las funciones de e/s de la consola de bajo nivel](low-level-console-i-o.md)** .
 
+Los dos escenarios en los que se puede encontrar se encuentran:
 
+1. **[Plataforma universal de Windows aplicaciones de consola](https://docs.microsoft.com/windows/uwp/launch-resume/console-uwp)** . Puesto que son primos de otras aplicaciones Plataforma universal de Windows, tienen una promesa de que están aisladas de otras aplicaciones y proporcionan garantías a los usuarios sobre los efectos de su funcionamiento.
+1. Cualquier aplicación de consola iniciada intencionadamente con un **[nivel de integridad](https://docs.microsoft.com/windows/win32/secauthz/mandatory-integrity-control)** inferior al de la sesión existente, que se puede lograr con el **[etiquetado o la manipulación de tokens durante CreateProcess](https://docs.microsoft.com/previous-versions/dotnet/articles/bb625960(v=msdn.10))** .
 
+Si se detecta alguno de estos escenarios, la consola aplicará la marca "verbos-Way" a la conexión de la aplicación de línea de comandos y rechazará las llamadas a las siguientes API para reducir la superficie de comunicación entre los niveles:
 
+:::row:::
+    :::column:::
+        [ReadConsoleOutput](readconsoleoutput.md)  
+        [ReadConsoleOutputCharacter](readconsoleoutputcharacter.md)  
+        [ReadConsoleOutputAttribute](readconsoleoutputattribute.md)  
+    :::column-end:::
+    :::column:::
+        [WriteConsoleInput](writeconsoleinput.md)  
+    :::column-end:::
+:::row-end:::
 
-
+Las llamadas rechazadas recibirán un código de error de **acceso denegado** , lo mismo que si los descriptores de seguridad del objeto denegaran el permiso de lectura o escritura.

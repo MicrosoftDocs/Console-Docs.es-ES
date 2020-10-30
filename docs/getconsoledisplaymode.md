@@ -25,123 +25,66 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 76b3354ac9b44c36ec4cfe3d12257583d10f2ee2
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 74dc06cbb7ecadb0f86c4c4a992e3526be8ab74d
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060712"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038063"
 ---
 # <a name="getconsoledisplaymode-function"></a>GetConsoleDisplayMode función)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Recupera el modo de presentación de la consola actual.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 BOOL WINAPI GetConsoleDisplayMode(
-  _Out_ LPDWORD lpModeFlags
+  _Out_ LPDWORD lpModeFlags
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *lpModeFlags* \[ enuncia\]  
 Modo de presentación de la consola. Este parámetro puede ser uno o varios de los valores siguientes.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Valor</th>
-<th>Significado</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="CONSOLE_FULLSCREEN"></span><span id="console_fullscreen"></span>
-<strong>CONSOLE_FULLSCREEN</strong> 1</td>
-<td><p>Consola de pantalla completa. La consola está en este modo en cuanto se maximiza la ventana. En este momento, se puede producir un error en la transición al modo de pantalla completa.</p></td>
-</tr>
-<tr class="even">
-<td><span id="CONSOLE_FULLSCREEN_HARDWARE"></span><span id="console_fullscreen_hardware"></span>
-<strong>CONSOLE_FULLSCREEN_HARDWARE</strong> 2</td>
-<td><p>Consola de pantalla completa que se comunica directamente con el hardware de vídeo. Este modo se establece después de que la consola esté en modo de <strong>CONSOLE_FULLSCREEN</strong> para indicar que se ha completado la transición al modo de pantalla completa.</p></td>
-</tr>
-</tbody>
-</table>
+| Valor | Significado |
+|-|-|
+| **CONSOLE_FULLSCREEN** 1 | Consola de pantalla completa. La consola está en este modo en cuanto se maximiza la ventana. En este momento, se puede producir un error en la transición al modo de pantalla completa. |
+| **CONSOLE_FULLSCREEN_HARDWARE** 2 | Consola de pantalla completa que se comunica directamente con el hardware de vídeo. Este modo se establece después de que la consola esté en modo de **CONSOLE_FULLSCREEN** para indicar que se ha completado la transición al modo de pantalla completa. |
 
- 
+> [!NOTE]
+> La transición al modo de hardware de vídeo de pantalla completa del 100% se quitó en Windows Vista con la replataforma de la pila de gráficos a [WDDM](https://docs.microsoft.com//windows-hardware/drivers/display/introduction-to-the-windows-vista-and-later-display-driver-model). En versiones posteriores de Windows, el estado máximo resultante es **CONSOLE_FULLSCREEN** que representa una ventana frameless que aparece como pantalla completa, pero que no está en el control exclusivo del hardware.
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
 
 Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
-Para compilar una aplicación que usa esta función, defina ** \_ Win32 \_ WinNT** como 0x0500 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como 0x0500 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
 
-<a name="requirements"></a>Requisitos
-------------
+[!INCLUDE [no-vt-equiv-user-priv](./includes/no-vt-equiv-user-priv.md)]
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows XP [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows Server 2003 [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi3. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requisitos
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows XP \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2003 \[\] |
+| Encabezado | ConsoleApi3. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
 
+## <a name="see-also"></a>Consulte también
 
 [Funciones de la consola](console-functions.md)
 
 [Modos de consola](console-modes.md)
 
 [**SetConsoleDisplayMode**](setconsoledisplaymode.md)
-
- 
-
- 
-
-
-
-

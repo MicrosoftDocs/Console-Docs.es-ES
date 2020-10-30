@@ -28,84 +28,50 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 3c8ba7b236b379bb57729538e065afebb68cc0cf
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: af4382026b8e6455319e16ee21255fbc9352e3cd
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060740"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039023"
 ---
 # <a name="freeconsole-function"></a>FreeConsole función)
 
-
 Desasocia el proceso de llamada de su consola.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 BOOL WINAPI FreeConsole(void);
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 Esta función no tiene parámetros.
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
 
 Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
-Un proceso se puede adjuntar a como máximo una consola. Si el proceso de llamada no está asociado ya a una consola de, el código de error devuelto es un ** \_ \_ parámetro no válido de error** (87).
+Un proceso se puede adjuntar a como máximo una consola. Si el proceso de llamada no está asociado ya a una consola de, el código de error devuelto es un **\_ \_ parámetro no válido de error** (87).
 
-Un proceso puede usar la función **FreeConsole** para desasociarse de su consola. Si otros procesos comparten la consola, la consola no se destruye, pero el proceso que llamó a **FreeConsole** no puede hacer referencia a ella. Una consola se cierra cuando el último proceso asociado a ella finaliza o llama a **FreeConsole**. Una vez que un proceso llama a **FreeConsole**, puede llamar a la función [**AllocConsole**](allocconsole.md) para crear una nueva consola o [**AttachConsole**](attachconsole.md) para asociar a otra consola.
+Un proceso puede usar la función **FreeConsole** para desasociarse de su consola. Si otros procesos comparten la consola, la consola no se destruye, pero el proceso que llamó a **FreeConsole** no puede hacer referencia a ella. Una consola se cierra cuando el último proceso asociado a ella finaliza o llama a **FreeConsole** . Una vez que un proceso llama a **FreeConsole** , puede llamar a la función [**AllocConsole**](allocconsole.md) para crear una nueva consola o [**AttachConsole**](attachconsole.md) para asociar a otra consola.
 
-<a name="requirements"></a>Requisitos
-------------
+## <a name="requirements"></a>Requisitos
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows 2000 Professional [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows 2000 Server [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Encabezado | ConsoleApi. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
-
+## <a name="see-also"></a>Consulte también
 
 [**AllocConsole**](allocconsole.md)
 
@@ -114,11 +80,3 @@ Un proceso puede usar la función **FreeConsole** para desasociarse de su consol
 [Funciones de la consola](console-functions.md)
 
 [Consolas](consoles.md)
-
- 
-
- 
-
-
-
-

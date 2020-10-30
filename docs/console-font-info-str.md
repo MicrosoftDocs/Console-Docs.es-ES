@@ -25,23 +25,23 @@ topic_type:
 api_name:
 - CONSOLE_FONT_INFO
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: c4218c53eacd95d67f3dc9056f5a1024ac1a8ab0
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 6c437e626ed6d207da4672a3a5ea60c2ea0ee008
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060869"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037143"
 ---
 # <a name="console_font_info-structure"></a>Estructura de información de \_ fuente de consola \_
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Contiene información de una fuente de consola.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 typedef struct _CONSOLE_FONT_INFO {
@@ -50,8 +50,7 @@ typedef struct _CONSOLE_FONT_INFO {
 } CONSOLE_FONT_INFO, *PCONSOLE_FONT_INFO;
 ```
 
-<a name="members"></a>Miembros
--------
+## <a name="members"></a>Miembros
 
 **nFont**  
 Índice de la fuente en la tabla de fuentes de la consola del sistema.
@@ -59,46 +58,20 @@ typedef struct _CONSOLE_FONT_INFO {
 **dwFontSize**  
 Una estructura de [**coordenadas**](coord-str.md) que contiene el ancho y el alto de cada carácter de la fuente, en unidades lógicas. El miembro **X** contiene el ancho, mientras que el miembro **Y** contiene el alto.
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
 Para obtener el tamaño de la fuente, pase el índice de fuente a la función [**GetConsoleFontSize**](getconsolefontsize.md) .
 
-<a name="requirements"></a>Requisitos
-------------
+## <a name="requirements"></a>Requisitos
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows XP [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows Server 2003 [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>WINCON. h (incluir Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows XP \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2003 \[\] |
+| Encabezado | WinCon. h (incluir Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
-
+## <a name="see-also"></a>Consulte también
 
 [**COORDS**](coord-str.md)
 
 [**GetCurrentConsoleFont**](getcurrentconsolefont.md)
-
- 
-
- 
-
-
-
-

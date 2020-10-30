@@ -3,7 +3,7 @@ title: Problemas de la aplicación de consola
 description: Revise los problemas de la aplicación de consola, como las funciones que toman o devuelven cadenas de juego de caracteres OEM frente a funciones que toman o devuelven cadenas de juego de caracteres ANSI.
 author: miniksa
 ms.author: miniksa
-ms.topic: article
+ms.topic: conceptual
 keywords: consola, aplicaciones de modo de carácter, aplicaciones de línea de comandos, aplicaciones de terminal, API de consola
 MS-HAID:
 - '\_win32\_console\_application\_issues'
@@ -13,18 +13,20 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: a561fbdd-b50d-4687-92d7-735377a7991d
-ms.openlocfilehash: 4bf0d6792a991d8ae141ec0b1b9c940311e00ab9
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: a1e49e605d1379984ebff7d1737db5ef96c4ff0f
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060889"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038463"
 ---
 # <a name="console-application-issues"></a>Problemas de la aplicación de consola
 
 Las funciones de la consola de 8 bits usan la página de códigos OEM. Todas las demás funciones usan la página de códigos ANSI de forma predeterminada. Esto significa que las demás funciones no pueden procesar correctamente las cadenas devueltas por las funciones de la consola y viceversa. Por ejemplo, si **FindFirstFileA** devuelve una cadena que contiene ciertos caracteres ANSI extendidos, **WriteConsoleA** no mostrará la cadena correctamente.
 
-La mejor solución a largo plazo para una aplicación de consola es usar Unicode. Al excluir esa solución, una aplicación de consola debe usar la función [SetFileApisToOEM](https://msdn.microsoft.com/library/windows/desktop/aa365534) . Esa función cambia las funciones de archivo relevantes para que generen cadenas de juego de caracteres OEM en lugar de cadenas de juego de caracteres ANSI.
+La mejor solución a largo plazo para una aplicación de consola es usar **[Unicode](https://docs.microsoft.com/windows/win32/intl/unicode)** . La consola aceptará la codificación UTF-16 en la variante W de las API o la codificación UTF-8 en la variante de las API después de usar **[SetConsoleCP](setconsolecp.md)** y **[SetConsoleOutputCP](setconsoleoutputcp.md)** en `65001` ( `CP_UTF8` Constant) para la página de códigos UTF-8.
+
+Al excluir esa solución, una aplicación de consola debe usar la función [SetFileApisToOEM](https://msdn.microsoft.com/library/windows/desktop/aa365534) . Esa función cambia las funciones de archivo relevantes para que generen cadenas de juego de caracteres OEM en lugar de cadenas de juego de caracteres ANSI.
 
 Las siguientes son funciones de archivo:
 

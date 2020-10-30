@@ -3,15 +3,15 @@ title: 'Modo de consola heredada: escritorio de Windows'
 description: El modo de consola heredada es una herramienta de compatibilidad que ayuda a ejecutar aplicaciones de línea de comandos que pueden no funcionar con el host de la consola de Windows 10.
 author: miniksa
 ms.author: miniksa
-ms.topic: article
+ms.topic: conceptual
 ms.prod: console
 keywords: consola, aplicaciones de modo de carácter, aplicaciones de línea de comandos, aplicaciones de terminal, API de consola, compatibilidad
-ms.openlocfilehash: a69e192426cc178ae98565db07c49f9ff2ce4961
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: eeddfd00ffa8c3ad9d99583b89e4b3be7959f445
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060824"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037713"
 ---
 # <a name="legacy-console-mode"></a>Modo de consola heredada
 
@@ -25,7 +25,8 @@ Haga clic con el botón derecho en la barra de título de la aplicación y elija
 
 La configuración se puede revertir volviendo al mismo menú de la hoja de propiedades y desactivando la casilla y presionando después `OK` .
 
-**Nota:** Esta configuración se aplica globalmente a todas las sesiones que se inician después de cambiar la preferencia. Las sesiones que ya están abiertas no se cambiarán.
+> [!NOTE]
+>Esta configuración se aplica globalmente a todas las sesiones que se inician después de cambiar la preferencia. Las sesiones que ya están abiertas no se cambiarán.
 
 ## <a name="differences-between-modes"></a>Diferencias entre los modos
 
@@ -41,6 +42,6 @@ El host de consola heredado incrustó la parte de sugerencia del IME dentro de l
 
 ### <a name="api-differences"></a>Diferencias de API
 
-La principal diferencia conocida entre Legacy y Current es la implementación de UTF-8. El host heredado tiene una compatibilidad muy rudimentaria y a menudo incorrecta de UTF-8 con la [Página de códigos 65001](https://docs.microsoft.com/windows/win32/intl/code-pages). El host de consola actual contiene mejoras incrementales que se publican sobre la versión de Windows 10 para mejorar esta compatibilidad. Las aplicaciones que intentan confiar en la predicción de interpretaciones "incorrectas" de UTF-8 de la consola heredada se verán recibiendo respuestas diferentes, ya que se ha mejorado la compatibilidad. 
+La principal diferencia conocida entre Legacy y Current es la implementación de UTF-8. El host heredado tiene una compatibilidad muy rudimentaria y a menudo incorrecta de UTF-8 con la [Página de códigos 65001](https://docs.microsoft.com/windows/win32/intl/code-pages). El host de consola actual contiene mejoras incrementales que se publican sobre la versión de Windows 10 para mejorar esta compatibilidad. Las aplicaciones que intentan confiar en la predicción de interpretaciones "incorrectas" de UTF-8 de la consola heredada se verán recibiendo respuestas diferentes, ya que se ha mejorado la compatibilidad.
 
-Otras diferencias experimentadas con las API deben aparecer en el repositorio de github de [Microsoft/Terminal](https://github.com/microsoft/terminal/) o a través del [centro de comentarios](https://docs.microsoft.com/windows-insider/feedback-hub/feedback-hub-app) para la evaluación de errores y la posible corrección.
+Otras diferencias experimentadas con las API deben aparecer en el [repositorio de github de Microsoft/Terminal](https://github.com/microsoft/terminal/) o a través del [centro de comentarios](https://docs.microsoft.com/windows-insider/feedback-hub/feedback-hub-app) para la evaluación de errores y la posible corrección.

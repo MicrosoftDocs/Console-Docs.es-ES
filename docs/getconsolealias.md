@@ -32,32 +32,31 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 3a7797db4b559e66c1ec30f72e148ff00e79e7aa
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 37c441c48c2bb71fc8e590d4f8a80032561f833e
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060717"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039033"
 ---
 # <a name="getconsolealias-function"></a>GetConsoleAlias función)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Recupera el texto para el archivo ejecutable y el alias de consola especificados.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 DWORD WINAPI GetConsoleAlias(
-  _In_  LPTSTR lpSource,
-  _Out_ LPTSTR lpTargetBuffer,
-  _In_  DWORD  TargetBufferLength,
-  _In_  LPTSTR lpExeName
+  _In_  LPTSTR lpSource,
+  _Out_ LPTSTR lpTargetBuffer,
+  _In_  DWORD  TargetBufferLength,
+  _In_  LPTSTR lpExeName
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *lpSource* \[ de\]  
 El alias de la consola cuyo texto se va a recuperar.
@@ -66,69 +65,35 @@ El alias de la consola cuyo texto se va a recuperar.
 Un puntero a un búfer que recibe el texto asociado al alias de la consola.
 
 *TargetBufferLength* \[ de\]  
-Tamaño del búfer al que apunta *lpTargetBuffer*, en bytes.
+Tamaño del búfer al que apunta *lpTargetBuffer* , en bytes.
 
 *lpExeName* \[ de\]  
 Nombre del archivo ejecutable.
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
 
 Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
-Para compilar una aplicación que usa esta función, defina ** \_ Win32 \_ WinNT** como 0x0501 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como 0x0501 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
 
-<a name="requirements"></a>Requisitos
-------------
+[!INCLUDE [no-vt-equiv-shell-banner](./includes/no-vt-equiv-shell-banner.md)]
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows 2000 Professional [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows 2000 Server [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi2. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-<td><p>Nombres Unicode y ANSI</p></td>
-<td><p><strong>GetConsoleAliasW</strong> (Unicode) y <strong>GetConsoleAliasA</strong> (ANSI)</p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requisitos
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Encabezado | ConsoleApi3. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
+| Nombres Unicode y ANSI | **GetConsoleAliasW** (Unicode) y **GetConsoleAliasA** (ANSI) |
 
+## <a name="see-also"></a>Consulte también
 
 [Alias de la consola](console-aliases.md)
 
@@ -139,11 +104,3 @@ Para compilar una aplicación que usa esta función, defina ** \_ Win32 \_ WinNT
 [**GetConsoleAliases**](getconsolealiases.md)
 
 [**GetConsoleAliasExes**](getconsolealiasexes.md)
-
- 
-
- 
-
-
-
-

@@ -25,96 +25,58 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: d29a960bc6b8d96d98e0667084e31354f2aa9653
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 2f1052940b468455121cc363317c2b7cfa8246b3
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060657"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038853"
 ---
 # <a name="getconsoleselectioninfo-function"></a>GetConsoleSelectionInfo función)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Recupera información sobre la selección de la consola actual.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 BOOL WINAPI GetConsoleSelectionInfo(
-  _Out_ PCONSOLE_SELECTION_INFO lpConsoleSelectionInfo
+  _Out_ PCONSOLE_SELECTION_INFO lpConsoleSelectionInfo
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *lpConsoleSelectionInfo* \[ enuncia\]  
-Un puntero a una estructura de [** \_ \_ información de selección de consola**](console-selection-info-str.md) que recibe la información de selección.
+Un puntero a una estructura de [**\_ \_ información de selección de consola**](console-selection-info-str.md) que recibe la información de selección.
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
 
 Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
-Para compilar una aplicación que usa esta función, defina ** \_ Win32 \_ WinNT** como 0x0500 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como 0x0500 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
 
-<a name="requirements"></a>Requisitos
-------------
+[!INCLUDE [no-vt-equiv-user-priv](./includes/no-vt-equiv-user-priv.md)]
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows XP [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows Server 2003 [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi3. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requisitos
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows XP \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2003 \[\] |
+| Encabezado | ConsoleApi3. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
 
+## <a name="see-also"></a>Consulte también
 
 [Funciones de la consola](console-functions.md)
 
 [Selección de la consola](console-selection.md)
 
 [**\_información de selección de la consola \_**](console-selection-info-str.md)
-
- 
-
- 
-
-
-
-

@@ -25,127 +25,66 @@ topic_type:
 api_name:
 - INPUT_RECORD
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 5d532b5a009681e650991fd083f7d6ab932a05da
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 4ad86de170c1fef74f133a5d5c51d8de2dea497f
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89061021"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038543"
 ---
 # <a name="input_record-structure"></a>Estructura del registro de entrada \_
 
-
 Describe un evento de entrada en el búfer de entrada de la consola. Estos registros se pueden leer desde el búfer de entrada mediante la función [**ReadConsoleInput**](readconsoleinput.md) o [**PeekConsoleInput**](peekconsoleinput.md) , o bien escribirse en el búfer de entrada mediante la función [**WriteConsoleInput**](writeconsoleinput.md) .
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 typedef struct _INPUT_RECORD {
-  WORD  EventType;
+  WORD  EventType;
   union {
-    KEY_EVENT_RECORD          KeyEvent;
-    MOUSE_EVENT_RECORD        MouseEvent;
+    KEY_EVENT_RECORD          KeyEvent;
+    MOUSE_EVENT_RECORD        MouseEvent;
     WINDOW_BUFFER_SIZE_RECORD WindowBufferSizeEvent;
-    MENU_EVENT_RECORD         MenuEvent;
-    FOCUS_EVENT_RECORD        FocusEvent;
-  } Event;
+    MENU_EVENT_RECORD         MenuEvent;
+    FOCUS_EVENT_RECORD        FocusEvent;
+  } Event;
 } INPUT_RECORD;
 ```
 
-<a name="members"></a>Miembros
--------
+## <a name="members"></a>Miembros
 
 **EventType**  
 Identificador para el tipo de evento de entrada y el registro de eventos almacenados en el miembro de **evento** .
 
 Este miembro puede ser uno de los valores siguientes.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Valor</th>
-<th>Significado</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="FOCUS_EVENT"></span><span id="focus_event"></span>
-<strong>FOCUS_EVENT</strong> 0x0010</td>
-<td><p>El miembro de <strong>evento</strong> contiene una estructura de <a href="focus-event-record-str.md" data-raw-source="[&lt;strong&gt;FOCUS_EVENT_RECORD&lt;/strong&gt;](focus-event-record-str.md)"><strong>FOCUS_EVENT_RECORD</strong></a> . Estos eventos se usan internamente y deben omitirse.</p></td>
-</tr>
-<tr class="even">
-<td><span id="KEY_EVENT"></span><span id="key_event"></span>
-<strong>KEY_EVENT</strong> 0x0001</td>
-<td><p>El miembro de <strong>evento</strong> contiene una estructura de <a href="key-event-record-str.md" data-raw-source="[&lt;strong&gt;KEY_EVENT_RECORD&lt;/strong&gt;](key-event-record-str.md)"><strong>KEY_EVENT_RECORD</strong></a> con información sobre un evento de teclado.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="MENU_EVENT"></span><span id="menu_event"></span>
-<strong>MENU_EVENT</strong> 0x0008</td>
-<td><p>El miembro de <strong>evento</strong> contiene una estructura de <a href="menu-event-record-str.md" data-raw-source="[&lt;strong&gt;MENU_EVENT_RECORD&lt;/strong&gt;](menu-event-record-str.md)"><strong>MENU_EVENT_RECORD</strong></a> . Estos eventos se usan internamente y deben omitirse.</p></td>
-</tr>
-<tr class="even">
-<td><span id="MOUSE_EVENT"></span><span id="mouse_event"></span>
-<strong>MOUSE_EVENT</strong> 0x0002</td>
-<td><p>El miembro de <strong>evento</strong> contiene una estructura de <a href="mouse-event-record-str.md" data-raw-source="[&lt;strong&gt;MOUSE_EVENT_RECORD&lt;/strong&gt;](mouse-event-record-str.md)"><strong>MOUSE_EVENT_RECORD</strong></a> con información sobre un evento de presionar el botón o el movimiento del mouse.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="WINDOW_BUFFER_SIZE_EVENT"></span><span id="window_buffer_size_event"></span>
-<strong>WINDOW_BUFFER_SIZE_EVENT</strong> 0x0004</td>
-<td><p>El miembro de <strong>evento</strong> contiene una estructura de <a href="window-buffer-size-record-str.md" data-raw-source="[&lt;strong&gt;WINDOW_BUFFER_SIZE_RECORD&lt;/strong&gt;](window-buffer-size-record-str.md)"><strong>WINDOW_BUFFER_SIZE_RECORD</strong></a> con información sobre el nuevo tamaño del búfer de pantalla de la consola.</p></td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
-
- 
+| Valor | Significado |
+|-|-|
+| **FOCUS_EVENT** 0x0010 | El miembro de **evento** contiene una estructura de **[FOCUS_EVENT_RECORD](focus-event-record-str.md)** . Estos eventos se usan internamente y deben omitirse. |
+| **KEY_EVENT** 0x0001 | El miembro de **evento** contiene una estructura de **[KEY_EVENT_RECORD](key-event-record-str.md)** con información sobre un evento de teclado. |
+| **MENU_EVENT** 0x0008 | El miembro de **evento** contiene una estructura de **[MENU_EVENT_RECORD](menu-event-record-str.md)** . Estos eventos se usan internamente y deben omitirse. |
+| **MOUSE_EVENT** 0x0002 | El miembro de **evento** contiene una estructura de **[MOUSE_EVENT_RECORD](mouse-event-record-str.md)** con información sobre un evento de presionar el botón o el movimiento del mouse. |
+| **WINDOW_BUFFER_SIZE_EVENT** 0x0004 | El miembro de **evento** contiene una estructura de **[WINDOW_BUFFER_SIZE_RECORD](window-buffer-size-record-str.md)** con información sobre el nuevo tamaño del búfer de pantalla de la consola. |
 
 **Evento**  
 La información de eventos. El formato de este miembro depende del tipo de evento especificado por el miembro **EventType** .
 
-<a name="examples"></a>Ejemplos
---------
+## <a name="examples"></a>Ejemplos
 
 Para obtener un ejemplo, vea [leer eventos de búfer de entrada](reading-input-buffer-events.md).
 
-<a name="requirements"></a>Requisitos
-------------
+## <a name="requirements"></a>Requisitos
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows 2000 Professional [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows 2000 Server [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>WinConTypes. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Encabezado | WinConTypes. h (a través de WinCon. h, include Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
-
+## <a name="see-also"></a>Consulte también
 
 [**\_registro de eventos de foco \_**](focus-event-record-str.md)
 
@@ -157,14 +96,6 @@ Para obtener un ejemplo, vea [leer eventos de búfer de entrada](reading-input-b
 
 [**PeekConsoleInput**](peekconsoleinput.md)
 
-[**ReadConsoleInput**](readconsoleinput.md)
+[**PeekConsoleInput**](readconsoleinput.md)
 
 [**WriteConsoleInput**](writeconsoleinput.md)
-
- 
-
- 
-
-
-
-

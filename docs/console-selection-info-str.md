@@ -25,85 +25,44 @@ topic_type:
 api_name:
 - CONSOLE_SELECTION_INFO
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: a16fe43e7b7cc4b5890284921823aee7b79217b2
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: aaf1cfaea2a8822c142aab87f6dcf1b022b7160c
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060805"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038373"
 ---
 # <a name="console_selection_info-structure"></a>Estructura de información de \_ selección de consola \_
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Contiene información para una selección de consola.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 typedef struct _CONSOLE_SELECTION_INFO {
-  DWORD      dwFlags;
-  COORD      dwSelectionAnchor;
+  DWORD      dwFlags;
+  COORD      dwSelectionAnchor;
   SMALL_RECT srSelection;
 } CONSOLE_SELECTION_INFO, *PCONSOLE_SELECTION_INFO;
 ```
 
-<a name="members"></a>Miembros
--------
+## <a name="members"></a>Miembros
 
 **dwFlags**  
 El indicador de selección. Este miembro puede ser uno o varios de los valores siguientes.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Valor</th>
-<th>Significado</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="CONSOLE_MOUSE_DOWN"></span><span id="console_mouse_down"></span>
-<strong>CONSOLE_MOUSE_DOWN</strong> 0x0008</td>
-<td><p>El mouse está inactivo</p></td>
-</tr>
-<tr class="even">
-<td><span id="CONSOLE_MOUSE_SELECTION"></span><span id="console_mouse_selection"></span>
-<strong>CONSOLE_MOUSE_SELECTION</strong> 0x0004</td>
-<td><p>Seleccionar con el mouse</p></td>
-</tr>
-<tr class="odd">
-<td><span id="CONSOLE_NO_SELECTION"></span><span id="console_no_selection"></span>
-<strong>CONSOLE_NO_SELECTION</strong> 0x0000</td>
-<td><p>Sin selección</p></td>
-</tr>
-<tr class="even">
-<td><span id="CONSOLE_SELECTION_IN_PROGRESS"></span><span id="console_selection_in_progress"></span>
-<strong>CONSOLE_SELECTION_IN_PROGRESS</strong> 0x0001</td>
-<td><p>La selección ha empezado</p></td>
-</tr>
-<tr class="odd">
-<td><span id="CONSOLE_SELECTION_NOT_EMPTY"></span><span id="console_selection_not_empty"></span>
-<strong>CONSOLE_SELECTION_NOT_EMPTY</strong> 0x0002</td>
-<td><p>El rectángulo de selección no está vacío</p></td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
-
- 
+| Valor | Significado |
+|-|-|
+| **CONSOLE_MOUSE_DOWN** 0x0008 | El mouse está inactivo. El usuario está ajustando activamente el rectángulo de selección con un mouse. |
+| **CONSOLE_MOUSE_SELECTION** 0x0004 | Seleccionar con el mouse. Si está desactivado, el usuario está `conhost.exe` seleccionando el modo de marca de funcionamiento con el teclado. |
+| **CONSOLE_NO_SELECTION** 0x0000 | No hay ninguna selección. |
+| **CONSOLE_SELECTION_IN_PROGRESS** 0x0001 | La selección ha comenzado. Si se selecciona una selección del mouse, normalmente no se producirá sin la `CONSOLE_SELECTION_NOT_EMPTY` marca. Si se selecciona un teclado, esto puede ocurrir cuando se ha escrito el modo de marca pero el usuario sigue navegando a la posición inicial. |
+| **CONSOLE_SELECTION_NOT_EMPTY** 0x0002 | Rectángulo de selección no vacío. La carga de *dwSelectionAnchor* y *srSelection* es válida.  |
 
 **dwSelectionAnchor**  
 Estructura de [**coordenadas**](coord-str.md) que especifica el delimitador de selección, en caracteres.
@@ -111,43 +70,18 @@ Estructura de [**coordenadas**](coord-str.md) que especifica el delimitador de s
 **srSelection**  
 [**Pequeña estructura \_ Rect**](small-rect-str.md) que especifica el rectángulo de selección.
 
-<a name="requirements"></a>Requisitos
-------------
+## <a name="requirements"></a>Requisitos
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows XP [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows Server 2003 [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi3. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows XP \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2003 \[\] |
+| Encabezado | ConsoleApi3. h (a través de WinCon. h, include Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
-
+## <a name="see-also"></a>Consulte también
 
 [**COORDS**](coord-str.md)
 
 [**GetConsoleSelectionInfo**](getconsoleselectioninfo.md)
 
 [**PEQUEÑO \_ rectángulo**](small-rect-str.md)
-
- 
-
- 
-
-
-
-

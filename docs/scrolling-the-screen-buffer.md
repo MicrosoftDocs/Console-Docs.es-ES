@@ -3,7 +3,7 @@ title: Desplazarse por el búfer de pantalla
 description: Describe cómo la ventana de la consola muestra una parte del búfer de pantalla activo.
 author: miniksa
 ms.author: miniksa
-ms.topic: article
+ms.topic: conceptual
 keywords: consola, aplicaciones de modo de carácter, aplicaciones de línea de comandos, aplicaciones de terminal, API de consola
 MS-HAID:
 - '\_win32\_scrolling\_the\_screen\_buffer'
@@ -13,15 +13,16 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: c8404e78-9807-4bed-bc12-25377fa96151
-ms.openlocfilehash: 5146d84ffc176b160bfd34d59c14cfe3792e3722
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 1582b6232461469e10048ed8711c766a6821264f
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060964"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037603"
 ---
 # <a name="scrolling-the-screen-buffer"></a>Desplazarse por el búfer de pantalla
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 La ventana de la consola muestra una parte del búfer de pantalla activo. Cada búfer de pantalla mantiene su propio rectángulo de ventana actual que especifica las coordenadas de las celdas del carácter superior izquierda e inferior derecha que se mostrarán en la ventana de la consola. Para determinar el rectángulo de ventana actual de un búfer de pantalla, use [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md). Cuando se crea un búfer de pantalla, la esquina superior izquierda de su ventana se encuentra en la esquina superior izquierda del búfer de pantalla de la consola en (0,0).
 
@@ -29,7 +30,7 @@ El rectángulo de la ventana puede cambiar para mostrar diferentes partes del b�
 
 - Cuando se llama a [**SetConsoleWindowInfo**](setconsolewindowinfo.md) para especificar un nuevo rectángulo de ventana, desplaza la vista del búfer de pantalla de la consola cambiando la posición del rectángulo de la ventana sin cambiar el tamaño de la ventana. Para obtener ejemplos de Cómo desplazarse por el contenido de la ventana, vea [desplazarse por la ventana de un búfer de pantalla](scrolling-a-screen-buffer-s-window.md).
 
-  ![ventana de búfer de pantalla](images/cscon-01.png)
+  ![movimiento panorámico de la ventana del búfer de pantalla alrededor del búfer grande](images/cscon-01.png)
 
 - Cuando se usa la función [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) para escribir en un búfer de pantalla con Wrap en el modo de salida de final de línea (EOL) habilitado, el rectángulo de la ventana se desplaza automáticamente, por lo que siempre se muestra el cursor.
 - Cuando la función [**SetConsoleCursorPosition**](setconsolecursorposition.md) especifica una nueva posición del cursor que está fuera de los límites del rectángulo de la ventana actual, el rectángulo de la ventana se desplaza automáticamente para mostrar el cursor.
@@ -44,14 +45,6 @@ En cada una de estas situaciones, el rectángulo de la ventana se desplaza para 
 
 En la ilustración se muestra una operación [**ScrollConsoleScreenBuffer**](scrollconsolescreenbuffer.md) que desplaza todo el contenido del búfer de la pantalla de la consola en varias filas. Se descartan los contenidos de las primeras filas y las filas inferiores se rellenan con el carácter y el color especificados.
 
-![ventana de búfer de pantalla](images/cscon-02.png)
+![desplazar el contenido de la ventana del búfer de pantalla hacia arriba para descartar](images/cscon-02.png)
 
-Los efectos de [**ScrollConsoleScreenBuffer**](scrollconsolescreenbuffer.md) se pueden limitar especificando un rectángulo de recorte opcional para que el contenido del búfer de pantalla de la consola fuera del rectángulo de recorte no se modifique. El efecto del recorte es crear una subventana (el rectángulo de recorte) cuyo contenido se desplaza sin afectar al resto del búfer de la pantalla de la consola. Para obtener un ejemplo en el que se usa **ScrollConsoleScreenBuffer**, vea [desplazarse por el contenido de un búfer de pantalla](scrolling-a-screen-buffer-s-contents.md).
-
- 
-
- 
-
-
-
-
+Los efectos de [**ScrollConsoleScreenBuffer**](scrollconsolescreenbuffer.md) se pueden limitar especificando un rectángulo de recorte opcional para que el contenido del búfer de pantalla de la consola fuera del rectángulo de recorte no se modifique. El efecto del recorte es crear una subventana (el rectángulo de recorte) cuyo contenido se desplaza sin afectar al resto del búfer de la pantalla de la consola. Para obtener un ejemplo en el que se usa **ScrollConsoleScreenBuffer** , vea [desplazarse por el contenido de un búfer de pantalla](scrolling-a-screen-buffer-s-contents.md).

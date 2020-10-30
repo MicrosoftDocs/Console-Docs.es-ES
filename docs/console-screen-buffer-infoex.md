@@ -24,40 +24,37 @@ topic_type:
 api_name:
 - CONSOLE_SCREEN_BUFFER_INFOEX
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 010120f2d925727e37bd72905bab4536db073371
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: baf6eeb51cbae5ce410c190852c22ae237e6a367
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060829"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038353"
 ---
 # <a name="console_screen_buffer_infoex-structure"></a>\_ \_ Estructura INFOEX del búfer de pantalla de la consola \_
 
-
 Contiene información extendida sobre un búfer de pantalla de la consola.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 typedef struct _CONSOLE_SCREEN_BUFFER_INFOEX {
-  ULONG      cbSize;
-  COORD      dwSize;
-  COORD      dwCursorPosition;
-  WORD       wAttributes;
+  ULONG      cbSize;
+  COORD      dwSize;
+  COORD      dwCursorPosition;
+  WORD       wAttributes;
   SMALL_RECT srWindow;
-  COORD      dwMaximumWindowSize;
-  WORD       wPopupAttributes;
-  BOOL       bFullscreenSupported;
-  COLORREF   ColorTable[16];
+  COORD      dwMaximumWindowSize;
+  WORD       wPopupAttributes;
+  BOOL       bFullscreenSupported;
+  COLORREF   ColorTable[16];
 } CONSOLE_SCREEN_BUFFER_INFOEX, *PCONSOLE_SCREEN_BUFFER_INFOEX;
 ```
 
-<a name="members"></a>Miembros
--------
+## <a name="members"></a>Miembros
 
 **cbSize**  
 Tamaño de esta estructura, en bytes.
@@ -69,7 +66,7 @@ Una estructura de [**coordenadas**](coord-str.md) que contiene el tamaño del b�
 Una estructura de [**coordenadas**](coord-str.md) que contiene las coordenadas de columna y fila del cursor en el búfer de pantalla de la consola.
 
 **wAttributes**  
-Los atributos de los caracteres escritos en un búfer de pantalla por las funciones [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) y [**WriteConsole**](writeconsole.md) , o bien se repiten en un búfer de pantalla mediante las funciones [**readfile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) y [**ReadConsole**](readconsole.md) . Para obtener más información, vea [atributos de caracteres](console-screen-buffers.md#_win32_font_attributes).
+Los atributos de los caracteres escritos en un búfer de pantalla por las funciones [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) y [**WriteConsole**](writeconsole.md) , o bien se repiten en un búfer de pantalla mediante las funciones [**readfile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) y [**ReadConsole**](readconsole.md) . Para obtener más información, vea [atributos de caracteres](console-screen-buffers.md#character-attributes).
 
 **srWindow**  
 [**Pequeña estructura \_ Rect**](small-rect-str.md) que contiene las coordenadas del búfer de pantalla de la consola de las esquinas superior izquierda e inferior derecha de la ventana de presentación.
@@ -81,37 +78,20 @@ Una estructura de [**coordenadas**](coord-str.md) que contiene el tamaño máxim
 El atributo Fill para los elementos emergentes de la consola.
 
 **bFullscreenSupported**  
-Si este miembro es TRUE, se admite el modo de pantalla completa; de lo contrario, no es.
+Si este miembro es `TRUE` , se admite el modo de pantalla completa; de lo contrario, no es. Siempre será `FALSE` para los sistemas posteriores a Windows Vista con el [modelo de controlador WDDM](https://docs.microsoft.com/windows-hardware/drivers/display/introduction-to-the-windows-vista-and-later-display-driver-model) , ya que el acceso de VGA directo real al monitor ya no está disponible.
 
 **ColorTable**  
 Una matriz de valores [**COLORREF**](https://msdn.microsoft.com/library/windows/desktop/dd183449) que describen la configuración de color de la consola.
 
-<a name="requirements"></a>Requisitos
-------------
+## <a name="requirements"></a>Requisitos
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows Vista [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows Server 2008 [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi2. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows Vista \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2008 \[\] |
+| Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
-
+## <a name="see-also"></a>Consulte también
 
 [**COORDS**](coord-str.md)
 
@@ -120,11 +100,3 @@ Una matriz de valores [**COLORREF**](https://msdn.microsoft.com/library/windows/
 [**SetConsoleScreenBufferInfoEx**](setconsolescreenbufferinfoex.md)
 
 [**PEQUEÑO \_ rectángulo**](small-rect-str.md)
-
- 
-
- 
-
-
-
-

@@ -25,23 +25,21 @@ topic_type:
 api_name:
 - FOCUS_EVENT_RECORD
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 61f37e3645a66ca9f755f66f0baa03a2238983ad
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: dc86c1b5b1c42a9d905673da4ea368de76a5fae9
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060741"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038173"
 ---
 # <a name="focus_event_record-structure"></a>Estructura del registro de \_ eventos de foco \_
 
+Describe un evento de foco en una estructura de [**\_ registro de entrada**](input-record-str.md) de la consola. Estos eventos se usan internamente y deben omitirse.
 
-Describe un evento de foco en una estructura de [** \_ registro de entrada**](input-record-str.md) de la consola. Estos eventos se usan internamente y deben omitirse.
-
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 typedef struct _FOCUS_EVENT_RECORD {
@@ -49,45 +47,19 @@ typedef struct _FOCUS_EVENT_RECORD {
 } FOCUS_EVENT_RECORD;
 ```
 
-<a name="members"></a>Miembros
--------
+## <a name="members"></a>Miembros
 
 **bSetFocus**  
 Reservado.
 
-<a name="requirements"></a>Requisitos
-------------
+## <a name="requirements"></a>Requisitos
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows 2000 Professional [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows 2000 Server [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>WinConTypes. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Encabezado | WinConTypes. h (a través de WinCon. h, include Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
-
+## <a name="see-also"></a>Consulte también
 
 [**registro de entrada \_**](input-record-str.md)
-
- 
-
- 
-
-
-
-

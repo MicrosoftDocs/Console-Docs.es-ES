@@ -30,134 +30,82 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 613aacf4052e8e3b38c0a3e254ac4dd2b55ced5d
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: e1cac9a8b2636f5272c6d1ecc358eb59f33295b5
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060617"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038703"
 ---
 # <a name="getstdhandle-function"></a>GetStdHandle (función)
 
-
 Recupera un identificador del dispositivo estándar especificado (entrada estándar, salida estándar o error estándar).
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 HANDLE WINAPI GetStdHandle(
-  _In_ DWORD nStdHandle
+  _In_ DWORD nStdHandle
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *nStdHandle* \[ de\]  
 El dispositivo estándar. Este parámetro puede ser uno de los valores siguientes.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Valor</th>
-<th>Significado</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="STD_INPUT_HANDLE"></span><span id="std_input_handle"></span>
-<strong>STD_INPUT_HANDLE</strong> (DWORD)-10</td>
-<td><p>El dispositivo de entrada estándar. Inicialmente, es el búfer de entrada de la consola, CONIN $.</p></td>
-</tr>
-<tr class="even">
-<td><span id="STD_OUTPUT_HANDLE"></span><span id="std_output_handle"></span>
-<strong>STD_OUTPUT_HANDLE</strong> (DWORD)-11</td>
-<td><p>El dispositivo de salida estándar. Inicialmente, es el búfer de pantalla de la consola activo, CONOUT $.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="STD_ERROR_HANDLE"></span><span id="std_error_handle"></span>
-<strong>STD_ERROR_HANDLE</strong> (DWORD)-12</td>
-<td><p>El dispositivo de error estándar. Inicialmente, es el búfer de pantalla de la consola activo, CONOUT $.</p></td>
-</tr>
-</tbody>
-</table>
+| Valor | Significado |
+|-|-|
+| **STD_INPUT_HANDLE** (DWORD)-10 | El dispositivo de entrada estándar. Inicialmente, es el búfer de entrada de la consola, `CONIN$` . |
+| **STD_OUTPUT_HANDLE** (DWORD)-11 | El dispositivo de salida estándar. Inicialmente, es el búfer de pantalla de la consola activo, `CONOUT$` . |
+| **STD_ERROR_HANDLE** (DWORD)-12 | El dispositivo de error estándar. Inicialmente, es el búfer de pantalla de la consola activo, `CONOUT$` . |
 
- 
+## <a name="return-value"></a>Valor devuelto
 
-<a name="return-value"></a>Valor devuelto
-------------
+Si la función se ejecuta correctamente, el valor devuelto es un identificador del dispositivo especificado o un identificador Redirigido establecido por una llamada anterior a [**SetStdHandle**](setstdhandle.md). El identificador tiene derechos de acceso genéricos de **\_ lectura** y **\_ escritura** , a menos que la aplicación haya usado **SetStdHandle** para establecer un identificador estándar con un acceso inferior.
 
-Si la función se ejecuta correctamente, el valor devuelto es un identificador del dispositivo especificado o un identificador Redirigido establecido por una llamada anterior a [**SetStdHandle**](setstdhandle.md). El identificador tiene derechos de acceso genéricos de ** \_ lectura** y ** \_ escritura** , a menos que la aplicación haya usado **SetStdHandle** para establecer un identificador estándar con un acceso inferior.
+Si se produce un error en la función, el valor devuelto es un **\_ \_ valor de identificador no válido** . Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-Si se produce un error en la función, el valor devuelto es un ** \_ \_ valor de identificador no válido**. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si una aplicación no tiene identificadores estándar asociados, como un servicio que se ejecuta en un escritorio interactivo y no los ha redirigido, el valor devuelto es **null** .
 
-Si una aplicación no tiene identificadores estándar asociados, como un servicio que se ejecuta en un escritorio interactivo y no los ha redirigido, el valor devuelto es **null**.
-
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
 Los identificadores devueltos por **GetStdHandle** pueden ser usados por aplicaciones que necesitan leer o escribir en la consola. Cuando se crea una consola, el identificador de entrada estándar es un identificador del búfer de entrada de la consola, y los identificadores de salida estándar y de error estándar son identificadores del búfer de pantalla activo de la consola. Estos identificadores pueden ser utilizados por las funciones [**readfile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) y [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) , o por cualquiera de las funciones de consola que tienen acceso al búfer de entrada de la consola o a un búfer de pantalla (por ejemplo, las funciones [**ReadConsoleInput**](readconsoleinput.md), [**WriteConsole**](writeconsole.md)o [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md) ).
 
-Los identificadores estándar de un proceso se pueden redirigir mediante una llamada a [**SetStdHandle**](setstdhandle.md), en cuyo caso **GetStdHandle** devuelve el identificador redirigido. Si se han redirigido los identificadores estándar, puede especificar el valor de CONIN $ en una llamada a la función [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) para obtener un identificador para el búfer de entrada de la consola. De forma similar, puede especificar el valor de CONOUT $ para obtener un identificador para el búfer de pantalla activo de la consola.
+Los identificadores estándar de un proceso se pueden redirigir mediante una llamada a [**SetStdHandle**](setstdhandle.md), en cuyo caso **GetStdHandle** devuelve el identificador redirigido. Si se han redirigido los identificadores estándar, puede especificar el `CONIN$` valor en una llamada a la función [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) para obtener un identificador de un búfer de entrada de la consola. De forma similar, puede especificar el `CONOUT$` valor para obtener un identificador para el búfer de pantalla activo de la consola.
 
-### <a name="span-idattach_detach_behaviorspanspan-idattach_detach_behaviorspanspan-idattach_detach_behaviorspanattachdetach-behavior"></a><span id="Attach_detach_behavior"></span><span id="attach_detach_behavior"></span><span id="ATTACH_DETACH_BEHAVIOR"></span>Comportamiento de adjuntar/separar
+Los identificadores estándar de un proceso en la entrada del método Main están dictados por la configuración de la marca [**/Subsystem**](https://docs.microsoft.com/cpp/build/reference/subsystem-specify-subsystem) que se pasa al enlazador cuando se compiló la aplicación. Al especificar **/Subsystem: Console** , se solicita que el sistema operativo rellene los identificadores con una sesión de consola al inicio, si el elemento primario aún no ha rellenado la tabla de identificadores estándar por herencia. En el contrario, **/Subsystem: Windows** implica que la aplicación no necesita una consola y probablemente no esté usando los manipuladores estándar. Puede encontrar más información sobre cómo controlar la herencia en la documentación de [**STARTF \_ USESTDHANDLES**](https://docs.microsoft.com/windows/win32/api/processthreadsapi/ns-processthreadsapi-startupinfoa).
+
+Algunas aplicaciones funcionan fuera de los límites de su subsistema declarado; por ejemplo, una aplicación **/Subsystem: Windows** puede comprobar o utilizar los identificadores estándar para el registro o la depuración, pero funciona normalmente con una interfaz gráfica de usuario. Estas aplicaciones deberán sondear cuidadosamente el estado de los identificadores estándar en el inicio y hacer uso de [**AttachConsole**](attachconsole.md), [**AllocConsole**](allocconsole.md)y [**FreeConsole**](freeconsole.md) para agregar o quitar una consola si lo desea.
+
+Algunas aplicaciones también pueden variar su comportamiento en el tipo de identificador heredado. Ambigüedad: el tipo entre la consola, la canalización, el archivo y otros se puede realizar con [**GetFileType**](https://docs.microsoft.com/windows/win32/api/fileapi/nf-fileapi-getfiletype).
+
+### <a name="attachdetach-behavior"></a>Comportamiento de adjuntar/separar
 
 Al conectarse a una nueva consola, los identificadores estándar siempre se reemplazan por identificadores de consola, a menos que se haya especificado **STARTF \_ USESTDHANDLES** durante la creación del proceso.
 
-Si el valor existente del identificador estándar es **null**, o el valor existente del identificador estándar es similar a un pseudohandle de consola, el identificador se reemplaza por un identificador de consola.
+Si el valor existente del identificador estándar es **null** , o el valor existente del identificador estándar es similar a un pseudohandle de consola, el identificador se reemplaza por un identificador de consola.
 
-Cuando un elemento primario usa **Create \_ New \_ Console** y **STARTF \_ USESTDHANDLES** para crear un proceso de consola, no se reemplazarán los identificadores estándar a menos que el valor existente del identificador estándar sea NULL o una pseudohandle de consola.
+Cuando un elemento primario usa **Create \_ New \_ Console** y **STARTF \_ USESTDHANDLES** para crear un proceso de consola, no se reemplazarán los identificadores estándar a menos que el valor existente del identificador estándar sea **null** o una pseudohandle de consola.
 
-<a name="examples"></a>Ejemplos
---------
+> [!NOTE]
+>Los procesos de la consola *deben* comenzar con los identificadores estándar llenos o se rellenarán automáticamente con los identificadores adecuados para una nueva consola. Las aplicaciones de la interfaz gráfica de usuario (GUI) se pueden iniciar sin los identificadores estándar y no se rellenarán automáticamente.
+
+## <a name="examples"></a>Ejemplos
 
 Para obtener un ejemplo, vea [leer eventos de búfer de entrada](reading-input-buffer-events.md).
 
-<a name="requirements"></a>Requisitos
-------------
+## <a name="requirements"></a>Requisitos
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows 2000 Professional [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows 2000 Server [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ProcessEnv. h (a través de Winbase. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Encabezado | ProcessEnv. h (a través de Winbase. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
-
+## <a name="see-also"></a>Consulte también
 
 [Funciones de la consola](console-functions.md)
 
@@ -167,7 +115,7 @@ Para obtener un ejemplo, vea [leer eventos de búfer de entrada](reading-input-b
 
 [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md)
 
-[**ReadConsoleInput**](readconsoleinput.md)
+[**PeekConsoleInput**](readconsoleinput.md)
 
 [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467)
 
@@ -176,11 +124,3 @@ Para obtener un ejemplo, vea [leer eventos de búfer de entrada](reading-input-b
 [**WriteConsole**](writeconsole.md)
 
 [**Escritura**](https://msdn.microsoft.com/library/windows/desktop/aa365747)
-
- 
-
- 
-
-
-
-

@@ -32,30 +32,29 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 109d41a141083fc4691ebaf2546ec8f412f7b861
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: ad12ff7b931b6bbc36a7fb0e9e0ee2ac3512a1f5
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060673"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038003"
 ---
 # <a name="getconsoleoriginaltitle-function"></a>GetConsoleOriginalTitle función)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Recupera el título original de la ventana de la consola actual.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 DWORD WINAPI GetConsoleOriginalTitle(
-  _Out_ LPTSTR lpConsoleTitle,
-  _In_  DWORD  nSize
+  _Out_ LPTSTR lpConsoleTitle,
+  _In_  DWORD  nSize
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *lpConsoleTitle* \[ enuncia\]  
 Un puntero a un búfer que recibe una cadena terminada en null que contiene el título original.
@@ -63,79 +62,38 @@ Un puntero a un búfer que recibe una cadena terminada en null que contiene el t
 *nSize* \[ de\]  
 Tamaño del búfer de *lpConsoleTitle* , en caracteres.
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es la longitud de la cadena copiada en el búfer, en caracteres.
 
-Si el búfer no es lo suficientemente grande como para almacenar el título, el valor devuelto es cero y [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360) devuelve el **error \_ Success**.
+Si el búfer no es lo suficientemente grande como para almacenar el título, el valor devuelto es cero y [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360) devuelve el **error \_ Success** .
 
 Si se produce un error en la función, el valor devuelto es cero y [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360) devuelve el código de error.
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
 Para establecer el título de una ventana de la consola, use la función [**SetConsoleTitle**](setconsoletitle.md) . Para recuperar la cadena de título actual, utilice la función [**GetConsoleTitle**](getconsoletitle.md) .
 
-Para compilar una aplicación que usa esta función, defina ** \_ Win32 \_ WinNT** como 0x0600 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como 0x0600 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
 
-<a name="requirements"></a>Requisitos
-------------
+> [!TIP]
+> No se recomienda esta API y no tiene un **[terminal virtual](console-virtual-terminal-sequences.md)** equivalente. Esta decisión alinea intencionadamente la plataforma de Windows con otros sistemas operativos. Es posible que las aplicaciones remotas mediante utilidades y transportes multiplataforma como SSH no funcionen según lo esperado si se usa esta API.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows Vista [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows Server 2008 [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi2. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-<td><p>Nombres Unicode y ANSI</p></td>
-<td><p><strong>GetConsoleOriginalTitleW</strong> (Unicode) y <strong>GetConsoleOriginalTitleA</strong> (ANSI)</p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requisitos
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows Vista \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2008 \[\] |
+| Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
+| Nombres Unicode y ANSI | **GetConsoleOriginalTitleW** (Unicode) y **GetConsoleOriginalTitleA** (ANSI) |
 
+## <a name="see-also"></a>Consulte también
 
 [Funciones de la consola](console-functions.md)
 
 [**GetConsoleTitle**](getconsoletitle.md)
 
 [**SetConsoleTitle**](setconsoletitle.md)
-
- 
-
- 
-
-
-
-

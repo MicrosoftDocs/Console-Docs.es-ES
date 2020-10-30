@@ -36,36 +36,35 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: bc313abbcb28016968355cc405e0cc2de3d36cb0
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 462ebfaed09a5c18fa9a075227a5568a789685bd
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89061043"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037213"
 ---
 # <a name="writeconsoleoutputcharacter-function"></a>WriteConsoleOutputCharacter función)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Copia un número de caracteres en celdas consecutivas de un búfer de pantalla de la consola, comenzando en una ubicación especificada.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 BOOL WINAPI WriteConsoleOutputCharacter(
-  _In_  HANDLE  hConsoleOutput,
-  _In_  LPCTSTR lpCharacter,
-  _In_  DWORD   nLength,
-  _In_  COORD   dwWriteCoord,
-  _Out_ LPDWORD lpNumberOfCharsWritten
+  _In_  HANDLE  hConsoleOutput,
+  _In_  LPCTSTR lpCharacter,
+  _In_  DWORD   nLength,
+  _In_  COORD   dwWriteCoord,
+  _Out_ LPDWORD lpNumberOfCharsWritten
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *hConsoleOutput* \[ de\]  
-Identificador del búfer de pantalla de la consola. El identificador debe tener el derecho de acceso de ** \_ escritura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
+Identificador del búfer de pantalla de la consola. El identificador debe tener el derecho de acceso de **\_ escritura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
 
 *lpCharacter* \[ de\]  
 Caracteres que se van a escribir en el búfer de pantalla de la consola.
@@ -79,68 +78,35 @@ Estructura de [**coordenadas**](coord-str.md) que especifica las coordenadas de 
 *lpNumberOfCharsWritten* \[ enuncia\]  
 Puntero a una variable que recibe el número de caracteres escritos realmente.
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
 
 Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
 Si el número de caracteres que se va a escribir se extiende más allá del final de la fila especificada en el búfer de pantalla de la consola, los caracteres se escriben en la fila siguiente. Si el número de caracteres que se va a escribir se extiende más allá del final del búfer de pantalla de la consola, los caracteres se escriben al final del búfer de pantalla de la consola.
 
 Los valores de atributo en las posiciones escritas en no cambian.
 
-Esta función usa caracteres Unicode o caracteres de 8 bits de la página de códigos actual de la consola. La página de códigos de la consola tiene como valor predeterminado la página de códigos OEM del sistema. Para cambiar la página de códigos de la consola, use las funciones [**SetConsoleCP**](setconsolecp.md) o [**SetConsoleOutputCP**](setconsoleoutputcp.md) , o bien use los comandos **chcp** o **mode con CP Select =** .
+[!INCLUDE [setting-codepage-mode-remarks](./includes/setting-codepage-mode-remarks.md)]
 
-<a name="requirements"></a>Requisitos
-------------
+> [!TIP]
+> Esta API tiene un **[terminal virtual](console-virtual-terminal-sequences.md)** equivalente en las secuencias de **[formato de texto](console-virtual-terminal-sequences.md#text-formatting)** y **[posición del cursor](console-virtual-terminal-sequences.md#cursor-positioning)** . Mueva el cursor a la ubicación que se va a insertar, aplique el formato deseado y escriba el texto para rellenar. No hay ningún equivalente para emitir texto en un área sin aplicar también el formato de color activo. Esta decisión alinea intencionadamente la plataforma de Windows con otros sistemas operativos en los que se espera que la aplicación cliente individual Recuerde su propio estado dibujado para su posterior manipulación.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows 2000 Professional [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows 2000 Server [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi2. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-<td><p>Nombres Unicode y ANSI</p></td>
-<td><p><strong>WriteConsoleOutputCharacterW</strong> (Unicode) y <strong>WriteConsoleOutputCharacterA</strong> (ANSI)</p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requisitos
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
+| Nombres Unicode y ANSI | **WriteConsoleOutputCharacterW** (Unicode) y **WriteConsoleOutputCharacterA** (ANSI) |
 
+## <a name="see-also"></a>Consulte también
 
 [Funciones de la consola](console-functions.md)
 
@@ -161,11 +127,3 @@ Esta función usa caracteres Unicode o caracteres de 8 bits de la página de có
 [**WriteConsoleOutput**](writeconsoleoutput.md)
 
 [**WriteConsoleOutputAttribute**](writeconsoleoutputattribute.md)
-
- 
-
- 
-
-
-
-

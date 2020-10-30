@@ -36,36 +36,35 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 8f761d10951e6df77a54fd075c29379657204a99
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: fa70841d5dccf3289807d29c67fab86e3b445279
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060988"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037731"
 ---
 # <a name="readconsoleoutputcharacter-function"></a>ReadConsoleOutputCharacter función)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Copia un número de caracteres de las celdas consecutivas de un búfer de pantalla de la consola, comenzando en una ubicación especificada.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 BOOL WINAPI ReadConsoleOutputCharacter(
-  _In_  HANDLE  hConsoleOutput,
-  _Out_ LPTSTR  lpCharacter,
-  _In_  DWORD   nLength,
-  _In_  COORD   dwReadCoord,
-  _Out_ LPDWORD lpNumberOfCharsRead
+  _In_  HANDLE  hConsoleOutput,
+  _Out_ LPTSTR  lpCharacter,
+  _In_  DWORD   nLength,
+  _In_  COORD   dwReadCoord,
+  _Out_ LPDWORD lpNumberOfCharsRead
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *hConsoleOutput* \[ de\]  
-Identificador del búfer de pantalla de la consola. El identificador debe tener el derecho de acceso de ** \_ lectura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
+Identificador del búfer de pantalla de la consola. El identificador debe tener el derecho de acceso de **\_ lectura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
 
 *lpCharacter* \[ enuncia\]  
 Un puntero a un búfer que recibe los caracteres leídos del búfer de pantalla de la consola.
@@ -79,66 +78,32 @@ Coordenadas de la primera celda en el búfer de pantalla de la consola desde la 
 *lpNumberOfCharsRead* \[ enuncia\]  
 Puntero a una variable que recibe el número de caracteres leídos realmente.
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
 
 Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
 Si el número de caracteres que se van a leer de se extiende más allá del final de la fila de búfer de pantalla especificada, se leen los caracteres de la fila siguiente. Si el número de caracteres que se van a leer de se extiende más allá del final del búfer de pantalla de la consola, se leen los caracteres hasta el final del búfer de pantalla de la consola.
 
-Esta función usa caracteres Unicode o caracteres de 8 bits de la página de códigos actual de la consola. La página de códigos de la consola tiene como valor predeterminado la página de códigos OEM del sistema. Para cambiar la página de códigos de la consola, use las funciones [**SetConsoleCP**](setconsolecp.md) o [**SetConsoleOutputCP**](setconsoleoutputcp.md) , o bien use los comandos **chcp** o **mode con CP Select =** .
+[!INCLUDE [setting-codepage-mode-remarks](./includes/setting-codepage-mode-remarks.md)]
 
-<a name="requirements"></a>Requisitos
-------------
+[!INCLUDE [no-vt-equiv-banner](./includes/no-vt-equiv-banner.md)]
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows 2000 Professional [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows 2000 Server [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi2. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-<td><p>Nombres Unicode y ANSI</p></td>
-<td><p><strong>ReadConsoleOutputCharacterW</strong> (Unicode) y <strong>ReadConsoleOutputCharacterA</strong> (ANSI)</p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requisitos
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
+| Nombres Unicode y ANSI | **ReadConsoleOutputCharacterW** (Unicode) y **ReadConsoleOutputCharacterA** (ANSI) |
 
+## <a name="see-also"></a>Consulte también
 
 [Funciones de la consola](console-functions.md)
 
@@ -159,11 +124,3 @@ Esta función usa caracteres Unicode o caracteres de 8 bits de la página de có
 [**WriteConsoleOutputAttribute**](writeconsoleoutputattribute.md)
 
 [**WriteConsoleOutputCharacter**](writeconsoleoutputcharacter.md)
-
- 
-
- 
-
-
-
-

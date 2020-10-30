@@ -32,97 +32,62 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: e112112fc1510ab4c3f0a99ff9b208cc364e361a
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 0e818c8ecee8ac777f7cc3cf2394d8846bebd034
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060716"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038083"
 ---
 # <a name="getconsolealiasexes-function"></a>GetConsoleAliasExes función)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Recupera los nombres de todos los archivos ejecutables con alias de consola definidos.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 DWORD WINAPI GetConsoleAliasExes(
-  _Out_ LPTSTR lpExeNameBuffer,
-  _In_  DWORD  ExeNameBufferLength
+  _Out_ LPTSTR lpExeNameBuffer,
+  _In_  DWORD  ExeNameBufferLength
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *lpExeNameBuffer* \[ enuncia\]  
 Un puntero a un búfer que recibe los nombres de los archivos ejecutables.
 
 *ExeNameBufferLength* \[ de\]  
-Tamaño del búfer al que apunta *lpExeNameBuffer*, en bytes.
+Tamaño del búfer al que apunta *lpExeNameBuffer* , en bytes.
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
 
 Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
 Para determinar el tamaño necesario para el búfer de *lpExeNameBuffer* , use la función [**GetConsoleAliasExesLength**](getconsolealiasexeslength.md) .
 
-Para compilar una aplicación que usa esta función, defina ** \_ Win32 \_ WinNT** como 0x0501 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como 0x0501 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
 
-<a name="requirements"></a>Requisitos
-------------
+[!INCLUDE [no-vt-equiv-shell-banner](./includes/no-vt-equiv-shell-banner.md)]
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows 2000 Professional [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows 2000 Server [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi3. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-<td><p>Nombres Unicode y ANSI</p></td>
-<td><p><strong>GetConsoleAliasExesW</strong> (Unicode) y <strong>GetConsoleAliasExesA</strong> (ANSI)</p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requisitos
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Encabezado | ConsoleApi3. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
+| Nombres Unicode y ANSI | **GetConsoleAliasExesW** (Unicode) y **GetConsoleAliasExesA** (ANSI) |
 
+## <a name="see-also"></a>Consulte también
 
 [**AddConsoleAlias**](addconsolealias.md)
 
@@ -135,11 +100,3 @@ Para compilar una aplicación que usa esta función, defina ** \_ Win32 \_ WinNT
 [**GetConsoleAliasExesLength**](getconsolealiasexeslength.md)
 
 [**GetConsoleAliases**](getconsolealiases.md)
-
- 
-
- 
-
-
-
-

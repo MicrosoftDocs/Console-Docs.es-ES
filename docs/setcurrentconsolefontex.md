@@ -24,102 +24,64 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 9d97383f40c38489ac3ea5e7c75386163b9d5d2d
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 1ba89b90a0362261aafbe5ac6462224b3c0172dc
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060813"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037060"
 ---
 # <a name="setcurrentconsolefontex-function"></a>SetCurrentConsoleFontEx función)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Establece la información extendida sobre la fuente de consola actual.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 BOOL WINAPI SetCurrentConsoleFontEx(
-  _In_ HANDLE               hConsoleOutput,
-  _In_ BOOL                 bMaximumWindow,
-  _In_ PCONSOLE_FONT_INFOEX lpConsoleCurrentFontEx
+  _In_ HANDLE               hConsoleOutput,
+  _In_ BOOL                 bMaximumWindow,
+  _In_ PCONSOLE_FONT_INFOEX lpConsoleCurrentFontEx
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *hConsoleOutput* \[ de\]  
-Identificador del búfer de pantalla de la consola. El identificador debe tener el derecho de acceso de ** \_ escritura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
+Identificador del búfer de pantalla de la consola. El identificador debe tener el derecho de acceso de **\_ escritura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
 
 *bMaximumWindow* \[ de\]  
-Si este parámetro es **true**, la información de fuente se establece para el tamaño máximo de la ventana. Si este parámetro es **false**, se establece la información de fuente para el tamaño de la ventana actual.
+Si este parámetro es **true** , la información de fuente se establece para el tamaño máximo de la ventana. Si este parámetro es **false** , se establece la información de fuente para el tamaño de la ventana actual.
 
 *lpConsoleCurrentFontEx* \[ de\]  
-Puntero a una estructura [** \_ \_ INFOEX**](console-font-infoex.md) de la fuente de la consola que contiene la información de la fuente.
+Puntero a una estructura [**\_ \_ INFOEX**](console-font-infoex.md) de la fuente de la consola que contiene la información de la fuente.
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
 
 Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
-Para compilar una aplicación que usa esta función, defina ** \_ Win32 \_ WinNT** como 0x0500 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como 0x0500 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
 
-<a name="requirements"></a>Requisitos
-------------
+[!INCLUDE [no-vt-equiv-user-priv](./includes/no-vt-equiv-user-priv.md)]
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows Vista [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows Server 2008 [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi3. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requisitos
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows Vista \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2008 \[\] |
+| Encabezado | ConsoleApi3. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
 
+## <a name="see-also"></a>Consulte también
 
 [Funciones de la consola](console-functions.md)
 
 [**fuente de consola \_ \_ INFOEX**](console-font-infoex.md)
-
- 
-
- 
-
-
-
-

@@ -25,30 +25,27 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 5b032754172886fd83a8152caeb5e2228b917930
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: bfc16edccb2f1be2b22c81992800d8f62d86cf4f
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060693"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037990"
 ---
 # <a name="getconsoleprocesslist-function"></a>GetConsoleProcessList función)
 
-
 Recupera una lista de los procesos adjuntos a la consola actual.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 DWORD WINAPI GetConsoleProcessList(
-  _Out_ LPDWORD lpdwProcessList,
-  _In_  DWORD   dwProcessCount
+  _Out_ LPDWORD lpdwProcessList,
+  _In_  DWORD   dwProcessCount
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *lpdwProcessList* \[ enuncia\]  
 Un puntero a un búfer que recibe una matriz de identificadores de proceso cuando se realiza correctamente. Debe ser un búfer válido y no puede ser `NULL` . El búfer debe tener espacio para recibir al menos un identificador de proceso devuelto.
@@ -56,8 +53,7 @@ Un puntero a un búfer que recibe una matriz de identificadores de proceso cuand
 *dwProcessCount* \[ de\]  
 Número máximo de identificadores de proceso que se pueden almacenar en el búfer de *lpdwProcessList* . Debe ser mayor que 0.
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es menor o igual que *dwProcessCount* y representa el número de identificadores de proceso almacenados en el búfer *lpdwProcessList* .
 
@@ -67,60 +63,24 @@ Si el valor devuelto es cero, se ha producido un error en la función porque cad
 
 Si `NULL` se proporcionó una lista de procesos o el número de procesos era 0, la llamada devolverá 0 y `GetLastError` devolverá `ERROR_INVALID_PARAMETER` . Proporcione un búfer de al menos un elemento para llamar a esta función. Asigne un búfer mayor y vuelva a llamar a si el código de retorno es mayor que la longitud del búfer proporcionado.
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
-Para compilar una aplicación que usa esta función, defina ** \_ Win32 \_ WinNT** como 0x0501 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como 0x0501 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
 
-<a name="requirements"></a>Requisitos
-------------
+[!INCLUDE [no-vt-equiv-local-context](./includes/no-vt-equiv-local-context.md)]
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows XP [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows Server 2003 [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi3. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requisitos
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows XP \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2003 \[\] |
+| Encabezado | ConsoleApi3. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
 
+## <a name="see-also"></a>Consulte también
 
 [**AttachConsole**](attachconsole.md)
 
 [Funciones de la consola](console-functions.md)
-
- 
-
- 
-
-
-
-
