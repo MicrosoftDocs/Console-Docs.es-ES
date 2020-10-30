@@ -24,37 +24,36 @@ topic_type:
 api_name:
 - CONSOLE_FONT_INFOEX
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 12977e288a63397c581143683047239e4d410eec
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: ef89d1bf47a4153d44140d3f9f4845bb7496680e
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060856"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039263"
 ---
 # <a name="console_font_infoex-structure"></a>\_ \_ Estructura INFOEX de la consola
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Contiene información extendida para una fuente de consola.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 typedef struct _CONSOLE_FONT_INFOEX {
   ULONG cbSize;
   DWORD nFont;
   COORD dwFontSize;
-  UINT  FontFamily;
-  UINT  FontWeight;
+  UINT  FontFamily;
+  UINT  FontWeight;
   WCHAR FaceName[LF_FACESIZE];
 } CONSOLE_FONT_INFOEX, *PCONSOLE_FONT_INFOEX;
 ```
 
-<a name="members"></a>Miembros
--------
+## <a name="members"></a>Miembros
 
 **cbSize**  
 Tamaño de esta estructura, en bytes. Este miembro debe establecerse en `sizeof(CONSOLE_FONT_INFOEX)` antes de llamar a [**GetCurrentConsoleFontEx**](getcurrentconsolefontex.md) o se producirá un error.
@@ -74,44 +73,18 @@ Espesor de la fuente. El peso puede oscilar entre 100 y 1000, en múltiplos de 1
 **FaceName**  
 Nombre del tipo de letra (por ejemplo, Courier o Arial).
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
 Para obtener el tamaño de la fuente, pase el índice de fuente a la función [**GetConsoleFontSize**](getconsolefontsize.md) .
 
-<a name="requirements"></a>Requisitos
-------------
+## <a name="requirements"></a>Requisitos
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows Vista [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows Server 2008 [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>WINCON. h (incluir Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows Vista \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2008 \[\] |
+| Encabezado | WinCon. h (incluir Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
-
+## <a name="see-also"></a>Consulte también
 
 [**GetCurrentConsoleFontEx**](getcurrentconsolefontex.md)
-
- 
-
- 
-
-
-
-

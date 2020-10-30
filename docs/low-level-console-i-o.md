@@ -1,9 +1,9 @@
 ---
-title: E/s de consola de bajo nivel
+title: E/s de la consola de Low-Level
 description: Las funciones de e/s de la consola de bajo nivel expanden el control de una aplicación a través de e/s de consola, habilitando el acceso directo a los búferes de entrada y de pantalla de la consola.
 author: miniksa
 ms.author: miniksa
-ms.topic: article
+ms.topic: conceptual
 keywords: consola, aplicaciones de modo de carácter, aplicaciones de línea de comandos, aplicaciones de terminal, API de consola
 MS-HAID:
 - '\_win32\_low\_level\_console\_i\_o'
@@ -13,15 +13,16 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: c874aff4-6129-4dbc-8949-24d46382d81c
-ms.openlocfilehash: b548a188189b597a270faac1cfbc83a2af699fab
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: b4ec834e44f7ff291466cfe1714442bc17ca7aca
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89061008"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039553"
 ---
-# <a name="low-level-console-io"></a>E/s de consola de bajo nivel
+# <a name="low-level-console-io"></a>E/s de la consola de Low-Level
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Las funciones de e/s de la consola de bajo nivel expanden el control de una aplicación a través de e/s de consola, habilitando el acceso directo a los búferes de entrada y de pantalla de la consola. Estas funciones permiten a una aplicación realizar las tareas siguientes:
 
@@ -36,17 +37,9 @@ Las funciones de e/s de la consola de bajo nivel expanden el control de una apli
 - Leer y escribir bloques rectangulares de datos de caracteres y colores en una ubicación de búfer de pantalla especificada
 - Escribe un solo carácter Unicode o ANSI, o una combinación de atributos de texto y de color de fondo, en un número especificado de celdas consecutivas que comienzan en una ubicación de búfer de pantalla especificada
 
-Para obtener más información, vea los temas siguientes:
+Para obtener más información, consulte los temas siguientes:
 
 - [Modos de consola](console-modes.md)
 - [Modos de consola de bajo nivel](low-level-console-modes.md)
 - [Funciones de entrada de la consola de bajo nivel](low-level-console-input-functions.md)
 - [Funciones de salida de la consola de bajo nivel](low-level-console-output-functions.md)
-
- 
-
- 
-
-
-
-

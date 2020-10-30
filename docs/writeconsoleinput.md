@@ -36,35 +36,34 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 784bed6c1a7b7f7ed9ed204b8483d30371e510a3
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: dc2c7930ab76587edc9ae1991d4493c858b0ec30
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89061124"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039293"
 ---
 # <a name="writeconsoleinput-function"></a>WriteConsoleInput función)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Escribe los datos directamente en el búfer de entrada de la consola.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 BOOL WINAPI WriteConsoleInput(
-  _In_        HANDLE       hConsoleInput,
-  _In_  const INPUT_RECORD *lpBuffer,
-  _In_        DWORD        nLength,
-  _Out_       LPDWORD      lpNumberOfEventsWritten
+  _In_        HANDLE       hConsoleInput,
+  _In_  const INPUT_RECORD *lpBuffer,
+  _In_        DWORD        nLength,
+  _Out_       LPDWORD      lpNumberOfEventsWritten
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *hConsoleInput* \[ de\]  
-Identificador para el búfer de entrada de la consola. El identificador debe tener el derecho de acceso de ** \_ escritura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
+Identificador para el búfer de entrada de la consola. El identificador debe tener el derecho de acceso de **\_ escritura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
 
 *lpBuffer* \[ de\]  
 Puntero a una matriz de estructuras [**de \_ registros de entrada**](input-record-str.md) que contienen datos que se van a escribir en el búfer de entrada.
@@ -75,66 +74,33 @@ El número de registros de entrada que se van a escribir.
 *lpNumberOfEventsWritten* \[ enuncia\]  
 Puntero a una variable que recibe el número de registros de entrada escritos realmente.
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
 
 Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
 **WriteConsoleInput** coloca los registros de entrada en el búfer de entrada detrás de los eventos pendientes en el búfer. El búfer de entrada crece dinámicamente, si es necesario, para contener tantos eventos como se escriban.
 
-Esta función usa caracteres Unicode o caracteres de 8 bits de la página de códigos actual de la consola. La página de códigos de la consola tiene como valor predeterminado la página de códigos OEM del sistema. Para cambiar la página de códigos de la consola, use las funciones [**SetConsoleCP**](setconsolecp.md) o [**SetConsoleOutputCP**](setconsoleoutputcp.md) , o bien use los comandos **chcp** o **mode con CP Select =** .
+[!INCLUDE [setting-codepage-mode-remarks](./includes/setting-codepage-mode-remarks.md)]
 
-<a name="requirements"></a>Requisitos
-------------
+> [!TIP]
+> No se recomienda esta API y no tiene un **[terminal virtual](console-virtual-terminal-sequences.md)** equivalente. Esta decisión alinea intencionadamente la plataforma de Windows con otros sistemas operativos. Esta operación se considera el **[verbo equivocado](console-buffer-security-and-access-rights.md#wrong-way-verbs)** para este búfer. Es posible que las aplicaciones remotas mediante utilidades y transportes multiplataforma como SSH no funcionen según lo esperado si se usa esta API.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows 2000 Professional [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows 2000 Server [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi2. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-<td><p>Nombres Unicode y ANSI</p></td>
-<td><p><strong>WriteConsoleInputW</strong> (Unicode) y <strong>WriteConsoleInputA</strong> (ANSI)</p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requisitos
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
+| Nombres Unicode y ANSI | **WriteConsoleInputW** (Unicode) y **WriteConsoleInputA** (ANSI) |
 
+## <a name="see-also"></a>Consulte también
 
 [Funciones de la consola](console-functions.md)
 
@@ -146,18 +112,10 @@ Esta función usa caracteres Unicode o caracteres de 8 bits de la página de có
 
 [**PeekConsoleInput**](peekconsoleinput.md)
 
-[**ReadConsoleInput**](readconsoleinput.md)
+[**PeekConsoleInput**](readconsoleinput.md)
 
 [**SetConsoleCP**](setconsolecp.md)
 
 [**SetConsoleOutputCP**](setconsoleoutputcp.md)
 
 [**VkKeyScan**](https://msdn.microsoft.com/library/windows/desktop/ms646329)
-
- 
-
- 
-
-
-
-

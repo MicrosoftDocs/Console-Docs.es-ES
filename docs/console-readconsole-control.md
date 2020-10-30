@@ -24,23 +24,21 @@ topic_type:
 api_name:
 - CONSOLE_READCONSOLE_CONTROL
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 4fc6af26cd540a7af207af252963c21ba216cdee
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 8a703a1eaa370e16095e1b10eb146a0718f332e9
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060844"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039193"
 ---
 # <a name="console_readconsole_control-structure"></a>\_Estructura del control READCONSOLE de consola \_
 
-
 Contiene información para una operación de lectura de la consola.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 typedef struct _CONSOLE_READCONSOLE_CONTROL {
@@ -51,8 +49,7 @@ typedef struct _CONSOLE_READCONSOLE_CONTROL {
 } CONSOLE_READCONSOLE_CONTROL, *PCONSOLE_READCONSOLE_CONTROL;
 ```
 
-<a name="members"></a>Miembros
--------
+## <a name="members"></a>Miembros
 
 **nLength**  
 Tamaño de la estructura. Establezca este miembro en `sizeof(CONSOLE_READCONSOLE_CONTROL)` .
@@ -61,120 +58,31 @@ Tamaño de la estructura. Establezca este miembro en `sizeof(CONSOLE_READCONSOLE
 Número de caracteres que se van a omitir (y, por tanto, conservar) antes de escribir la entrada recién leída en el búfer pasado a la función [**ReadConsole**](readconsole.md) . Este valor debe ser menor que el parámetro *nNumberOfCharsToRead* de la función **ReadConsole** .
 
 **dwCtrlWakeupMask**  
-Un carácter de control definido por el usuario que se usa para indicar que la lectura ha finalizado.
+Máscara que especifica los caracteres de control entre `0x00` y que `0x1F` deben usarse para indicar que la lectura ha finalizado. Cada bit corresponde a un carácter con el bit menos significativo correspondiente a `0x00` o `NUL` y el bit más significativo correspondiente a `0x1F` o `US` . Se pueden especificar varios bits (caracteres de control).
 
 **dwControlKeyState**  
 Estado de las teclas de control. Este miembro puede ser uno o varios de los valores siguientes.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Valor</th>
-<th>Significado</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="CAPSLOCK_ON"></span><span id="capslock_on"></span>
-<strong>CAPSLOCK_ON</strong> 0x0080</td>
-<td><p>La luz de Bloq Mayús está activada.</p></td>
-</tr>
-<tr class="even">
-<td><span id="ENHANCED_KEY"></span><span id="enhanced_key"></span>
-<strong>ENHANCED_KEY</strong> 0x0100</td>
-<td><p>La clave se ha mejorado.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="LEFT_ALT_PRESSED"></span><span id="left_alt_pressed"></span>
-<strong>LEFT_ALT_PRESSED</strong> 0x0002</td>
-<td><p>Se presiona la tecla ALT izquierda.</p></td>
-</tr>
-<tr class="even">
-<td><span id="LEFT_CTRL_PRESSED"></span><span id="left_ctrl_pressed"></span>
-<strong>LEFT_CTRL_PRESSED</strong> 0x0008</td>
-<td><p>Se presiona la tecla CTRL izquierda.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="NUMLOCK_ON"></span><span id="numlock_on"></span>
-<strong>NUMLOCK_ON</strong> 0x0020</td>
-<td><p>La luz BLOQ NUM está activada.</p></td>
-</tr>
-<tr class="even">
-<td><span id="RIGHT_ALT_PRESSED"></span><span id="right_alt_pressed"></span>
-<strong>RIGHT_ALT_PRESSED</strong> 0x0001</td>
-<td><p>Se presiona la tecla ALT derecha.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="RIGHT_CTRL_PRESSED"></span><span id="right_ctrl_pressed"></span>
-<strong>RIGHT_CTRL_PRESSED</strong> 0x0004</td>
-<td><p>Se presiona la tecla CTRL derecha.</p></td>
-</tr>
-<tr class="even">
-<td><span id="SCROLLLOCK_ON"></span><span id="scrolllock_on"></span>
-<strong>SCROLLLOCK_ON</strong> 0x0040</td>
-<td><p>La luz de Bloq Despl está activada.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="SHIFT_PRESSED"></span><span id="shift_pressed"></span>
-<strong>SHIFT_PRESSED</strong> 0x0010</td>
-<td><p>Se presiona la tecla Mayús.</p></td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| Valor | Significado |
+|-|-|
+| **CAPSLOCK_ON** 0x0080 | La luz de Bloq Mayús está activada. |
+| **ENHANCED_KEY** 0x0100 | La clave se ha mejorado. Vea la [sección Comentarios](key-event-record-str.md#remarks). |
+| **LEFT_ALT_PRESSED** 0x0002 | Se presiona la tecla ALT izquierda. |
+| **LEFT_CTRL_PRESSED** 0x0008 | Se presiona la tecla CTRL izquierda. |
+| **NUMLOCK_ON** 0x0020 | La luz BLOQ NUM está activada. |
+| **RIGHT_ALT_PRESSED** 0x0001 | Se presiona la tecla ALT derecha. |
+| **RIGHT_CTRL_PRESSED** 0x0004 | Se presiona la tecla CTRL derecha. |
+| **SCROLLLOCK_ON** 0x0040 | La luz de Bloq Despl está activada. |
+| **SHIFT_PRESSED** 0x0010 | Se presiona la tecla Mayús. |
 
- 
+## <a name="requirements"></a>Requisitos
 
-<a name="requirements"></a>Requisitos
-------------
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows Vista \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2008 \[\] |
+| Encabezado | ConsoleApi. h (a través de WinCon. h, include Windows. h) |
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows Vista [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows Server 2008 [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-</tbody>
-</table>
-
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
-
+## <a name="see-also"></a>Consulte también
 
 [**ReadConsole**](readconsole.md)
-
- 
-
- 
-
-
-
-

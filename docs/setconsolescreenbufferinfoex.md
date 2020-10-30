@@ -27,95 +27,61 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 403ce6c3625aacdcc8b2eb498e7df1715d1e6b94
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 4a83c91a60a26d8e962efdf10b127e97beb70a7f
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89061067"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039353"
 ---
 # <a name="setconsolescreenbufferinfoex-function"></a>SetConsoleScreenBufferInfoEx función)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Establece la información extendida sobre el búfer de pantalla especificado.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 BOOL WINAPI SetConsoleScreenBufferInfoEx(
-  _In_ HANDLE                        hConsoleOutput,
-  _In_ PCONSOLE_SCREEN_BUFFER_INFOEX lpConsoleScreenBufferInfoEx
+  _In_ HANDLE                        hConsoleOutput,
+  _In_ PCONSOLE_SCREEN_BUFFER_INFOEX lpConsoleScreenBufferInfoEx
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *hConsoleOutput* \[ de\]  
-Identificador del búfer de pantalla de la consola. El identificador debe tener el derecho de acceso de ** \_ escritura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
+Identificador del búfer de pantalla de la consola. El identificador debe tener el derecho de acceso de **\_ escritura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
 
 *lpConsoleScreenBufferInfoEx* \[ de\]  
 Una [**estructura \_ \_ \_ INFOEX de búfer de pantalla**](console-screen-buffer-infoex.md) de la consola que contiene la información del búfer de pantalla de la consola.
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
 
 Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="requirements"></a>Requisitos
-------------
+## <a name="remarks"></a>Comentarios
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows Vista [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows Server 2008 [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi2. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+> [!TIP]
+> Esta API tiene un equivalente de **[terminal virtual](console-virtual-terminal-sequences.md)** parcial. El **[búfer de posición del cursor](console-virtual-terminal-sequences.md#cursor-positioning)** y **[los atributos de texto](console-virtual-terminal-sequences.md#text-formatting)** tienen equivalentes de secuencia específicos. La tabla de colores no es configurable, pero los **[colores extendidos](console-virtual-terminal-sequences.md#extended-colors)** están disponibles más allá de lo que suele estar disponible a través de **[las funciones](console-functions.md)** de la consola. Los atributos emergentes no tienen ningún equivalente en los menús emergentes es responsabilidad de la aplicación cliente de línea de comandos en el mundo de **terminal virtual** . Por último, el tamaño de la ventana y el estado de la pantalla completa se consideran los privilegios que posee el usuario en el mundo del **terminal virtual** y no tienen ninguna secuencia equivalente.
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
+## <a name="requirements"></a>Requisitos
 
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows Vista \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2008 \[\] |
+| Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
+
+## <a name="see-also"></a>Consulte también
 
 [Funciones de la consola](console-functions.md)
 
 [**búfer de pantalla de la consola \_ \_ \_ INFOEX**](console-screen-buffer-infoex.md)
 
 [**GetConsoleScreenBufferInfoEx**](getconsolescreenbufferinfoex.md)
-
- 
-
- 
-
-
-
-

@@ -25,23 +25,23 @@ topic_type:
 api_name:
 - MENU_EVENT_RECORD
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 8bbfbf6ad8bd885d69ce08e94dfced93b0bd3257
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: dfca825c03dbf0e63041e68adc5e43f2ca0ef669
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060613"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039523"
 ---
 # <a name="menu_event_record-structure"></a>Estructura de registros de \_ eventos de menú \_
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
-Describe un evento de menú en una estructura de [** \_ registro de entrada**](input-record-str.md) de la consola. Estos eventos se usan internamente y deben omitirse.
+Describe un evento de menú en una estructura de [**\_ registro de entrada**](input-record-str.md) de la consola. Estos eventos se usan internamente y deben omitirse.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 typedef struct _MENU_EVENT_RECORD {
@@ -49,45 +49,19 @@ typedef struct _MENU_EVENT_RECORD {
 } MENU_EVENT_RECORD, *PMENU_EVENT_RECORD;
 ```
 
-<a name="members"></a>Miembros
--------
+## <a name="members"></a>Miembros
 
 **dwCommandId**  
 Reservado.
 
-<a name="requirements"></a>Requisitos
-------------
+## <a name="requirements"></a>Requisitos
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows 2000 Professional [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows 2000 Server [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>WinConTypes. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Encabezado | WinConTypes. h (a través de WinCon. h, include Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
-
+## <a name="see-also"></a>Consulte también
 
 [**registro de entrada \_**](input-record-str.md)
-
- 
-
- 
-
-
-
-

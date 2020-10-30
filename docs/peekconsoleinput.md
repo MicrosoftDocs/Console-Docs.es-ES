@@ -38,35 +38,32 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: c74df91f3b70827cd0c5410d01b2a165694909f9
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 9052f15b36e16dd2ddf7fe46d3d201aa21403f91
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060596"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039503"
 ---
 # <a name="peekconsoleinput-function"></a>PeekConsoleInput función)
 
-
 Lee datos del búfer de entrada de la consola especificado sin quitarlo del búfer.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 BOOL WINAPI PeekConsoleInput(
-  _In_  HANDLE        hConsoleInput,
-  _Out_ PINPUT_RECORD lpBuffer,
-  _In_  DWORD         nLength,
-  _Out_ LPDWORD       lpNumberOfEventsRead
+  _In_  HANDLE        hConsoleInput,
+  _Out_ PINPUT_RECORD lpBuffer,
+  _In_  DWORD         nLength,
+  _Out_ LPDWORD       lpNumberOfEventsRead
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *hConsoleInput* \[ de\]  
-Identificador para el búfer de entrada de la consola. El identificador debe tener el derecho de acceso de ** \_ lectura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
+Identificador para el búfer de entrada de la consola. El identificador debe tener el derecho de acceso de **\_ lectura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
 
 *lpBuffer* \[ enuncia\]  
 Puntero a una matriz de estructuras [**de \_ registros de entrada**](input-record-str.md) que recibe los datos del búfer de entrada.
@@ -77,70 +74,34 @@ Tamaño de la matriz a la que apunta el parámetro *lpBuffer* , en elementos de 
 *lpNumberOfEventsRead* \[ enuncia\]  
 Puntero a una variable que recibe el número de registros de entrada leídos.
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
 
 Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
 Si el número de registros solicitado supera el número de registros disponibles en el búfer, se lee el número disponible. Si no hay datos disponibles, la función se devuelve inmediatamente.
 
-Esta función usa caracteres Unicode o caracteres de 8 bits de la página de códigos actual de la consola. La página de códigos de la consola tiene como valor predeterminado la página de códigos OEM del sistema. Para cambiar la página de códigos de la consola, use las funciones [**SetConsoleCP**](setconsolecp.md) o [**SetConsoleOutputCP**](setconsoleoutputcp.md) , o bien use los comandos **chcp** o **mode con CP Select =** .
+[!INCLUDE [setting-codepage-mode-remarks](./includes/setting-codepage-mode-remarks.md)]
 
-<a name="requirements"></a>Requisitos
-------------
+## <a name="requirements"></a>Requisitos
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows 2000 Professional [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows 2000 Server [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-<td><p>Nombres Unicode y ANSI</p></td>
-<td><p><strong>PeekConsoleInputW</strong> (Unicode) y <strong>PeekConsoleInputA</strong> (ANSI)</p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Encabezado | ConsoleApi. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
+| Nombres Unicode y ANSI | **PeekConsoleInputW** (Unicode) y **PeekConsoleInputA** (ANSI) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
-
+## <a name="see-also"></a>Consulte también
 
 [Funciones de la consola](console-functions.md)
 
-[**ReadConsoleInput**](readconsoleinput.md)
+[**PeekConsoleInput**](readconsoleinput.md)
 
 [**SetConsoleCP**](setconsolecp.md)
 
@@ -149,11 +110,3 @@ Esta función usa caracteres Unicode o caracteres de 8 bits de la página de có
 [**WriteConsoleInput**](writeconsoleinput.md)
 
 [**registro de entrada \_**](input-record-str.md)
-
- 
-
- 
-
-
-
-

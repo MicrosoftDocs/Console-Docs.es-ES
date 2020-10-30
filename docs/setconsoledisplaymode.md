@@ -24,31 +24,30 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 0d4564b9a7562fb495c9834df98708d5faff5334
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 52d7e50d7ced5615cb296c0590876e4604057e42
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060857"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039393"
 ---
 # <a name="setconsoledisplaymode-function"></a>SetConsoleDisplayMode función)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Establece el modo de presentación del búfer de pantalla de la consola especificado.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 BOOL WINAPI SetConsoleDisplayMode(
-  _In_      HANDLE hConsoleOutput,
-  _In_      DWORD  dwFlags,
-  _Out_opt_ PCOORD lpNewScreenBufferDimensions
+  _In_      HANDLE hConsoleOutput,
+  _In_      DWORD  dwFlags,
+  _Out_opt_ PCOORD lpNewScreenBufferDimensions
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *hConsoleOutput* \[ de\]  
 Identificador del búfer de pantalla de la consola.
@@ -56,94 +55,38 @@ Identificador del búfer de pantalla de la consola.
 *dwFlags* \[ de\]  
 Modo de presentación de la consola. Este parámetro puede ser uno o varios de los valores siguientes.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Valor</th>
-<th>Significado</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="CONSOLE_FULLSCREEN_MODE"></span><span id="console_fullscreen_mode"></span>
-<strong>CONSOLE_FULLSCREEN_MODE</strong> 1</td>
-<td><p>El texto se muestra en el modo de pantalla completa.</p></td>
-</tr>
-<tr class="even">
-<td><span id="CONSOLE_WINDOWED_MODE"></span><span id="console_windowed_mode"></span>
-<strong>CONSOLE_WINDOWED_MODE</strong> 2</td>
-<td><p>El texto se muestra en una ventana de la consola.</p></td>
-</tr>
-</tbody>
-</table>
-
- 
+| Valor | Significado |
+|-|-|
+| **CONSOLE_FULLSCREEN_MODE** 1 | El texto se muestra en el modo de pantalla completa. |
+| **CONSOLE_WINDOWED_MODE** 2 | El texto se muestra en una ventana de la consola. |
 
 *lpNewScreenBufferDimensions* \[ out, opcional\]  
 Puntero a una estructura de [**coordenadas**](coord-str.md) que recibe las nuevas dimensiones del búfer de pantalla, en caracteres.
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
 
 Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="requirements"></a>Requisitos
-------------
+## <a name="remarks"></a>Observaciones
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows XP [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows Server 2003 [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi3. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+[!INCLUDE [no-vt-equiv-user-priv](./includes/no-vt-equiv-user-priv.md)]
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
+## <a name="requirements"></a>Requisitos
 
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows XP \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2003 \[\] |
+| Encabezado | ConsoleApi3. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
+
+## <a name="see-also"></a>Consulte también
 
 [Funciones de la consola](console-functions.md)
 
 [Modos de consola](console-modes.md)
 
 [**GetConsoleDisplayMode**](getconsoledisplaymode.md)
-
- 
-
- 
-
-
-
-

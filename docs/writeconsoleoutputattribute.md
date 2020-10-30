@@ -28,39 +28,38 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: e7c684b2f450713eaa78730676a0148e9b090c79
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 04c7799cd98479d3b776b1933994b60f5ed9fc9f
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89061049"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039283"
 ---
 # <a name="writeconsoleoutputattribute-function"></a>WriteConsoleOutputAttribute función)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Copia un número de atributos de carácter en celdas consecutivas de un búfer de pantalla de la consola, comenzando en una ubicación especificada.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 BOOL WINAPI WriteConsoleOutputAttribute(
-  _In_        HANDLE  hConsoleOutput,
-  _In_  const WORD    *lpAttribute,
-  _In_        DWORD   nLength,
-  _In_        COORD   dwWriteCoord,
-  _Out_       LPDWORD lpNumberOfAttrsWritten
+  _In_        HANDLE  hConsoleOutput,
+  _In_  const WORD    *lpAttribute,
+  _In_        DWORD   nLength,
+  _In_        COORD   dwWriteCoord,
+  _Out_       LPDWORD lpNumberOfAttrsWritten
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *hConsoleOutput* \[ de\]  
-Identificador del búfer de pantalla de la consola. El identificador debe tener el derecho de acceso de ** \_ escritura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
+Identificador del búfer de pantalla de la consola. El identificador debe tener el derecho de acceso de **\_ escritura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
 
 *lpAttribute* \[ de\]  
-Atributos que se van a usar al escribir en el búfer de pantalla de la consola. Para obtener más información, vea [atributos de caracteres](console-screen-buffers.md#_win32_font_attributes).
+Atributos que se van a usar al escribir en el búfer de pantalla de la consola. Para obtener más información, vea [atributos de caracteres](console-screen-buffers.md#character-attributes).
 
 *nLength* \[ de\]  
 El número de celdas de caracteres del búfer de pantalla en las que se copiarán los atributos.
@@ -71,60 +70,32 @@ Estructura de [**coordenadas**](coord-str.md) que especifica las coordenadas de 
 *lpNumberOfAttrsWritten* \[ enuncia\]  
 Puntero a una variable que recibe el número de atributos escritos realmente en el búfer de pantalla de la consola.
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
 
 Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
 Si el número de atributos que se va a escribir se extiende más allá del final de la fila especificada en el búfer de pantalla de la consola, los atributos se escriben en la fila siguiente. Si el número de atributos que se va a escribir se extiende más allá del final del búfer de pantalla de la consola, los atributos se escriben hasta el final del búfer de pantalla de la consola.
 
 Los valores de caracteres en las posiciones escritas en no cambian.
 
-<a name="requirements"></a>Requisitos
-------------
+> [!TIP]
+> Esta API tiene un **[terminal virtual](console-virtual-terminal-sequences.md)** equivalente en las secuencias de **[formato de texto](console-virtual-terminal-sequences.md#text-formatting)** y **[posición del cursor](console-virtual-terminal-sequences.md#cursor-positioning)** . Mueva el cursor a la ubicación que se va a insertar, aplique el formato deseado y escriba el texto para rellenar. No hay ningún equivalente para aplicar color a un área sin emitir también texto. Esta decisión alinea intencionadamente la plataforma de Windows con otros sistemas operativos en los que se espera que la aplicación cliente individual Recuerde su propio estado dibujado para su posterior manipulación.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows 2000 Professional [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows 2000 Server [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi2. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requisitos
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
 
+## <a name="see-also"></a>Consulte también
 
 [Funciones de la consola](console-functions.md)
 
@@ -141,11 +112,3 @@ Los valores de caracteres en las posiciones escritas en no cambian.
 [**WriteConsoleOutput**](writeconsoleoutput.md)
 
 [**WriteConsoleOutputCharacter**](writeconsoleoutputcharacter.md)
-
- 
-
- 
-
-
-
-

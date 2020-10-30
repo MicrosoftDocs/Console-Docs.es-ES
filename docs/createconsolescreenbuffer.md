@@ -28,33 +28,32 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 289908708fb1c89c3ec3d990c9e8bf2649914a1b
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 0b8f5b33233f49167c67a47f33e5a95b8864f7bd
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060773"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039140"
 ---
 # <a name="createconsolescreenbuffer-function"></a>CreateConsoleScreenBuffer función)
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Crea un búfer de pantalla de la consola.
 
-<a name="syntax"></a>Sintaxis
-------
+## <a name="syntax"></a>Sintaxis
 
 ```C
 HANDLE WINAPI CreateConsoleScreenBuffer(
-  _In_             DWORD               dwDesiredAccess,
-  _In_             DWORD               dwShareMode,
-  _In_opt_   const SECURITY_ATTRIBUTES *lpSecurityAttributes,
-  _In_             DWORD               dwFlags,
-  _Reserved_       LPVOID              lpScreenBufferData
+  _In_             DWORD               dwDesiredAccess,
+  _In_             DWORD               dwShareMode,
+  _In_opt_   const SECURITY_ATTRIBUTES *lpSecurityAttributes,
+  _In_             DWORD               dwFlags,
+  _Reserved_       LPVOID              lpScreenBufferData
 );
 ```
 
-<a name="parameters"></a>Parámetros
-----------
+## <a name="parameters"></a>Parámetros
 
 *dwDesiredAccess* \[ de\]  
 El acceso al búfer de pantalla de la consola. Para obtener una lista de derechos de acceso, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
@@ -62,58 +61,35 @@ El acceso al búfer de pantalla de la consola. Para obtener una lista de derecho
 *dwShareMode* \[ de\]  
 Este parámetro puede ser cero, lo que indica que no se puede compartir el búfer o puede ser uno o varios de los valores siguientes.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Valor</th>
-<th>Significado</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="FILE_SHARE_READ"></span><span id="file_share_read"></span>
-<strong>FILE_SHARE_READ</strong> 0x00000001</td>
-<td><p>Se pueden realizar otras operaciones de apertura en el búfer de pantalla de la consola para tener acceso de lectura.</p></td>
-</tr>
-<tr class="even">
-<td><span id="FILE_SHARE_WRITE"></span><span id="file_share_write"></span>
-<strong>FILE_SHARE_WRITE</strong> 0x00000002</td>
-<td><p>Se pueden realizar otras operaciones de apertura en el búfer de pantalla de la consola para el acceso de escritura.</p></td>
-</tr>
-</tbody>
-</table>
-
- 
+| Valor | Significado |
+|-|-|
+| **FILE_SHARE_READ** 0x00000001 | Se pueden realizar otras operaciones de apertura en el búfer de pantalla de la consola para tener acceso de lectura. |
+| **FILE_SHARE_WRITE** 0x00000002 | Se pueden realizar otras operaciones de apertura en el búfer de pantalla de la consola para el acceso de escritura. |
 
 *lpSecurityAttributes* \[ en, opcional\]  
-Puntero a una estructura [**de \_ atributos de seguridad**](https://msdn.microsoft.com/library/windows/desktop/aa379560) que determina si los procesos secundarios pueden heredar el identificador devuelto. Si *lpSecurityAttributes* es **null**, el identificador no se puede heredar. El miembro **lpSecurityDescriptor** de la estructura especifica un descriptor de seguridad para el nuevo búfer de pantalla de la consola. Si *lpSecurityAttributes* es **null**, el búfer de pantalla de la consola obtiene un descriptor de seguridad predeterminado. Las ACL del descriptor de seguridad predeterminado para un búfer de pantalla de la consola proceden del token principal o de suplantación del creador.
+Puntero a una estructura [**de \_ atributos de seguridad**](https://msdn.microsoft.com/library/windows/desktop/aa379560) que determina si los procesos secundarios pueden heredar el identificador devuelto. Si *lpSecurityAttributes* es **null** , el identificador no se puede heredar. El miembro **lpSecurityDescriptor** de la estructura especifica un descriptor de seguridad para el nuevo búfer de pantalla de la consola. Si *lpSecurityAttributes* es **null** , el búfer de pantalla de la consola obtiene un descriptor de seguridad predeterminado. Las ACL del descriptor de seguridad predeterminado para un búfer de pantalla de la consola proceden del token principal o de suplantación del creador.
 
 *dwFlags* \[ de\]  
-El tipo de búfer de pantalla de la consola que se va a crear. El único tipo de búfer de pantalla compatible es el ** \_ \_ búfer TEXTMODE**de la consola.
+El tipo de búfer de pantalla de la consola que se va a crear. El único tipo de búfer de pantalla compatible es el **\_ \_ búfer TEXTMODE** de la consola.
 
-*lpScreenBufferData*   
-Sector debe ser **null**.
+*lpScreenBufferData*  
+Sector debe ser **null** .
 
-<a name="return-value"></a>Valor devuelto
-------------
+## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es un identificador del nuevo búfer de pantalla de la consola.
 
-Si se produce un error en la función, el valor devuelto es un ** \_ \_ valor de identificador no válido**. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si se produce un error en la función, el valor devuelto es un **\_ \_ valor de identificador no válido** . Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Observaciones
--------
+## <a name="remarks"></a>Comentarios
 
 Una consola de puede tener varios búferes de pantalla, pero solo un búfer de pantalla activo. Se puede tener acceso a los búferes de pantalla inactivos para lectura y escritura, pero solo se muestra el búfer de pantalla activo. Para convertir el nuevo búfer de pantalla en el búfer de pantalla activo, utilice la función [**SetConsoleActiveScreenBuffer**](setconsoleactivescreenbuffer.md) .
 
 El búfer de pantalla recién creado copiará algunas propiedades del búfer de pantalla activo en el momento en que se llama a esta función. El comportamiento es el siguiente:
+
 - `Font` -copiado del búfer de pantalla activo
 - `Display Window Size` -copiado del búfer de pantalla activo
-- `Buffer Size` -coincide con `Display Window Size` (**no** copiado)
+- `Buffer Size` -coincide con `Display Window Size` ( **no** copiado)
 - `Default Attributes` (colores): copiado del búfer de pantalla activo
 - `Default Popup Attributes` (colores): copiado del búfer de pantalla activo
 
@@ -123,51 +99,23 @@ El proceso de llamada puede usar la función [**DuplicateHandle**](https://msdn.
 
 Para cerrar el identificador de búfer de pantalla de la consola, use la función [**CloseHandle**](https://msdn.microsoft.com/library/windows/desktop/ms724211) .
 
-<a name="examples"></a>Ejemplos
---------
+[!INCLUDE [no-vt-equiv-alt-buf](./includes/no-vt-equiv-alt-buf.md)]
+
+## <a name="examples"></a>Ejemplos
 
 Para obtener un ejemplo, vea [lectura y escritura de bloques de caracteres y atributos](reading-and-writing-blocks-of-characters-and-attributes.md).
 
-<a name="requirements"></a>Requisitos
-------------
+## <a name="requirements"></a>Requisitos
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Cliente mínimo compatible</p></td>
-<td><p>Windows 2000 Professional [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="even">
-<td><p>Servidor mínimo compatible</p></td>
-<td><p>Windows 2000 Server [solo aplicaciones de escritorio]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Encabezado</p></td>
-<td>ConsoleApi2. h (a través de winCon. h, include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Biblioteca</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>Archivo DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
+| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
+| Biblioteca | Kernel32. lib |
+| Archivo DLL | Kernel32.dll |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Vea también
-
+## <a name="see-also"></a>Consulte también
 
 [Funciones de la consola](console-functions.md)
 
@@ -184,11 +132,3 @@ Para obtener un ejemplo, vea [lectura y escritura de bloques de caracteres y atr
 [**SetConsoleActiveScreenBuffer**](setconsoleactivescreenbuffer.md)
 
 [**SetConsoleScreenBufferSize**](setconsolescreenbuffersize.md)
-
- 
-
- 
-
-
-
-
