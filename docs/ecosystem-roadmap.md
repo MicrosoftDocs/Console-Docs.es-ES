@@ -1,19 +1,20 @@
 ---
-title: Guía básica de la consola de Windows y del ecosistema de terminal
+title: Hoja de ruta de la consola de Windows y del ecosistema de terminal
 description: Proporciona una vista de alto nivel de las interacciones entre y los planes para el host de consola de Windows, las API de consola, el subsistema de consola y el producto de terminal.
 author: miniksa
 ms.author: miniksa
 ms.topic: conceptual
 keywords: consola, terminal, terminal virtual, host de consola, línea de comandos, subsistema, guía básica, ecosistema
 ms.prod: console
-ms.openlocfilehash: e47b72a6f66e54b5f2904770f7c1a87e08d927e2
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: e5d28a06789f230943d70a49e7c89642b17fdb5c
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039629"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420264"
 ---
-# <a name="windows-console-and-terminal-ecosystem-roadmap"></a>Guía básica de la consola de Windows y del ecosistema de terminal
+# <a name="windows-console-and-terminal-ecosystem-roadmap"></a>Hoja de ruta de la consola de Windows y del ecosistema de terminal
 
 Este documento es una guía básica de alto nivel de la consola de Windows y productos de Windows terminal. Abarca:
 
@@ -34,7 +35,7 @@ La arquitectura general del sistema se encuentra en cuatro partes: cliente, disp
 
 ![Origen del gráfico de flujo de comunicación de línea de comandos en destino que se ejecuta desde el cliente al dispositivo al servidor Terminal Server](images/command-line-communication.png)
 
-### <a name="client"></a>Cliente
+### <a name="client"></a>Remoto
 
 El cliente es una aplicación de línea de comandos que usa una interfaz basada en texto para que el usuario pueda escribir comandos (en lugar de una interfaz de usuario basada en el mouse) y devolver una representación de texto del resultado. En Windows, la API de la consola proporciona una capa de comunicaciones entre el cliente y el dispositivo. (Esto también puede ser un controlador de consola estándar con las API de control de dispositivos).
 
@@ -42,7 +43,7 @@ El cliente es una aplicación de línea de comandos que usa una interfaz basada 
 
 El dispositivo es un nivel intermedio de comunicaciones de control de mensajes entre dos procesos, el cliente y el servidor. En Windows, este es el controlador de consola. En otras plataformas, es el dispositivo TTY o PTY. Se pueden usar otros dispositivos como archivos, canalizaciones y Sockets como este canal de comunicación si toda la transacción está en texto sin formato o contiene [secuencias de terminales virtuales](console-virtual-terminal-sequences.md), pero no con las API de la [consola de Windows](console-functions.md).
 
-### <a name="server"></a>Servidor
+### <a name="server"></a>Server
 
 El servidor interpreta las llamadas o mensajes de API solicitados del cliente. En Windows en el modo operativo clásico, el servidor también crea una interfaz de usuario para presentar el resultado en la pantalla. Además, el servidor recopila entradas para devolverlos en los mensajes de respuesta al cliente, a través del controlador, como un paquete de terminal incluido en el mismo módulo. Con el modo [pseudoconsole](pseudoconsoles.md) , en su lugar solo es un traductor para presentar esta información en [secuencias de terminal virtuales](console-virtual-terminal-sequences.md) en un terminal conectado.
 

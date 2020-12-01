@@ -6,12 +6,13 @@ ms.author: miniksa
 ms.topic: conceptual
 ms.prod: console
 keywords: consola, aplicaciones de modo de carácter, aplicaciones de línea de comandos, aplicaciones de terminal, API de consola, conpty, pseudoconsole, Windows PTY, pseudo Console
-ms.openlocfilehash: 17b53bc2f0afb60be1a8311de9ab54b00fbf71d6
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 8cd057d3e74659fdeff6c569ddb053c881af1de8
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039113"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420234"
 ---
 # <a name="creating-a-pseudoconsole-session"></a>Creación de una sesión de Pseudoconsole
 
@@ -81,7 +82,7 @@ HRESULT SetUpPseudoConsole(COORD size)
 ```
 
 > [!NOTE]
->Este fragmento de código está incompleto y se usa solo para la demostración de esta llamada específica. Deberá administrar la duración del **identificador** de forma adecuada. Si no se puede administrar correctamente la duración de los **Controladores** , se pueden producir escenarios de interbloqueo, especialmente con llamadas de e/s sincrónicas.
+>Este fragmento de código está incompleto y se usa solo para la demostración de esta llamada específica. Deberá administrar la duración del **identificador** de forma adecuada. Si no se puede administrar correctamente la duración de los **Controladores**, se pueden producir escenarios de interbloqueo, especialmente con llamadas de e/s sincrónicas.
 
 Tras la finalización de la llamada [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) para crear la aplicación de modo de caracteres de cliente conectada a pseudoconsole, los identificadores proporcionados durante la creación se deben liberar de este proceso. Esto reducirá el recuento de referencias en el objeto de dispositivo subyacente y permitirá a las operaciones de e/s detectar correctamente un canal roto cuando la sesión pseudoconsole cierre su copia de los identificadores.
 
@@ -93,7 +94,7 @@ Esta estructura contiene la capacidad de proporcionar información de inicio com
 
 Use [**InitializeProcThreadAttributeList**](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-initializeprocthreadattributelist) en un modo de doble llamada para calcular primero el número de bytes necesarios para contener la lista, asignar la memoria solicitada y, a continuación, llamar de nuevo al puntero de memoria opaca para que se configure como la lista de atributos.
 
-A continuación, llame a [**UpdateProcThreadAttribute**](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-updateprocthreadattribute) pasando la lista de atributos inicializada con la marca **PROC_THREAD_ATTRIBUTE_PSEUDOCONSOLE** , el identificador PSEUDOCONSOLE y el tamaño del identificador PSEUDOCONSOLE.
+A continuación, llame a [**UpdateProcThreadAttribute**](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-updateprocthreadattribute) pasando la lista de atributos inicializada con la marca **PROC_THREAD_ATTRIBUTE_PSEUDOCONSOLE**, el identificador PSEUDOCONSOLE y el tamaño del identificador PSEUDOCONSOLE.
 
 ```C
 

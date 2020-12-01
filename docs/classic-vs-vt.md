@@ -6,16 +6,17 @@ ms.author: miniksa
 ms.topic: conceptual
 keywords: consola, terminal, terminal virtual, secuencias de escape, VT, VT100, API de consola
 ms.prod: console
-ms.openlocfilehash: 0fdd39cab5b8f6ca5cc1602c8e68ec7f2a2303ad
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 541300b50521909b22ceaccb595f1945fbfc7e6d
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039626"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420184"
 ---
 # <a name="classic-console-apis-versus-virtual-terminal-sequences"></a>API de consola clásica frente a secuencias de terminal virtuales
 
-Nuestra recomendación es reemplazar la API clásica de la **consola de Windows** con **secuencias de terminal virtuales** . En este artículo se describe la diferencia entre los dos y se describen las razones de nuestra recomendación.
+Nuestra recomendación es reemplazar la API clásica de la **consola de Windows** con **secuencias de terminal virtuales**. En este artículo se describe la diferencia entre los dos y se describen las razones de nuestra recomendación.
 
 ## <a name="definitions"></a>Definiciones
 
@@ -55,17 +56,17 @@ Por el contrario, otras plataformas utilizan **secuencias de terminal virtuales*
 
 ### <a name="wrong-way-verbs"></a>Wrong-Way verbos)
 
-Con la **consola de Windows** , algunas acciones se pueden realizar en la dirección opuesta a la natural en los flujos de entrada y salida. Esto permite a las aplicaciones de línea de comandos de Windows evitar el problema de administrar sus propios búferes. También permite que las aplicaciones de línea de comandos de Windows realicen operaciones avanzadas, como la simulación o inserción de entrada en nombre de un usuario, o la lectura de parte del historial de lo que se ha escrito.
+Con la **consola de Windows**, algunas acciones se pueden realizar en la dirección opuesta a la natural en los flujos de entrada y salida. Esto permite a las aplicaciones de línea de comandos de Windows evitar el problema de administrar sus propios búferes. También permite que las aplicaciones de línea de comandos de Windows realicen operaciones avanzadas, como la simulación o inserción de entrada en nombre de un usuario, o la lectura de parte del historial de lo que se ha escrito.
 
 Aunque esto proporciona una capacidad adicional para las aplicaciones de Windows que funcionan en un contexto de usuario específico en un solo equipo, también proporciona un vector para la seguridad cruzada y los niveles de privilegios o dominios cuando se usa en determinados escenarios. Estos escenarios incluyen el funcionamiento entre los contextos en el mismo equipo o entre los contextos y otro equipo o entorno.
 
-Otras plataformas, que usan **secuencias de terminales virtuales** , no permiten esta actividad. La intención de nuestra recomendación de pasar de la consola clásica de Windows a las secuencias de terminal virtuales es converger con esta estrategia por motivos de interoperabilidad y seguridad.
+Otras plataformas, que usan **secuencias de terminales virtuales**, no permiten esta actividad. La intención de nuestra recomendación de pasar de la consola clásica de Windows a las secuencias de terminal virtuales es converger con esta estrategia por motivos de interoperabilidad y seguridad.
 
 ### <a name="direct-window-access"></a>Acceso directo a ventanas
 
 La superficie de la API de la **consola de Windows** proporciona el identificador de ventana exacto para la ventana de hospedaje. Esto permite que una utilidad de línea de comandos realice operaciones de ventana avanzadas al llegar a la amplia gama de API de Win32 permitidas en un identificador de ventana. Estas API de Win32 pueden manipular el estado de la ventana, el marco, el icono u otras propiedades de la ventana.
 
-Por el contrario, en otras plataformas con **secuencias de terminal virtuales** , hay un conjunto estrecho de comandos que se pueden realizar en la ventana. Estos comandos pueden hacer cosas como cambiar el tamaño de la ventana o el título que se muestra, pero deben realizarse en la misma banda y bajo el mismo control que el resto de la secuencia.
+Por el contrario, en otras plataformas con **secuencias de terminal virtuales**, hay un conjunto estrecho de comandos que se pueden realizar en la ventana. Estos comandos pueden hacer cosas como cambiar el tamaño de la ventana o el título que se muestra, pero deben realizarse en la misma banda y bajo el mismo control que el resto de la secuencia.
 
 A medida que Windows ha evolucionado, los controles de seguridad y las restricciones en los identificadores de ventana han aumentado. Además, la naturaleza y la existencia de un identificador de ventana direccionable por la aplicación en cualquier elemento de interfaz de usuario específico ha evolucionado, especialmente con la mayor compatibilidad de los factores de forma y las plataformas de los dispositivos. Esto hace que el acceso directo a las ventanas en las aplicaciones de línea de comandos sea frágil a medida que la plataforma y las experiencias evolucionen.
 
@@ -90,9 +91,9 @@ Para el desarrollo nuevo y continuo en Windows, **se recomiendan las secuencias 
 
 **Todavía es necesario un subconjunto limitado de las API de la consola de Windows** para establecer el entorno inicial. La plataforma de Windows todavía difiere de la de otros modos de procesamiento, señalización, dispositivo y codificación:
 
-- Los identificadores estándar de un proceso se seguirán controlando con **[GetStdHandle](getstdhandle.md)** y **[SetStdHandle](setstdhandle.md)** .
+- Los identificadores estándar de un proceso se seguirán controlando con **[GetStdHandle](getstdhandle.md)** y **[SetStdHandle](setstdhandle.md)**.
 
-- La configuración de los modos de consola en un identificador para participar en la compatibilidad con la secuencia de terminal virtual se administrará con **[GetConsoleMode](getconsolemode.md)** y **[SetConsoleMode](setconsolemode.md)** .
+- La configuración de los modos de consola en un identificador para participar en la compatibilidad con la secuencia de terminal virtual se administrará con **[GetConsoleMode](getconsolemode.md)** y **[SetConsoleMode](setconsolemode.md)**.
 
 - La declaración de la compatibilidad con UTF-8 o la página de códigos se realiza con los métodos [**SetConsoleOutputCP**](setconsoleoutputcp.md) y [**SetConsoleCP**](setconsolecp.md) .
 
@@ -100,9 +101,9 @@ Para el desarrollo nuevo y continuo en Windows, **se recomiendan las secuencias 
 
 - Las señales y el control de señales se seguirán llevando a cabo con [**SetConsoleCtrlHandler**](setconsolectrlhandler.md), [**HandlerRoutine**](handlerroutine.md)y [**GenerateConsoleCtrlEvent**](generateconsolectrlevent.md).
 
-- La comunicación con los identificadores de dispositivo de la consola se puede llevar a cabo con [**WriteConsole**](writeconsole.md) y [**ReadConsole**](readconsole.md). También se pueden aprovechar a través de los tiempos de ejecución del lenguaje de programación en los formatos:-C Runtime (CRT): [e/s de secuencia](https://docs.microsoft.com/cpp/c-runtime-library/stream-i-o) como **printf** , **scanf** , **putc** , **GETC** u [otros niveles de funciones de e/s](https://docs.microsoft.com/cpp/c-runtime-library/input-and-output).
-        -Biblioteca estándar de C++ (STL): [iostream](https://docs.microsoft.com/cpp/standard-library/iostream) como **cout** y **CIN** .
-        -.NET Runtime: [System. Console](https://docs.microsoft.com/dotnet/api/system.console) como **Console. WriteLine** .
+- La comunicación con los identificadores de dispositivo de la consola se puede llevar a cabo con [**WriteConsole**](writeconsole.md) y [**ReadConsole**](readconsole.md). También se pueden aprovechar a través de los tiempos de ejecución del lenguaje de programación en los formatos:-C Runtime (CRT): [e/s de secuencia](https://docs.microsoft.com/cpp/c-runtime-library/stream-i-o) como **printf**, **scanf**, **putc**, **GETC** u [otros niveles de funciones de e/s](https://docs.microsoft.com/cpp/c-runtime-library/input-and-output).
+        -Biblioteca estándar de C++ (STL): [iostream](https://docs.microsoft.com/cpp/standard-library/iostream) como **cout** y **CIN**.
+        -.NET Runtime: [System. Console](https://docs.microsoft.com/dotnet/api/system.console) como **Console. WriteLine**.
 
 - Las aplicaciones que deben tener en cuenta los cambios de tamaño de la ventana deben seguir usando [**ReadConsoleInput**](readconsoleinput.md) para recibirlos intercalados con eventos clave, ya que **ReadConsole** solo los descartará.
 

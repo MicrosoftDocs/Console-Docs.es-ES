@@ -13,12 +13,13 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: f94995fc-5f5f-4fcd-969d-7e10020634c2
-ms.openlocfilehash: c3121a53f654bd2fa85fa140c2efc6d6217b7796
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 4c5740be3b60d54f9e7b586b41e962a4102222a0
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039173"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420204"
 ---
 # <a name="console-screen-buffers"></a>Búferes de pantalla de la consola
 
@@ -34,7 +35,7 @@ Una serie de propiedades asociadas a un búfer de pantalla se puede establecer d
 - Atributos de texto (colores de primer plano y de fondo para mostrar el texto que va a escribir la función [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) o [**WriteConsole**](writeconsole.md) ).
 - Tamaño y ubicación de la ventana (la región rectangular del búfer de pantalla de la consola que se muestra en la ventana de la consola).
 - Posición del cursor, apariencia y visibilidad.
-- Modos de salida ( **Habilitar la \_ \_ salida procesada** y **habilitar \_ Wrap en la \_ \_ \_ salida de EOL** ). Para obtener más información sobre los modos de salida de la consola, consulte [modos de consola de alto nivel](high-level-console-modes.md).
+- Modos de salida (**Habilitar la \_ \_ salida procesada** y **habilitar \_ Wrap en la \_ \_ \_ salida de EOL**). Para obtener más información sobre los modos de salida de la consola, consulte [modos de consola de alto nivel](high-level-console-modes.md).
 
 Cuando se crea un búfer de pantalla, contiene caracteres de espacio en todas las posiciones. Su cursor está visible y colocado en el origen del búfer (0,0) y la ventana se coloca con su esquina superior izquierda en el origen del búfer. El tamaño del búfer de pantalla de la consola, el tamaño de la ventana, los atributos de texto y la apariencia del cursor vienen determinados por el usuario o por los valores predeterminados del sistema. Para recuperar los valores actuales de las distintas propiedades asociadas al búfer de pantalla de la consola, use las funciones [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md), [**GetConsoleCursorInfo**](getconsolecursorinfo.md)y [**GetConsoleMode**](getconsolemode.md) .
 
@@ -100,4 +101,4 @@ La función [**GetCurrentConsoleFont**](getcurrentconsolefont.md) recupera infor
 La función [**GetConsoleFontSize**](getconsolefontsize.md) recupera el tamaño de la fuente utilizada por el búfer de pantalla de la consola especificado.
 
 > [!NOTE]
-> No se recomienda el uso de funciones para buscar y manipular la información de fuentes. Se recomienda que las aplicaciones de línea de comandos funcionen de una manera neutra para garantizar la compatibilidad entre plataformas, así como la compatibilidad con entornos de host que permiten al usuario personalizar la fuente. Más información sobre las preferencias de usuario y los entornos de host, incluidos los terminales, consulte la **[Guía del ecosistema](ecosystem-roadmap.md)** .
+> No se recomienda el uso de funciones para buscar y manipular la información de fuentes. Se recomienda que las aplicaciones de línea de comandos funcionen de una manera neutra para garantizar la compatibilidad entre plataformas, así como la compatibilidad con entornos de host que permiten al usuario personalizar la fuente. Más información sobre las preferencias de usuario y los entornos de host, incluidos los terminales, consulte la **[Guía del ecosistema](ecosystem-roadmap.md)**.

@@ -30,12 +30,13 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: e1cac9a8b2636f5272c6d1ecc358eb59f33295b5
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 42857417cedb661014de869536b798d29c9eb884
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038703"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420214"
 ---
 # <a name="getstdhandle-function"></a>GetStdHandle (función)
 
@@ -54,7 +55,7 @@ HANDLE WINAPI GetStdHandle(
 *nStdHandle* \[ de\]  
 El dispositivo estándar. Este parámetro puede ser uno de los valores siguientes.
 
-| Valor | Significado |
+| Value | Significado |
 |-|-|
 | **STD_INPUT_HANDLE** (DWORD)-10 | El dispositivo de entrada estándar. Inicialmente, es el búfer de entrada de la consola, `CONIN$` . |
 | **STD_OUTPUT_HANDLE** (DWORD)-11 | El dispositivo de salida estándar. Inicialmente, es el búfer de pantalla de la consola activo, `CONOUT$` . |
@@ -64,9 +65,9 @@ El dispositivo estándar. Este parámetro puede ser uno de los valores siguiente
 
 Si la función se ejecuta correctamente, el valor devuelto es un identificador del dispositivo especificado o un identificador Redirigido establecido por una llamada anterior a [**SetStdHandle**](setstdhandle.md). El identificador tiene derechos de acceso genéricos de **\_ lectura** y **\_ escritura** , a menos que la aplicación haya usado **SetStdHandle** para establecer un identificador estándar con un acceso inferior.
 
-Si se produce un error en la función, el valor devuelto es un **\_ \_ valor de identificador no válido** . Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si se produce un error en la función, el valor devuelto es un **\_ \_ valor de identificador no válido**. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-Si una aplicación no tiene identificadores estándar asociados, como un servicio que se ejecuta en un escritorio interactivo y no los ha redirigido, el valor devuelto es **null** .
+Si una aplicación no tiene identificadores estándar asociados, como un servicio que se ejecuta en un escritorio interactivo y no los ha redirigido, el valor devuelto es **null**.
 
 ## <a name="remarks"></a>Comentarios
 
@@ -84,7 +85,7 @@ Algunas aplicaciones también pueden variar su comportamiento en el tipo de iden
 
 Al conectarse a una nueva consola, los identificadores estándar siempre se reemplazan por identificadores de consola, a menos que se haya especificado **STARTF \_ USESTDHANDLES** durante la creación del proceso.
 
-Si el valor existente del identificador estándar es **null** , o el valor existente del identificador estándar es similar a un pseudohandle de consola, el identificador se reemplaza por un identificador de consola.
+Si el valor existente del identificador estándar es **null**, o el valor existente del identificador estándar es similar a un pseudohandle de consola, el identificador se reemplaza por un identificador de consola.
 
 Cuando un elemento primario usa **Create \_ New \_ Console** y **STARTF \_ USESTDHANDLES** para crear un proceso de consola, no se reemplazarán los identificadores estándar a menos que el valor existente del identificador estándar sea **null** o una pseudohandle de consola.
 
@@ -105,7 +106,7 @@ Para obtener un ejemplo, vea [leer eventos de búfer de entrada](reading-input-b
 | Biblioteca | Kernel32. lib |
 | Archivo DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)
 

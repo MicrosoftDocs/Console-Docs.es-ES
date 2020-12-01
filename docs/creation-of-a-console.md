@@ -13,21 +13,22 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 84ec2559-cade-447e-8594-5b824d3d3e81
-ms.openlocfilehash: 78a77044452fe2287a7cea0bfe5a6542eceef337
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 09de42ced585e4a644fbbcc04211d5cb6037c2af
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038243"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420284"
 ---
 # <a name="creation-of-a-console"></a>Creación de una consola
 
-El sistema crea una nueva consola cuando inicia un proceso de la *consola* , un proceso en modo de carácter cuyo punto de entrada es la función **principal** . Por ejemplo, el sistema crea una nueva consola cuando inicia el procesador de comandos `cmd.exe` . Cuando el procesador de comandos inicia un nuevo proceso de consola, el usuario puede especificar si el sistema crea una nueva consola para el nuevo proceso o si hereda la consola del procesador de comandos.
+El sistema crea una nueva consola cuando inicia un proceso de la *consola*, un proceso en modo de carácter cuyo punto de entrada es la función **principal** . Por ejemplo, el sistema crea una nueva consola cuando inicia el procesador de comandos `cmd.exe` . Cuando el procesador de comandos inicia un nuevo proceso de consola, el usuario puede especificar si el sistema crea una nueva consola para el nuevo proceso o si hereda la consola del procesador de comandos.
 
 Un proceso puede crear una consola de mediante uno de los métodos siguientes:
 
 - Una interfaz gráfica de usuario (GUI) o un proceso de consola puede usar la función [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) con **crear \_ nueva \_ consola** para crear un proceso de consola con una nueva consola. (De forma predeterminada, un proceso de consola hereda la consola de su elemento primario y no hay ninguna garantía de que la entrada la reciba el proceso para el que se ha diseñado).
-- Una GUI o un proceso de consola que no está asociado actualmente a una consola puede usar la función [**AllocConsole**](allocconsole.md) para crear una nueva consola. (Los procesos de la GUI no se adjuntan a una consola cuando se crean. Los procesos de la consola no se adjuntan a una consola si se crean mediante [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) con el **\_ proceso separado** .)
+- Una GUI o un proceso de consola que no está asociado actualmente a una consola puede usar la función [**AllocConsole**](allocconsole.md) para crear una nueva consola. (Los procesos de la GUI no se adjuntan a una consola cuando se crean. Los procesos de la consola no se adjuntan a una consola si se crean mediante [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) con el **\_ proceso separado**.)
 
 Normalmente, un proceso usa [**AllocConsole**](allocconsole.md) para crear una consola cuando se produce un error que requiere interacción con el usuario. Por ejemplo, un proceso de GUI puede crear una consola cuando se produce un error que impide que use su interfaz gráfica normal, o un proceso de consola que no interactúe normalmente con el usuario puede crear una consola para mostrar un error.
 

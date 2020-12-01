@@ -29,12 +29,13 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 1c5c67bc5900a36bb50c0da90516fab0cec2e366
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 208eebc92b718fed9856a48dfaf5cbebdaddc1e1
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039423"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420274"
 ---
 # <a name="setconsolectrlhandler-function"></a>SetConsoleCtrlHandler función)
 
@@ -54,12 +55,12 @@ BOOL WINAPI SetConsoleCtrlHandler(
 ## <a name="parameters"></a>Parámetros
 
 *HandlerRoutine* \[ en, opcional\]  
-Puntero a la función [**HandlerRoutine**](handlerroutine.md) definida por la aplicación que se va a agregar o quitar. Este parámetro puede ser **null** .
+Puntero a la función [**HandlerRoutine**](handlerroutine.md) definida por la aplicación que se va a agregar o quitar. Este parámetro puede ser **null**.
 
 *Agregar* \[ de\]  
-Si este parámetro es **true** , se agrega el controlador; Si es **false** , se quita el controlador.
+Si este parámetro es **true**, se agrega el controlador; Si es **false**, se quita el controlador.
 
-Si el parámetro *HandlerRoutine* es **null** , un **valor true** hace que el proceso de llamada ignore la entrada <kbd>Ctrl</kbd> + <kbd>c</kbd> y un valor **false** restaura el procesamiento normal de la entrada <kbd>Ctrl</kbd> + <kbd>c</kbd> . Este atributo de omitir o procesar <kbd>Ctrl</kbd> + <kbd>C</kbd> es heredado por procesos secundarios.
+Si el parámetro *HandlerRoutine* es **null**, un **valor true** hace que el proceso de llamada ignore la entrada <kbd>Ctrl</kbd> + <kbd>c</kbd> y un valor **false** restaura el procesamiento normal de la entrada <kbd>Ctrl</kbd> + <kbd>c</kbd> . Este atributo de omitir o procesar <kbd>Ctrl</kbd> + <kbd>C</kbd> es heredado por procesos secundarios.
 
 ## <a name="return-value"></a>Valor devuelto
 
@@ -69,11 +70,11 @@ Si la función no se realiza correctamente, el valor devuelto es cero. Para obte
 
 ## <a name="remarks"></a>Comentarios
 
-Esta función proporciona una notificación similar a la aplicación de consola y los servicios que [**WM \_ QUERYENDSESSION**](https://msdn.microsoft.com/library/windows/desktop/aa376890) proporciona para aplicaciones gráficas con un bombeo de mensajes. También puede usar esta función desde una aplicación gráfica, pero no hay ninguna garantía de que llegue antes de la notificación de **WM \_ QUERYENDSESSION** .
+Esta función proporciona una notificación similar a la aplicación de consola y los servicios que [**WM \_ QUERYENDSESSION**](https://msdn.microsoft.com/library/windows/desktop/aa376890) proporciona para aplicaciones gráficas con un bombeo de mensajes. También puede usar esta función desde una aplicación gráfica, pero no hay ninguna garantía de que llegue antes de la notificación de **WM \_ QUERYENDSESSION**.
 
 Cada proceso de consola tiene su propia lista de funciones de [**HandlerRoutine**](handlerroutine.md) definidas por la aplicación que controlan las señales de <kbd>Ctrl</kbd> + <kbd>C</kbd> y <kbd>Ctrl</kbd> + <kbd>BREAK</kbd> . Las funciones de controlador también controlan las señales generadas por el sistema cuando el usuario cierra la consola, cierra la sesión o apaga el sistema. Inicialmente, la lista de controladores para cada proceso contiene solo una función de controlador predeterminada que llama a la función [**ExitProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682658) . Un proceso de consola agrega o quita funciones de controlador adicionales mediante una llamada a la función **SetConsoleCtrlHandler** , que no afecta a la lista de funciones de controlador para otros procesos. Cuando un proceso de la consola recibe cualquiera de las señales de control, se llama a sus funciones de controlador en una base de la última, que se ha llamado primero, hasta que uno de los controladores devuelve `TRUE` . Si ninguno de los controladores devuelve `TRUE` , se llama al controlador predeterminado.
 
-En los procesos de la consola, las combinaciones de teclas <kbd>Ctrl</kbd> + <kbd>c</kbd> y <kbd>Ctrl</kbd> + <kbd>interrumpir</kbd> se suelen tratar como señales ( **Ctrl \_ c \_ evento** y **Ctrl \_ interrumpir \_ evento** ). Cuando una ventana de consola con el foco de teclado recibe <kbd>Ctrl</kbd> + <kbd>C</kbd> o <kbd>Ctrl</kbd> + <kbd>interrumpir</kbd>, la señal normalmente se pasa a todos los procesos que comparten esa consola.
+En los procesos de la consola, las combinaciones de teclas <kbd>Ctrl</kbd> + <kbd>c</kbd> y <kbd>Ctrl</kbd> + <kbd>interrumpir</kbd> se suelen tratar como señales (**Ctrl \_ c \_ evento** y **Ctrl \_ interrumpir \_ evento**). Cuando una ventana de consola con el foco de teclado recibe <kbd>Ctrl</kbd> + <kbd>C</kbd> o <kbd>Ctrl</kbd> + <kbd>interrumpir</kbd>, la señal normalmente se pasa a todos los procesos que comparten esa consola.
 
 <kbd>Ctrl</kbd> + <kbd>Break</kbd> siempre se trata como una señal, pero el comportamiento típico de <kbd>Ctrl</kbd> + <kbd>C</kbd> se puede cambiar de tres maneras que impiden que se llame a las funciones del controlador:
 
@@ -83,7 +84,7 @@ En los procesos de la consola, las combinaciones de teclas <kbd>Ctrl</kbd> + <kb
 
 Un proceso de consola puede usar la función [**GenerateConsoleCtrlEvent**](generateconsolectrlevent.md) para enviar una señal <kbd>Ctrl</kbd> + <kbd>C</kbd> o <kbd>Ctrl</kbd> + <kbd>break</kbd> a un grupo de procesos de la consola.
 
-El sistema genera señales de evento **Ctrl \_ Close \_** , evento **Ctrl \_ Logoff \_** y **Ctrl \_ Shutdown \_** cuando el usuario cierra la consola, cierra la sesión o apaga el sistema para que el proceso tenga la oportunidad de limpiar antes de la terminación. Es posible que las funciones de consola o cualquier función en tiempo de ejecución de C que llame a funciones de consola no funcionen de forma confiable durante el procesamiento de cualquiera de las tres señales mencionadas anteriormente. La razón es que es posible que se haya llamado a algunas o todas las rutinas de limpieza de la consola internas antes de ejecutar el controlador de la señal de proceso.
+El sistema genera señales de evento **Ctrl \_ Close \_**, evento **Ctrl \_ Logoff \_** y **Ctrl \_ Shutdown \_** cuando el usuario cierra la consola, cierra la sesión o apaga el sistema para que el proceso tenga la oportunidad de limpiar antes de la terminación. Es posible que las funciones de consola o cualquier función en tiempo de ejecución de C que llame a funciones de consola no funcionen de forma confiable durante el procesamiento de cualquiera de las tres señales mencionadas anteriormente. La razón es que es posible que se haya llamado a algunas o todas las rutinas de limpieza de la consola internas antes de ejecutar el controlador de la señal de proceso.
 
 **Windows 7, Windows 8, Windows 8.1 y Windows 10:**
 
@@ -106,7 +107,7 @@ Para obtener un ejemplo, vea [registrar una función de controlador de control](
 | Archivo DLL | Kernel32.dll |
 | Nombres Unicode y ANSI | |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Identificadores de control de la consola](console-control-handlers.md)
 
