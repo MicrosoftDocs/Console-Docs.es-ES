@@ -1,5 +1,5 @@
 ---
-title: SetConsoleMode función)
+title: Función SetConsoleMode
 description: Establece el modo de entrada del búfer de entrada de una consola o el modo de salida de un búfer de pantalla de la consola.
 author: miniksa
 ms.author: miniksa
@@ -32,12 +32,12 @@ api_type:
 ms.localizationpriority: high
 ms.openlocfilehash: 2af598f465be6e1a33f5a8f9a2c9abe98d6ed0d2
 ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 12/04/2020
 ms.locfileid: "96420304"
 ---
-# <a name="setconsolemode-function"></a>SetConsoleMode función)
+# <a name="setconsolemode-function"></a>Función SetConsoleMode
 
 Establece el modo de entrada del búfer de entrada de una consola o el modo de salida de un búfer de pantalla de la consola.
 
@@ -52,17 +52,17 @@ BOOL WINAPI SetConsoleMode(
 
 ## <a name="parameters"></a>Parámetros
 
-*hConsoleHandle* \[ de\]  
-Identificador para el búfer de entrada de la consola o un búfer de pantalla de la consola. El identificador debe tener el derecho de acceso de **\_ lectura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
+*hConsoleHandle* \[in\]  
+Identificador para el búfer de entrada de la consola o un búfer de pantalla de la consola. El identificador debe tener derecho de acceso de **GENERIC\_READ**. Para obtener más información, consulte [Seguridad y derechos de acceso del búfer de la consola](console-buffer-security-and-access-rights.md).
 
-*dwMode* \[ de\]  
+*dwMode* \[in\]  
 Modo de entrada o de salida que se va a establecer.
 
 [!INCLUDE [console-mode-flags](./includes/console-mode-flags.md)]
 
 ## <a name="return-value"></a>Valor devuelto
 
-Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
+Si la función se realiza correctamente, el valor devuelto es distinto de cero.
 
 Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
@@ -70,20 +70,20 @@ Si la función no se realiza correctamente, el valor devuelto es cero. Para obte
 
 [!INCLUDE [console-mode-remarks](./includes/console-mode-remarks.md)]
 
-Para determinar el modo actual de un búfer de entrada de la consola o un búfer de pantalla, utilice la función [**GetConsoleMode**](getconsolemode.md) .
+Para determinar el modo actual de un búfer de entrada o un búfer de pantalla de la consola, utilice la función [**GetConsoleMode**](getconsolemode.md).
 
 ## <a name="examples"></a>Ejemplos
 
-Para obtener un ejemplo, vea [leer eventos de búfer de entrada](reading-input-buffer-events.md).
+Para un ejemplo, vea [Lectura de eventos de búfer de entrada](reading-input-buffer-events.md).
 
 ## <a name="requirements"></a>Requisitos
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
-| Encabezado | ConsoleApi. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
+| Encabezado | ConsoleApi.h (a través de WinCon.h, incluido Windows.h) |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 
 ## <a name="see-also"></a>Vea también
@@ -104,4 +104,4 @@ Para obtener un ejemplo, vea [leer eventos de búfer de entrada](reading-input-b
 
 [**WriteConsole**](writeconsole.md)
 
-[**Escritura**](https://msdn.microsoft.com/library/windows/desktop/aa365747)
+[**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747)
