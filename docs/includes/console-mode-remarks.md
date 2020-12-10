@@ -1,15 +1,15 @@
 ---
 ms.openlocfilehash: eaaaa3487e8f2aa95915f6f10724bf4c26784622
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
-ms.translationtype: MT
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 12/04/2020
 ms.locfileid: "93038881"
 ---
-Una consola de está formada por un búfer de entrada y uno o más búferes de pantalla. El modo de un búfer de consola determina cómo se comporta la consola durante las operaciones de entrada o salida (e/s). Un conjunto de constantes de marca se usa con los identificadores de entrada y otro conjunto se utiliza con los identificadores de búfer de pantalla (salida). La configuración de los modos de salida de un búfer de pantalla no afecta a los modos de salida de otros búferes de pantalla.
+Una consola de está formada por un búfer de entrada y uno o más búferes de pantalla. El modo de un búfer de consola determina cómo se comporta esta durante las operaciones de entrada o salida (E/S). Un conjunto de constantes de marca se usa con los identificadores de entrada, y el otro conjunto se usa con los identificadores del búfer de pantalla (salida). Tenga en cuenta que la configuración de los modos de salida de un búfer de pantalla no afecta a los modos de salida de otros búferes de pantalla.
 
-Los modos de entrada **habilitar \_ \_ entrada de línea** y **habilitar \_ eco \_** solo afectan a los procesos que usan [**readfile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) o [**ReadConsole**](../readconsole.md) para leer desde el búfer de entrada de la consola. De forma similar, el modo **habilitar \_ \_ entrada procesada** afecta principalmente a los usuarios **readfile** y **ReadConsole** , salvo que también determina si la entrada Ctrl + C se indica en el búfer de entrada (que será leída por la función [**ReadConsoleInput**](../readconsoleinput.md) ) o se pasa a una función definida por la aplicación.
+Los modos **ENABLE\_LINE\_INPUT** y **ENABLE\_ECHO\_INPUT** solo afectan a los procesos que usan [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) o [**ReadConsole**](../readconsole.md) para leer contenido desde el búfer de entrada de la consola. De forma similar, el modo **ENABLE\_PROCESSED\_INPUT** afecta principalmente a los usuarios de **ReadFile** y **ReadConsole**; sin embargo, también determina si la entrada de CTRL + C se indica en el búfer de entrada (para que pueda leerla [**ReadConsoleInput**](../readconsoleinput.md)) o si se pasa a una función que haya definido la aplicación.
 
-Los **modos \_ habilitar \_ entrada de ventana** y **habilitar \_ \_ entrada del mouse** determinan si las interacciones del usuario que implican el cambio de tamaño de las ventanas y las acciones del mouse se registran en el búfer de entrada o se descartan. Estos eventos pueden ser leídos por [**ReadConsoleInput**](../readconsoleinput.md), pero siempre se filtran por [**readfile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) y [**ReadConsole**](../readconsole.md).
+Los modos **ENABLE\_WINDOW\_INPUT** y **ENABLE\_MOUSE\_INPUT** determinan si las interacciones del usuario que implican el cambio de tamaño de las ventanas y las acciones del mouse se registran en el búfer de entrada o se descartan. Estos eventos puede leerlos [**ReadConsoleInput**](../readconsoleinput.md), pero siempre se filtran mediante [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) y [**ReadConsole**](../readconsole.md).
 
-Los modos de salida **habilitar \_ \_ salida procesada** y **habilitar \_ encapsulado \_ en \_ \_ EOL** solo afectan a los procesos que usan [**readfile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) o [**ReadConsole**](../readconsole.md) y [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) o [**WriteConsole**](../writeconsole.md).
+Los modos **ENABLE\_PROCESSED\_OUTPUT** y **ENABLE\_WRAP\_AT\_EOL\_OUTPUT** solo afectan a los procesos que usan [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) o [**ReadConsole**](../readconsole.md) y [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) o [**WriteConsole**](../writeconsole.md).
