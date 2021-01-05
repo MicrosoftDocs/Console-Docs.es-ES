@@ -19,12 +19,12 @@ api_location:
 - KernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: f10a77781d555a76fdfcea8c8f10ae6bc1f72047
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: b015f224684a53a8bb654f04b1797ac1af794fc3
+ms.sourcegitcommit: f16996b9c7deead9bcfa44954be93a6ba087abcb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038303"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97601482"
 ---
 # <a name="createpseudoconsole-function"></a>CreatePseudoConsole función)
 
@@ -59,7 +59,7 @@ El valor puede ser uno de los siguientes:
 | Valor | Significado |
 |-|-|
 | **0** | Realice una creación de pseudoconsole estándar. |
-| **PSEUDOCONSOLE_INHERIT_CURSOR** (DWORD) 1 | La sesión de pseudoconsole creada intentará heredar la posición del cursor de la consola de paernt. |
+| **PSEUDOCONSOLE_INHERIT_CURSOR** (DWORD) 1 | La sesión de pseudoconsole creada intentará heredar la posición del cursor de la consola primaria. |
 
 *phPC* \[ enuncia\]  
 Puntero a una ubicación que recibirá un identificador para el nuevo dispositivo pseudoconsole.
@@ -68,7 +68,7 @@ Puntero a una ubicación que recibirá un identificador para el nuevo dispositiv
 
 Tipo: **HRESULT**
 
-Si este método se ejecuta correctamente, devuelve **S_OK** . De lo contrario, devuelve un código de error **HRESULT** .
+Si este método se ejecuta correctamente, devuelve **S_OK**. De lo contrario, devuelve un código de error **HRESULT** .
 
 ## <a name="remarks"></a>Comentarios
 
@@ -94,11 +94,11 @@ Para ver un tutorial completo sobre el uso de esta función para establecer una 
 |-|-|
 | Cliente mínimo compatible | Actualización 2018 de octubre de Windows 10 (versión 1809) \[ solo para aplicaciones de escritorio\] |
 | Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2019 \[\] |
-| Encabezado | ConsoleApi. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Encabezado | ConsoleApi.h (a través de WinCon.h, incluido Windows.h) |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Pseudoconsoles](pseudoconsoles.md)
 
