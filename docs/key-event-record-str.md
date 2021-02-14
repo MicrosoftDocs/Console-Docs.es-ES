@@ -28,18 +28,18 @@ api_location:
 - WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 0a2ba8ecf8b07a83db54642c2399bb93d99b7aa2
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: bcc58b90e71b848e3b6e4b0bf5ba162323830529
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039533"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357805"
 ---
-# <a name="key_event_record-structure"></a><span data-ttu-id="fa487-104">Estructura del registro de \_ eventos clave \_</span><span class="sxs-lookup"><span data-stu-id="fa487-104">KEY\_EVENT\_RECORD structure</span></span>
+# <a name="key_event_record-structure"></a><span data-ttu-id="97ac4-104">Estructura del registro de \_ eventos clave \_</span><span class="sxs-lookup"><span data-stu-id="97ac4-104">KEY\_EVENT\_RECORD structure</span></span>
 
-<span data-ttu-id="fa487-105">Describe un evento de entrada de teclado en una estructura de [**\_ registro de entrada**](input-record-str.md) de la consola.</span><span class="sxs-lookup"><span data-stu-id="fa487-105">Describes a keyboard input event in a console [**INPUT\_RECORD**](input-record-str.md) structure.</span></span>
+<span data-ttu-id="97ac4-105">Describe un evento de entrada de teclado en una estructura de [**\_ registro de entrada**](input-record-str.md) de la consola.</span><span class="sxs-lookup"><span data-stu-id="97ac4-105">Describes a keyboard input event in a console [**INPUT\_RECORD**](input-record-str.md) structure.</span></span>
 
-## <a name="syntax"></a><span data-ttu-id="fa487-106">Sintaxis</span><span class="sxs-lookup"><span data-stu-id="fa487-106">Syntax</span></span>
+## <a name="syntax"></a><span data-ttu-id="97ac4-106">Sintaxis</span><span class="sxs-lookup"><span data-stu-id="97ac4-106">Syntax</span></span>
 
 ```C
 typedef struct _KEY_EVENT_RECORD {
@@ -55,68 +55,68 @@ typedef struct _KEY_EVENT_RECORD {
 } KEY_EVENT_RECORD;
 ```
 
-## <a name="members"></a><span data-ttu-id="fa487-107">Miembros</span><span class="sxs-lookup"><span data-stu-id="fa487-107">Members</span></span>
+## <a name="members"></a><span data-ttu-id="97ac4-107">Miembros</span><span class="sxs-lookup"><span data-stu-id="97ac4-107">Members</span></span>
 
-<span data-ttu-id="fa487-108">**bKeyDown**</span><span class="sxs-lookup"><span data-stu-id="fa487-108">**bKeyDown**</span></span>  
-<span data-ttu-id="fa487-109">Si se presiona la tecla, este miembro es **true** .</span><span class="sxs-lookup"><span data-stu-id="fa487-109">If the key is pressed, this member is **TRUE** .</span></span> <span data-ttu-id="fa487-110">De lo contrario, este miembro es **false** (se libera la tecla).</span><span class="sxs-lookup"><span data-stu-id="fa487-110">Otherwise, this member is **FALSE** (the key is released).</span></span>
+<span data-ttu-id="97ac4-108">**bKeyDown**</span><span class="sxs-lookup"><span data-stu-id="97ac4-108">**bKeyDown**</span></span>  
+<span data-ttu-id="97ac4-109">Si se presiona la tecla, este miembro es **true**.</span><span class="sxs-lookup"><span data-stu-id="97ac4-109">If the key is pressed, this member is **TRUE**.</span></span> <span data-ttu-id="97ac4-110">De lo contrario, este miembro es **false** (se libera la tecla).</span><span class="sxs-lookup"><span data-stu-id="97ac4-110">Otherwise, this member is **FALSE** (the key is released).</span></span>
 
-<span data-ttu-id="fa487-111">**wRepeatCount**</span><span class="sxs-lookup"><span data-stu-id="fa487-111">**wRepeatCount**</span></span>  
-<span data-ttu-id="fa487-112">Recuento de repeticiones, que indica que una clave se mantiene presionada.</span><span class="sxs-lookup"><span data-stu-id="fa487-112">The repeat count, which indicates that a key is being held down.</span></span> <span data-ttu-id="fa487-113">Por ejemplo, cuando se mantiene presionada una tecla, podría obtener cinco eventos con este miembro igual a 1, un evento con este miembro igual a 5 o varios eventos con este miembro mayor o igual que 1.</span><span class="sxs-lookup"><span data-stu-id="fa487-113">For example, when a key is held down, you might get five events with this member equal to 1, one event with this member equal to 5, or multiple events with this member greater than or equal to 1.</span></span>
+<span data-ttu-id="97ac4-111">**wRepeatCount**</span><span class="sxs-lookup"><span data-stu-id="97ac4-111">**wRepeatCount**</span></span>  
+<span data-ttu-id="97ac4-112">Recuento de repeticiones, que indica que una clave se mantiene presionada.</span><span class="sxs-lookup"><span data-stu-id="97ac4-112">The repeat count, which indicates that a key is being held down.</span></span> <span data-ttu-id="97ac4-113">Por ejemplo, cuando se mantiene presionada una tecla, podría obtener cinco eventos con este miembro igual a 1, un evento con este miembro igual a 5 o varios eventos con este miembro mayor o igual que 1.</span><span class="sxs-lookup"><span data-stu-id="97ac4-113">For example, when a key is held down, you might get five events with this member equal to 1, one event with this member equal to 5, or multiple events with this member greater than or equal to 1.</span></span>
 
-<span data-ttu-id="fa487-114">**wVirtualKeyCode**</span><span class="sxs-lookup"><span data-stu-id="fa487-114">**wVirtualKeyCode**</span></span>  
-<span data-ttu-id="fa487-115">[Código de clave virtual](https://msdn.microsoft.com/library/windows/desktop/dd375731(v=vs.85).aspx) que identifica la clave especificada de una manera independiente del dispositivo.</span><span class="sxs-lookup"><span data-stu-id="fa487-115">A [virtual-key code](https://msdn.microsoft.com/library/windows/desktop/dd375731(v=vs.85).aspx) that identifies the given key in a device-independent manner.</span></span>
+<span data-ttu-id="97ac4-114">**wVirtualKeyCode**</span><span class="sxs-lookup"><span data-stu-id="97ac4-114">**wVirtualKeyCode**</span></span>  
+<span data-ttu-id="97ac4-115">[Código de clave virtual](/windows/win32/inputdev/virtual-key-codes) que identifica la clave especificada de una manera independiente del dispositivo.</span><span class="sxs-lookup"><span data-stu-id="97ac4-115">A [virtual-key code](/windows/win32/inputdev/virtual-key-codes) that identifies the given key in a device-independent manner.</span></span>
 
-<span data-ttu-id="fa487-116">**wVirtualScanCode**</span><span class="sxs-lookup"><span data-stu-id="fa487-116">**wVirtualScanCode**</span></span>  
-<span data-ttu-id="fa487-117">Código de análisis virtual de la clave especificada que representa el valor dependiente del dispositivo generado por el hardware del teclado.</span><span class="sxs-lookup"><span data-stu-id="fa487-117">The virtual scan code of the given key that represents the device-dependent value generated by the keyboard hardware.</span></span>
+<span data-ttu-id="97ac4-116">**wVirtualScanCode**</span><span class="sxs-lookup"><span data-stu-id="97ac4-116">**wVirtualScanCode**</span></span>  
+<span data-ttu-id="97ac4-117">Código de análisis virtual de la clave especificada que representa el valor dependiente del dispositivo generado por el hardware del teclado.</span><span class="sxs-lookup"><span data-stu-id="97ac4-117">The virtual scan code of the given key that represents the device-dependent value generated by the keyboard hardware.</span></span>
 
-<span data-ttu-id="fa487-118">**uChar**</span><span class="sxs-lookup"><span data-stu-id="fa487-118">**uChar**</span></span>  
-<span data-ttu-id="fa487-119">Unión de los siguientes miembros.</span><span class="sxs-lookup"><span data-stu-id="fa487-119">A union of the following members.</span></span>
+<span data-ttu-id="97ac4-118">**uChar**</span><span class="sxs-lookup"><span data-stu-id="97ac4-118">**uChar**</span></span>  
+<span data-ttu-id="97ac4-119">Unión de los siguientes miembros.</span><span class="sxs-lookup"><span data-stu-id="97ac4-119">A union of the following members.</span></span>
 
-<span data-ttu-id="fa487-120">**UnicodeChar**</span><span class="sxs-lookup"><span data-stu-id="fa487-120">**UnicodeChar**</span></span>  
-<span data-ttu-id="fa487-121">Carácter Unicode traducido.</span><span class="sxs-lookup"><span data-stu-id="fa487-121">Translated Unicode character.</span></span>
+<span data-ttu-id="97ac4-120">**UnicodeChar**</span><span class="sxs-lookup"><span data-stu-id="97ac4-120">**UnicodeChar**</span></span>  
+<span data-ttu-id="97ac4-121">Carácter Unicode traducido.</span><span class="sxs-lookup"><span data-stu-id="97ac4-121">Translated Unicode character.</span></span>
 
-<span data-ttu-id="fa487-122">**AsciiChar**</span><span class="sxs-lookup"><span data-stu-id="fa487-122">**AsciiChar**</span></span>  
-<span data-ttu-id="fa487-123">Carácter ASCII traducido.</span><span class="sxs-lookup"><span data-stu-id="fa487-123">Translated ASCII character.</span></span>
+<span data-ttu-id="97ac4-122">**AsciiChar**</span><span class="sxs-lookup"><span data-stu-id="97ac4-122">**AsciiChar**</span></span>  
+<span data-ttu-id="97ac4-123">Carácter ASCII traducido.</span><span class="sxs-lookup"><span data-stu-id="97ac4-123">Translated ASCII character.</span></span>
 
-<span data-ttu-id="fa487-124">**dwControlKeyState**</span><span class="sxs-lookup"><span data-stu-id="fa487-124">**dwControlKeyState**</span></span>  
-<span data-ttu-id="fa487-125">Estado de las teclas de control.</span><span class="sxs-lookup"><span data-stu-id="fa487-125">The state of the control keys.</span></span> <span data-ttu-id="fa487-126">Este miembro puede ser uno o varios de los valores siguientes.</span><span class="sxs-lookup"><span data-stu-id="fa487-126">This member can be one or more of the following values.</span></span>
+<span data-ttu-id="97ac4-124">**dwControlKeyState**</span><span class="sxs-lookup"><span data-stu-id="97ac4-124">**dwControlKeyState**</span></span>  
+<span data-ttu-id="97ac4-125">Estado de las teclas de control.</span><span class="sxs-lookup"><span data-stu-id="97ac4-125">The state of the control keys.</span></span> <span data-ttu-id="97ac4-126">Este miembro puede ser uno o varios de los valores siguientes.</span><span class="sxs-lookup"><span data-stu-id="97ac4-126">This member can be one or more of the following values.</span></span>
 
-| <span data-ttu-id="fa487-127">Valor</span><span class="sxs-lookup"><span data-stu-id="fa487-127">Value</span></span> | <span data-ttu-id="fa487-128">Significado</span><span class="sxs-lookup"><span data-stu-id="fa487-128">Meaning</span></span> |
+| <span data-ttu-id="97ac4-127">Valor</span><span class="sxs-lookup"><span data-stu-id="97ac4-127">Value</span></span> | <span data-ttu-id="97ac4-128">Significado</span><span class="sxs-lookup"><span data-stu-id="97ac4-128">Meaning</span></span> |
 |-|-|
-| <span data-ttu-id="fa487-129">**CAPSLOCK_ON** 0x0080</span><span class="sxs-lookup"><span data-stu-id="fa487-129">**CAPSLOCK_ON** 0x0080</span></span> | <span data-ttu-id="fa487-130">La luz de Bloq Mayús está activada.</span><span class="sxs-lookup"><span data-stu-id="fa487-130">The CAPS LOCK light is on.</span></span> |
-| <span data-ttu-id="fa487-131">**ENHANCED_KEY** 0x0100</span><span class="sxs-lookup"><span data-stu-id="fa487-131">**ENHANCED_KEY** 0x0100</span></span> | <span data-ttu-id="fa487-132">La clave se ha mejorado.</span><span class="sxs-lookup"><span data-stu-id="fa487-132">The key is enhanced.</span></span> <span data-ttu-id="fa487-133">Vea la [sección Comentarios](key-event-record-str.md#remarks).</span><span class="sxs-lookup"><span data-stu-id="fa487-133">See [remarks](key-event-record-str.md#remarks).</span></span> |
-| <span data-ttu-id="fa487-134">**LEFT_ALT_PRESSED** 0x0002</span><span class="sxs-lookup"><span data-stu-id="fa487-134">**LEFT_ALT_PRESSED** 0x0002</span></span> | <span data-ttu-id="fa487-135">Se presiona la tecla ALT izquierda.</span><span class="sxs-lookup"><span data-stu-id="fa487-135">The left ALT key is pressed.</span></span> |
-| <span data-ttu-id="fa487-136">**LEFT_CTRL_PRESSED** 0x0008</span><span class="sxs-lookup"><span data-stu-id="fa487-136">**LEFT_CTRL_PRESSED** 0x0008</span></span> | <span data-ttu-id="fa487-137">Se presiona la tecla CTRL izquierda.</span><span class="sxs-lookup"><span data-stu-id="fa487-137">The left CTRL key is pressed.</span></span> |
-| <span data-ttu-id="fa487-138">**NUMLOCK_ON** 0x0020</span><span class="sxs-lookup"><span data-stu-id="fa487-138">**NUMLOCK_ON** 0x0020</span></span> | <span data-ttu-id="fa487-139">La luz BLOQ NUM está activada.</span><span class="sxs-lookup"><span data-stu-id="fa487-139">The NUM LOCK light is on.</span></span> |
-| <span data-ttu-id="fa487-140">**RIGHT_ALT_PRESSED** 0x0001</span><span class="sxs-lookup"><span data-stu-id="fa487-140">**RIGHT_ALT_PRESSED** 0x0001</span></span> | <span data-ttu-id="fa487-141">Se presiona la tecla ALT derecha.</span><span class="sxs-lookup"><span data-stu-id="fa487-141">The right ALT key is pressed.</span></span> |
-| <span data-ttu-id="fa487-142">**RIGHT_CTRL_PRESSED** 0x0004</span><span class="sxs-lookup"><span data-stu-id="fa487-142">**RIGHT_CTRL_PRESSED** 0x0004</span></span> | <span data-ttu-id="fa487-143">Se presiona la tecla CTRL derecha.</span><span class="sxs-lookup"><span data-stu-id="fa487-143">The right CTRL key is pressed.</span></span> |
-| <span data-ttu-id="fa487-144">**SCROLLLOCK_ON** 0x0040</span><span class="sxs-lookup"><span data-stu-id="fa487-144">**SCROLLLOCK_ON** 0x0040</span></span> | <span data-ttu-id="fa487-145">La luz de Bloq Despl está activada.</span><span class="sxs-lookup"><span data-stu-id="fa487-145">The SCROLL LOCK light is on.</span></span> |
-| <span data-ttu-id="fa487-146">**SHIFT_PRESSED** 0x0010</span><span class="sxs-lookup"><span data-stu-id="fa487-146">**SHIFT_PRESSED** 0x0010</span></span> | <span data-ttu-id="fa487-147">Se presiona la tecla Mayús.</span><span class="sxs-lookup"><span data-stu-id="fa487-147">The SHIFT key is pressed.</span></span> |
+| <span data-ttu-id="97ac4-129">**CAPSLOCK_ON** 0x0080</span><span class="sxs-lookup"><span data-stu-id="97ac4-129">**CAPSLOCK_ON** 0x0080</span></span> | <span data-ttu-id="97ac4-130">La luz de Bloq Mayús está activada.</span><span class="sxs-lookup"><span data-stu-id="97ac4-130">The CAPS LOCK light is on.</span></span> |
+| <span data-ttu-id="97ac4-131">**ENHANCED_KEY** 0x0100</span><span class="sxs-lookup"><span data-stu-id="97ac4-131">**ENHANCED_KEY** 0x0100</span></span> | <span data-ttu-id="97ac4-132">La clave se ha mejorado.</span><span class="sxs-lookup"><span data-stu-id="97ac4-132">The key is enhanced.</span></span> <span data-ttu-id="97ac4-133">Vea la [sección Comentarios](key-event-record-str.md#remarks).</span><span class="sxs-lookup"><span data-stu-id="97ac4-133">See [remarks](key-event-record-str.md#remarks).</span></span> |
+| <span data-ttu-id="97ac4-134">**LEFT_ALT_PRESSED** 0x0002</span><span class="sxs-lookup"><span data-stu-id="97ac4-134">**LEFT_ALT_PRESSED** 0x0002</span></span> | <span data-ttu-id="97ac4-135">Se presiona la tecla ALT izquierda.</span><span class="sxs-lookup"><span data-stu-id="97ac4-135">The left ALT key is pressed.</span></span> |
+| <span data-ttu-id="97ac4-136">**LEFT_CTRL_PRESSED** 0x0008</span><span class="sxs-lookup"><span data-stu-id="97ac4-136">**LEFT_CTRL_PRESSED** 0x0008</span></span> | <span data-ttu-id="97ac4-137">Se presiona la tecla CTRL izquierda.</span><span class="sxs-lookup"><span data-stu-id="97ac4-137">The left CTRL key is pressed.</span></span> |
+| <span data-ttu-id="97ac4-138">**NUMLOCK_ON** 0x0020</span><span class="sxs-lookup"><span data-stu-id="97ac4-138">**NUMLOCK_ON** 0x0020</span></span> | <span data-ttu-id="97ac4-139">La luz BLOQ NUM está activada.</span><span class="sxs-lookup"><span data-stu-id="97ac4-139">The NUM LOCK light is on.</span></span> |
+| <span data-ttu-id="97ac4-140">**RIGHT_ALT_PRESSED** 0x0001</span><span class="sxs-lookup"><span data-stu-id="97ac4-140">**RIGHT_ALT_PRESSED** 0x0001</span></span> | <span data-ttu-id="97ac4-141">Se presiona la tecla ALT derecha.</span><span class="sxs-lookup"><span data-stu-id="97ac4-141">The right ALT key is pressed.</span></span> |
+| <span data-ttu-id="97ac4-142">**RIGHT_CTRL_PRESSED** 0x0004</span><span class="sxs-lookup"><span data-stu-id="97ac4-142">**RIGHT_CTRL_PRESSED** 0x0004</span></span> | <span data-ttu-id="97ac4-143">Se presiona la tecla CTRL derecha.</span><span class="sxs-lookup"><span data-stu-id="97ac4-143">The right CTRL key is pressed.</span></span> |
+| <span data-ttu-id="97ac4-144">**SCROLLLOCK_ON** 0x0040</span><span class="sxs-lookup"><span data-stu-id="97ac4-144">**SCROLLLOCK_ON** 0x0040</span></span> | <span data-ttu-id="97ac4-145">La luz de Bloq Despl está activada.</span><span class="sxs-lookup"><span data-stu-id="97ac4-145">The SCROLL LOCK light is on.</span></span> |
+| <span data-ttu-id="97ac4-146">**SHIFT_PRESSED** 0x0010</span><span class="sxs-lookup"><span data-stu-id="97ac4-146">**SHIFT_PRESSED** 0x0010</span></span> | <span data-ttu-id="97ac4-147">Se presiona la tecla Mayús.</span><span class="sxs-lookup"><span data-stu-id="97ac4-147">The SHIFT key is pressed.</span></span> |
 
-## <a name="remarks"></a><span data-ttu-id="fa487-148">Comentarios</span><span class="sxs-lookup"><span data-stu-id="fa487-148">Remarks</span></span>
+## <a name="remarks"></a><span data-ttu-id="97ac4-148">Comentarios</span><span class="sxs-lookup"><span data-stu-id="97ac4-148">Remarks</span></span>
 
-<span data-ttu-id="fa487-149">Las claves mejoradas para los teclados de IBM® 101-y 102-Key son las teclas INS, SUPR, Inicio, fin, Re Pág, Av Pág y dirección en los clústeres a la izquierda del teclado. y la división (/) y escriba las teclas en el teclado.</span><span class="sxs-lookup"><span data-stu-id="fa487-149">Enhanced keys for the IBM® 101- and 102-key keyboards are the INS, DEL, HOME, END, PAGE UP, PAGE DOWN, and direction keys in the clusters to the left of the keypad; and the divide (/) and ENTER keys in the keypad.</span></span>
+<span data-ttu-id="97ac4-149">Las claves mejoradas para los teclados de IBM® 101-y 102-Key son las teclas INS, SUPR, Inicio, fin, Re Pág, Av Pág y dirección en los clústeres a la izquierda del teclado. y la división (/) y escriba las teclas en el teclado.</span><span class="sxs-lookup"><span data-stu-id="97ac4-149">Enhanced keys for the IBM® 101- and 102-key keyboards are the INS, DEL, HOME, END, PAGE UP, PAGE DOWN, and direction keys in the clusters to the left of the keypad; and the divide (/) and ENTER keys in the keypad.</span></span>
 
-<span data-ttu-id="fa487-150">Los eventos de entrada de teclado se generan cuando se presiona o se suelta cualquier tecla, incluidas las teclas de control.</span><span class="sxs-lookup"><span data-stu-id="fa487-150">Keyboard input events are generated when any key, including control keys, is pressed or released.</span></span> <span data-ttu-id="fa487-151">Sin embargo, la tecla ALT cuando se presiona y se libera sin combinar con otro carácter, tiene un significado especial para el sistema y no se pasa a la aplicación.</span><span class="sxs-lookup"><span data-stu-id="fa487-151">However, the ALT key when pressed and released without combining with another character, has special meaning to the system and is not passed through to the application.</span></span> <span data-ttu-id="fa487-152">Además, la combinación de teclas CTRL + C no se pasa si el identificador de entrada está en modo procesado **( \_ habilitar \_ entrada procesada** ).</span><span class="sxs-lookup"><span data-stu-id="fa487-152">Also, the CTRL+C key combination is not passed through if the input handle is in processed mode ( **ENABLE\_PROCESSED\_INPUT** ).</span></span>
+<span data-ttu-id="97ac4-150">Los eventos de entrada de teclado se generan cuando se presiona o se suelta cualquier tecla, incluidas las teclas de control.</span><span class="sxs-lookup"><span data-stu-id="97ac4-150">Keyboard input events are generated when any key, including control keys, is pressed or released.</span></span> <span data-ttu-id="97ac4-151">Sin embargo, la tecla ALT cuando se presiona y se libera sin combinar con otro carácter, tiene un significado especial para el sistema y no se pasa a la aplicación.</span><span class="sxs-lookup"><span data-stu-id="97ac4-151">However, the ALT key when pressed and released without combining with another character, has special meaning to the system and is not passed through to the application.</span></span> <span data-ttu-id="97ac4-152">Además, la combinación de teclas CTRL + C no se pasa si el identificador de entrada está en modo procesado **( \_ habilitar \_ entrada procesada**).</span><span class="sxs-lookup"><span data-stu-id="97ac4-152">Also, the CTRL+C key combination is not passed through if the input handle is in processed mode (**ENABLE\_PROCESSED\_INPUT**).</span></span>
 
-## <a name="examples"></a><span data-ttu-id="fa487-153">Ejemplos</span><span class="sxs-lookup"><span data-stu-id="fa487-153">Examples</span></span>
+## <a name="examples"></a><span data-ttu-id="97ac4-153">Ejemplos</span><span class="sxs-lookup"><span data-stu-id="97ac4-153">Examples</span></span>
 
-<span data-ttu-id="fa487-154">Para obtener un ejemplo, vea [leer eventos de búfer de entrada](reading-input-buffer-events.md).</span><span class="sxs-lookup"><span data-stu-id="fa487-154">For an example, see [Reading Input Buffer Events](reading-input-buffer-events.md).</span></span>
+<span data-ttu-id="97ac4-154">Para un ejemplo, vea [Lectura de eventos de búfer de entrada](reading-input-buffer-events.md).</span><span class="sxs-lookup"><span data-stu-id="97ac4-154">For an example, see [Reading Input Buffer Events](reading-input-buffer-events.md).</span></span>
 
-## <a name="requirements"></a><span data-ttu-id="fa487-155">Requisitos</span><span class="sxs-lookup"><span data-stu-id="fa487-155">Requirements</span></span>
+## <a name="requirements"></a><span data-ttu-id="97ac4-155">Requisitos</span><span class="sxs-lookup"><span data-stu-id="97ac4-155">Requirements</span></span>
 
 | &nbsp; | &nbsp; |
 |-|-|
-| <span data-ttu-id="fa487-156">Cliente mínimo compatible</span><span class="sxs-lookup"><span data-stu-id="fa487-156">Minimum supported client</span></span> | <span data-ttu-id="fa487-157">Solo aplicaciones de escritorio de Windows 2000 Professional \[\]</span><span class="sxs-lookup"><span data-stu-id="fa487-157">Windows 2000 Professional \[desktop apps only\]</span></span> |
-| <span data-ttu-id="fa487-158">Servidor mínimo compatible</span><span class="sxs-lookup"><span data-stu-id="fa487-158">Minimum supported server</span></span> | <span data-ttu-id="fa487-159">Solo aplicaciones de escritorio de Windows 2000 Server \[\]</span><span class="sxs-lookup"><span data-stu-id="fa487-159">Windows 2000 Server \[desktop apps only\]</span></span> |
-| <span data-ttu-id="fa487-160">Encabezado</span><span class="sxs-lookup"><span data-stu-id="fa487-160">Header</span></span> | <span data-ttu-id="fa487-161">WinConTypes. h (a través de WinCon. h, include Windows. h)</span><span class="sxs-lookup"><span data-stu-id="fa487-161">WinConTypes.h (via WinCon.h, include Windows.h)</span></span> |
+| <span data-ttu-id="97ac4-156">Cliente mínimo compatible</span><span class="sxs-lookup"><span data-stu-id="97ac4-156">Minimum supported client</span></span> | <span data-ttu-id="97ac4-157">\[Solo aplicaciones de escritorio\] de Windows 2000 Professional</span><span class="sxs-lookup"><span data-stu-id="97ac4-157">Windows 2000 Professional \[desktop apps only\]</span></span> |
+| <span data-ttu-id="97ac4-158">Servidor mínimo compatible</span><span class="sxs-lookup"><span data-stu-id="97ac4-158">Minimum supported server</span></span> | <span data-ttu-id="97ac4-159">\[Solo aplicaciones de escritorio\] de Windows 2000 Server</span><span class="sxs-lookup"><span data-stu-id="97ac4-159">Windows 2000 Server \[desktop apps only\]</span></span> |
+| <span data-ttu-id="97ac4-160">Encabezado</span><span class="sxs-lookup"><span data-stu-id="97ac4-160">Header</span></span> | <span data-ttu-id="97ac4-161">WinConTypes. h (a través de WinCon. h, include Windows. h)</span><span class="sxs-lookup"><span data-stu-id="97ac4-161">WinConTypes.h (via WinCon.h, include Windows.h)</span></span> |
 
-## <a name="see-also"></a><span data-ttu-id="fa487-162">Consulte también</span><span class="sxs-lookup"><span data-stu-id="fa487-162">See also</span></span>
+## <a name="see-also"></a><span data-ttu-id="97ac4-162">Consulte también</span><span class="sxs-lookup"><span data-stu-id="97ac4-162">See also</span></span>
 
-[<span data-ttu-id="fa487-163">**PeekConsoleInput**</span><span class="sxs-lookup"><span data-stu-id="fa487-163">**PeekConsoleInput**</span></span>](peekconsoleinput.md)
+[<span data-ttu-id="97ac4-163">**PeekConsoleInput**</span><span class="sxs-lookup"><span data-stu-id="97ac4-163">**PeekConsoleInput**</span></span>](peekconsoleinput.md)
 
-[<span data-ttu-id="fa487-164">**PeekConsoleInput**</span><span class="sxs-lookup"><span data-stu-id="fa487-164">**ReadConsoleInput**</span></span>](readconsoleinput.md)
+[<span data-ttu-id="97ac4-164">**PeekConsoleInput**</span><span class="sxs-lookup"><span data-stu-id="97ac4-164">**ReadConsoleInput**</span></span>](readconsoleinput.md)
 
-[<span data-ttu-id="fa487-165">**WriteConsoleInput**</span><span class="sxs-lookup"><span data-stu-id="fa487-165">**WriteConsoleInput**</span></span>](writeconsoleinput.md)
+[<span data-ttu-id="97ac4-165">**WriteConsoleInput**</span><span class="sxs-lookup"><span data-stu-id="97ac4-165">**WriteConsoleInput**</span></span>](writeconsoleinput.md)
 
-[<span data-ttu-id="fa487-166">**registro de entrada \_**</span><span class="sxs-lookup"><span data-stu-id="fa487-166">**INPUT\_RECORD**</span></span>](input-record-str.md)
+[<span data-ttu-id="97ac4-166">**registro de entrada \_**</span><span class="sxs-lookup"><span data-stu-id="97ac4-166">**INPUT\_RECORD**</span></span>](input-record-str.md)

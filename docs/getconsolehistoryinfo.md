@@ -24,20 +24,20 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 8335b7e23ffec0e894221f97f2c01be5b081d31f
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: a26dbeb2a873bd780f91c240bf2658cde11b45ec
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038033"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100359025"
 ---
-# <a name="getconsolehistoryinfo-function"></a><span data-ttu-id="3c53f-104">GetConsoleHistoryInfo función)</span><span class="sxs-lookup"><span data-stu-id="3c53f-104">GetConsoleHistoryInfo function</span></span>
+# <a name="getconsolehistoryinfo-function"></a><span data-ttu-id="811a1-104">GetConsoleHistoryInfo función)</span><span class="sxs-lookup"><span data-stu-id="811a1-104">GetConsoleHistoryInfo function</span></span>
 
 [!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
-<span data-ttu-id="3c53f-105">Recupera la configuración del historial de la consola del proceso que realiza la llamada.</span><span class="sxs-lookup"><span data-stu-id="3c53f-105">Retrieves the history settings for the calling process's console.</span></span>
+<span data-ttu-id="811a1-105">Recupera la configuración del historial de la consola del proceso que realiza la llamada.</span><span class="sxs-lookup"><span data-stu-id="811a1-105">Retrieves the history settings for the calling process's console.</span></span>
 
-## <a name="syntax"></a><span data-ttu-id="3c53f-106">Sintaxis</span><span class="sxs-lookup"><span data-stu-id="3c53f-106">Syntax</span></span>
+## <a name="syntax"></a><span data-ttu-id="811a1-106">Sintaxis</span><span class="sxs-lookup"><span data-stu-id="811a1-106">Syntax</span></span>
 
 ```C
 BOOL WINAPI GetConsoleHistoryInfo(
@@ -45,37 +45,37 @@ BOOL WINAPI GetConsoleHistoryInfo(
 );
 ```
 
-## <a name="parameters"></a><span data-ttu-id="3c53f-107">Parámetros</span><span class="sxs-lookup"><span data-stu-id="3c53f-107">Parameters</span></span>
+## <a name="parameters"></a><span data-ttu-id="811a1-107">Parámetros</span><span class="sxs-lookup"><span data-stu-id="811a1-107">Parameters</span></span>
 
-<span data-ttu-id="3c53f-108">*lpConsoleHistoryInfo* \[ enuncia\]</span><span class="sxs-lookup"><span data-stu-id="3c53f-108">*lpConsoleHistoryInfo* \[out\]</span></span>  
-<span data-ttu-id="3c53f-109">Puntero a una estructura [**de \_ \_ información del historial**](console-history-info.md) de la consola que recibe la configuración del historial de la consola del proceso que realiza la llamada.</span><span class="sxs-lookup"><span data-stu-id="3c53f-109">A pointer to a [**CONSOLE\_HISTORY\_INFO**](console-history-info.md) structure that receives the history settings for the calling process's console.</span></span>
+<span data-ttu-id="811a1-108">*lpConsoleHistoryInfo* \[ enuncia\]</span><span class="sxs-lookup"><span data-stu-id="811a1-108">*lpConsoleHistoryInfo* \[out\]</span></span>  
+<span data-ttu-id="811a1-109">Puntero a una estructura [**de \_ \_ información del historial**](console-history-info.md) de la consola que recibe la configuración del historial de la consola del proceso que realiza la llamada.</span><span class="sxs-lookup"><span data-stu-id="811a1-109">A pointer to a [**CONSOLE\_HISTORY\_INFO**](console-history-info.md) structure that receives the history settings for the calling process's console.</span></span>
 
-## <a name="return-value"></a><span data-ttu-id="3c53f-110">Valor devuelto</span><span class="sxs-lookup"><span data-stu-id="3c53f-110">Return value</span></span>
+## <a name="return-value"></a><span data-ttu-id="811a1-110">Valor devuelto</span><span class="sxs-lookup"><span data-stu-id="811a1-110">Return value</span></span>
 
-<span data-ttu-id="3c53f-111">Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.</span><span class="sxs-lookup"><span data-stu-id="3c53f-111">If the function succeeds the return value is nonzero.</span></span>
+<span data-ttu-id="811a1-111">Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.</span><span class="sxs-lookup"><span data-stu-id="811a1-111">If the function succeeds the return value is nonzero.</span></span>
 
-<span data-ttu-id="3c53f-112">Si la función no se realiza correctamente, el valor devuelto es cero.</span><span class="sxs-lookup"><span data-stu-id="3c53f-112">If the function fails, the return value is zero.</span></span> <span data-ttu-id="3c53f-113">Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).</span><span class="sxs-lookup"><span data-stu-id="3c53f-113">To get extended error information, call [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).</span></span>
+<span data-ttu-id="811a1-112">Si la función no se realiza correctamente, el valor devuelto es cero.</span><span class="sxs-lookup"><span data-stu-id="811a1-112">If the function fails, the return value is zero.</span></span> <span data-ttu-id="811a1-113">Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).</span><span class="sxs-lookup"><span data-stu-id="811a1-113">To get extended error information, call [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).</span></span>
 
-## <a name="remarks"></a><span data-ttu-id="3c53f-114">Comentarios</span><span class="sxs-lookup"><span data-stu-id="3c53f-114">Remarks</span></span>
+## <a name="remarks"></a><span data-ttu-id="811a1-114">Comentarios</span><span class="sxs-lookup"><span data-stu-id="811a1-114">Remarks</span></span>
 
-<span data-ttu-id="3c53f-115">Si el proceso de llamada no es un proceso de consola, se produce un error en la función y se establece el último error en **\_ acceso \_ denegado** .</span><span class="sxs-lookup"><span data-stu-id="3c53f-115">If the calling process is not a console process, the function fails and sets the last error to **ERROR\_ACCESS\_DENIED** .</span></span>
+<span data-ttu-id="811a1-115">Si el proceso de llamada no es un proceso de consola, se produce un error en la función y se establece el último error en **\_ acceso \_ denegado**.</span><span class="sxs-lookup"><span data-stu-id="811a1-115">If the calling process is not a console process, the function fails and sets the last error to **ERROR\_ACCESS\_DENIED**.</span></span>
 
 [!INCLUDE [no-vt-equiv-shell-banner](./includes/no-vt-equiv-shell-banner.md)]
 
-## <a name="requirements"></a><span data-ttu-id="3c53f-116">Requisitos</span><span class="sxs-lookup"><span data-stu-id="3c53f-116">Requirements</span></span>
+## <a name="requirements"></a><span data-ttu-id="811a1-116">Requisitos</span><span class="sxs-lookup"><span data-stu-id="811a1-116">Requirements</span></span>
 
 | &nbsp; | &nbsp; |
 |-|-|
-| <span data-ttu-id="3c53f-117">Cliente mínimo compatible</span><span class="sxs-lookup"><span data-stu-id="3c53f-117">Minimum supported client</span></span> | <span data-ttu-id="3c53f-118">Solo aplicaciones de escritorio de Windows Vista \[\]</span><span class="sxs-lookup"><span data-stu-id="3c53f-118">Windows Vista \[desktop apps only\]</span></span> |
-| <span data-ttu-id="3c53f-119">Servidor mínimo compatible</span><span class="sxs-lookup"><span data-stu-id="3c53f-119">Minimum supported server</span></span> | <span data-ttu-id="3c53f-120">Solo aplicaciones de escritorio de Windows Server 2008 \[\]</span><span class="sxs-lookup"><span data-stu-id="3c53f-120">Windows Server 2008 \[desktop apps only\]</span></span> |
-| <span data-ttu-id="3c53f-121">Encabezado</span><span class="sxs-lookup"><span data-stu-id="3c53f-121">Header</span></span> | <span data-ttu-id="3c53f-122">ConsoleApi3. h (a través de WinCon. h, include Windows. h)</span><span class="sxs-lookup"><span data-stu-id="3c53f-122">ConsoleApi3.h (via WinCon.h, include Windows.h)</span></span> |
-| <span data-ttu-id="3c53f-123">Biblioteca</span><span class="sxs-lookup"><span data-stu-id="3c53f-123">Library</span></span> | <span data-ttu-id="3c53f-124">Kernel32. lib</span><span class="sxs-lookup"><span data-stu-id="3c53f-124">Kernel32.lib</span></span> |
-| <span data-ttu-id="3c53f-125">Archivo DLL</span><span class="sxs-lookup"><span data-stu-id="3c53f-125">DLL</span></span> | <span data-ttu-id="3c53f-126">Kernel32.dll</span><span class="sxs-lookup"><span data-stu-id="3c53f-126">Kernel32.dll</span></span> |
+| <span data-ttu-id="811a1-117">Cliente mínimo compatible</span><span class="sxs-lookup"><span data-stu-id="811a1-117">Minimum supported client</span></span> | <span data-ttu-id="811a1-118">Solo aplicaciones de escritorio de Windows Vista \[\]</span><span class="sxs-lookup"><span data-stu-id="811a1-118">Windows Vista \[desktop apps only\]</span></span> |
+| <span data-ttu-id="811a1-119">Servidor mínimo compatible</span><span class="sxs-lookup"><span data-stu-id="811a1-119">Minimum supported server</span></span> | <span data-ttu-id="811a1-120">Solo aplicaciones de escritorio de Windows Server 2008 \[\]</span><span class="sxs-lookup"><span data-stu-id="811a1-120">Windows Server 2008 \[desktop apps only\]</span></span> |
+| <span data-ttu-id="811a1-121">Encabezado</span><span class="sxs-lookup"><span data-stu-id="811a1-121">Header</span></span> | <span data-ttu-id="811a1-122">ConsoleApi3. h (a través de WinCon. h, include Windows. h)</span><span class="sxs-lookup"><span data-stu-id="811a1-122">ConsoleApi3.h (via WinCon.h, include Windows.h)</span></span> |
+| <span data-ttu-id="811a1-123">Biblioteca</span><span class="sxs-lookup"><span data-stu-id="811a1-123">Library</span></span> | <span data-ttu-id="811a1-124">Kernel32.lib</span><span class="sxs-lookup"><span data-stu-id="811a1-124">Kernel32.lib</span></span> |
+| <span data-ttu-id="811a1-125">Archivo DLL</span><span class="sxs-lookup"><span data-stu-id="811a1-125">DLL</span></span> | <span data-ttu-id="811a1-126">Kernel32.dll</span><span class="sxs-lookup"><span data-stu-id="811a1-126">Kernel32.dll</span></span> |
 
-## <a name="see-also"></a><span data-ttu-id="3c53f-127">Consulte también</span><span class="sxs-lookup"><span data-stu-id="3c53f-127">See also</span></span>
+## <a name="see-also"></a><span data-ttu-id="811a1-127">Vea también</span><span class="sxs-lookup"><span data-stu-id="811a1-127">See also</span></span>
 
-[<span data-ttu-id="3c53f-128">Funciones de la consola</span><span class="sxs-lookup"><span data-stu-id="3c53f-128">Console Functions</span></span>](console-functions.md)
+[<span data-ttu-id="811a1-128">Funciones de la consola</span><span class="sxs-lookup"><span data-stu-id="811a1-128">Console Functions</span></span>](console-functions.md)
 
-[<span data-ttu-id="3c53f-129">**\_información del historial de la consola \_**</span><span class="sxs-lookup"><span data-stu-id="3c53f-129">**CONSOLE\_HISTORY\_INFO**</span></span>](console-history-info.md)
+[<span data-ttu-id="811a1-129">**\_información del historial de la consola \_**</span><span class="sxs-lookup"><span data-stu-id="811a1-129">**CONSOLE\_HISTORY\_INFO**</span></span>](console-history-info.md)
 
-[<span data-ttu-id="3c53f-130">**SetConsoleHistoryInfo**</span><span class="sxs-lookup"><span data-stu-id="3c53f-130">**SetConsoleHistoryInfo**</span></span>](setconsolehistoryinfo.md)
+[<span data-ttu-id="811a1-130">**SetConsoleHistoryInfo**</span><span class="sxs-lookup"><span data-stu-id="811a1-130">**SetConsoleHistoryInfo**</span></span>](setconsolehistoryinfo.md)
