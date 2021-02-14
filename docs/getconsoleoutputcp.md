@@ -29,12 +29,12 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 30276765b35e9179767fa4e82fc40643ee3b2558
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 858b0de83c7b1c4678e992b5f9d0ca3d4876ba49
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038823"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358955"
 ---
 # <a name="getconsoleoutputcp-function"></a>GetConsoleOutputCP función)
 
@@ -52,13 +52,13 @@ Esta función no tiene parámetros.
 
 ## <a name="return-value"></a>Valor devuelto
 
-El valor devuelto es un código que identifica la página de códigos. Para obtener una lista de identificadores, vea [identificadores de páginas de códigos](https://msdn.microsoft.com/library/windows/desktop/dd317756).
+El valor devuelto es un código que identifica la página de códigos. Para obtener una lista de identificadores, vea [identificadores de páginas de códigos](/windows/win32/intl/code-page-identifiers).
 
-Si el valor devuelto es cero, se ha producido un error en la función. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si el valor devuelto es cero, se ha producido un error en la función. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Comentarios
 
-Una página de códigos asigna códigos de caracteres de 256 a caracteres individuales. Cada página de código incluye caracteres especiales distintos, que suelen estar personalizados para un idioma o grupo de idiomas. Para recuperar más información sobre una página de códigos, incluido su nombre, vea la función [**GetCPInfoEx**](https://msdn.microsoft.com/library/windows/desktop/dd318081) .
+Una página de códigos asigna códigos de caracteres de 256 a caracteres individuales. Cada página de código incluye caracteres especiales distintos, que suelen estar personalizados para un idioma o grupo de idiomas. Para recuperar más información sobre una página de códigos, incluido su nombre, vea la función [**GetCPInfoEx**](/windows/win32/api/winnls/nf-winnls-getcpinfoexa) .
 
 Para establecer la página de códigos de salida de la consola, use la función [**SetConsoleOutputCP**](setconsoleoutputcp.md) . Para establecer y consultar la página de códigos de entrada de la consola, use las funciones [**SetConsoleCP**](setconsolecp.md) y [**GetConsoleCP**](getconsolecp.md) .
 
@@ -66,13 +66,13 @@ Para establecer la página de códigos de salida de la consola, use la función 
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
-| Encabezado | ConsoleApi. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
+| Encabezado | ConsoleApi.h (a través de WinCon.h, incluido Windows.h) |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Páginas de código de la consola](console-code-pages.md)
 

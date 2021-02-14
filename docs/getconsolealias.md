@@ -32,12 +32,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 37c441c48c2bb71fc8e590d4f8a80032561f833e
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: d3706ddb86c270aeaf22f46e08e5381c79fea0bb
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039033"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357545"
 ---
 # <a name="getconsolealias-function"></a>GetConsoleAlias función)
 
@@ -65,20 +65,20 @@ El alias de la consola cuyo texto se va a recuperar.
 Un puntero a un búfer que recibe el texto asociado al alias de la consola.
 
 *TargetBufferLength* \[ de\]  
-Tamaño del búfer al que apunta *lpTargetBuffer* , en bytes.
+Tamaño del búfer al que apunta *lpTargetBuffer*, en bytes.
 
 *lpExeName* \[ de\]  
 Nombre del archivo ejecutable.
 
 ## <a name="return-value"></a>Valor devuelto
 
-Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
+Si la función se realiza correctamente, el valor devuelto es distinto de cero.
 
-Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Comentarios
 
-Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como 0x0501 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como 0x0501 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](/windows/win32/winprog/using-the-windows-headers).
 
 [!INCLUDE [no-vt-equiv-shell-banner](./includes/no-vt-equiv-shell-banner.md)]
 
@@ -86,10 +86,10 @@ Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT*
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
 | Encabezado | ConsoleApi3. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 | Nombres Unicode y ANSI | **GetConsoleAliasW** (Unicode) y **GetConsoleAliasA** (ANSI) |
 

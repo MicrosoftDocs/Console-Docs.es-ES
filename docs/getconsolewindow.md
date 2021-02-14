@@ -33,12 +33,12 @@ api_location:
 - API-MS-Win-Core-Kernel32-Legacy-L1-1-5.dll
 api_type:
 - DllExport
-ms.openlocfilehash: c74fe1a29b9ba2ea721e874eb624ea2f8517094c
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: ead8c4216fd0d1beb2a5fa6a6acfe3f4ce20df6f
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038813"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358895"
 ---
 # <a name="getconsolewindow-function"></a>GetConsoleWindow función)
 
@@ -62,7 +62,7 @@ El valor devuelto es un identificador de la ventana que usa la consola asociada 
 
 ## <a name="remarks"></a>Comentarios
 
-Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como 0x0500 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como 0x0500 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](/windows/win32/winprog/using-the-windows-headers).
 
 
 [!INCLUDE [no-vt-equiv-local-context](./includes/no-vt-equiv-local-context.md)]
@@ -73,14 +73,14 @@ En el caso de una aplicación que se hospeda dentro de una sesión de [**pseudoc
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
 | Encabezado | ConsoleApi3. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 
 </table>
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)

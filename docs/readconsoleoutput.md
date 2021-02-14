@@ -36,12 +36,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 0ce2a5a62ee7719d0184247c9ef3327850e12c1b
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: c17f9c3b44ba0d64fcf47659cf24d08d5c76cfdc
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037763"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358735"
 ---
 # <a name="readconsoleoutput-function"></a>ReadConsoleOutput función)
 
@@ -63,8 +63,8 @@ BOOL WINAPI ReadConsoleOutput(
 
 ## <a name="parameters"></a>Parámetros
 
-*hConsoleOutput* \[ de\]  
-Identificador del búfer de pantalla de la consola. El identificador debe tener el derecho de acceso de **\_ lectura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
+*hConsoleOutput* \[in\]  
+Identificador del búfer de pantalla de la consola. El identificador debe tener derecho de acceso de **GENERIC\_READ**. Para obtener más información, consulte [Seguridad y derechos de acceso del búfer de la consola](console-buffer-security-and-access-rights.md).
 
 *lpBuffer* \[ enuncia\]  
 Un puntero a un búfer de destino que recibe los datos leídos del búfer de pantalla de la consola. Este puntero se trata como el origen de una matriz bidimensional de estructuras [**de \_ información de char**](char-info-str.md) cuyo tamaño se especifica mediante el parámetro *dwBufferSize* .
@@ -80,9 +80,9 @@ Puntero a una estructura [**\_ Rect pequeña**](small-rect-str.md) . En la entra
 
 ## <a name="return-value"></a>Valor devuelto
 
-Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
+Si la función se realiza correctamente, el valor devuelto es distinto de cero.
 
-Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Comentarios
 
@@ -92,7 +92,7 @@ Las celdas del búfer de destino que se corresponden con las coordenadas que no 
 
 Antes de que **ReadConsoleOutput** devuelva, establece los miembros de la estructura a la que apunta el parámetro *lpReadRegion* en el rectángulo del búfer de pantalla real cuyas celdas se copiaron en el búfer de destino. Este rectángulo refleja las celdas del rectángulo de origen para las que existía una celda correspondiente en el búfer de destino, porque **ReadConsoleOutput** recorta las dimensiones del rectángulo de origen para ajustarse a los límites del búfer de pantalla de la consola.
 
-Si el rectángulo especificado por *lpReadRegion* se encuentra completamente fuera de los límites del búfer de pantalla de la consola, o si el rectángulo correspondiente se coloca completamente fuera de los límites del búfer de destino, no se copia ningún dato. En este caso, la función devuelve con los miembros de la estructura a la que apunta el conjunto de parámetros *lpReadRegion* , de modo que el miembro de la **derecha** es menor que el **izquierdo** , o el miembro **inferior** es menor que la **parte superior** . Para determinar el tamaño del búfer de pantalla de la consola, use la función [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md) .
+Si el rectángulo especificado por *lpReadRegion* se encuentra completamente fuera de los límites del búfer de pantalla de la consola, o si el rectángulo correspondiente se coloca completamente fuera de los límites del búfer de destino, no se copia ningún dato. En este caso, la función devuelve con los miembros de la estructura a la que apunta el conjunto de parámetros *lpReadRegion* , de modo que el miembro de la **derecha** es menor que el **izquierdo**, o el miembro **inferior** es menor que la **parte superior**. Para determinar el tamaño del búfer de pantalla de la consola, use la función [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md) .
 
 La función **ReadConsoleOutput** no tiene ningún efecto en la posición del cursor del búfer de la pantalla de la consola. La función no cambia el contenido del búfer de pantalla de la consola.
 
@@ -108,14 +108,14 @@ Para obtener un ejemplo, vea [lectura y escritura de bloques de caracteres y atr
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
 | Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 | Nombres Unicode y ANSI | **ReadConsoleOutputW** (Unicode) y **ReadConsoleOutputA** (ANSI) |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)
 

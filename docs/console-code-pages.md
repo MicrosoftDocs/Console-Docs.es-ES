@@ -13,12 +13,12 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 98d56bb1-83d2-40aa-adac-fc2e8beab337
-ms.openlocfilehash: 931e882306c1aaff521b7b78c2b99cf1a5479da1
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 0ab9152c2be3f7487f43aee2a0a5c19766a433be
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039253"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358255"
 ---
 # <a name="console-code-pages"></a>Páginas de código de la consola
 
@@ -28,7 +28,7 @@ Los asociados a cada consola son dos páginas de códigos: una para la entrada y
 
 Los identificadores de las páginas de códigos disponibles en el equipo local se almacenan en el registro con la siguiente clave: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\CodePage`
 
-Para obtener información sobre el uso de las funciones del registro para determinar las páginas de códigos disponibles, vea [**Registry**](https://msdn.microsoft.com/library/windows/desktop/ms724871).
+Para obtener información sobre el uso de las funciones del registro para determinar las páginas de códigos disponibles, vea [**Registry**](/windows/win32/sysinfo/registry).
 
 > [!TIP]
-> Se recomienda para todas las aplicaciones de línea de comandos nuevas y actualizadas para evitar páginas de códigos y usar **[Unicode](https://docs.microsoft.com/windows/win32/intl/unicode)** . El texto con formato UTF-16 se puede enviar a la familia *W* de API de consola. El texto con formato UTF-8 se puede enviar a *una* familia de API de consola después de asegurarse de que la página de códigos se establece primero en **[65001 (CP_UTF8)](https://docs.microsoft.com/windows/win32/intl/code-page-identifiers)** con las funciones [**SetConsoleCP**](setconsolecp.md) y [**SetConsoleOutputCP**](setconsoleoutputcp.md) .
+> Se recomienda para todas las aplicaciones de línea de comandos nuevas y actualizadas para evitar páginas de códigos y usar **[Unicode](/windows/win32/intl/unicode)**. El texto con formato UTF-16 se puede enviar a la familia *W* de API de consola. El texto con formato UTF-8 se puede enviar a *una* familia de API de consola después de asegurarse de que la página de códigos se establece primero en **[65001 (CP_UTF8)](/windows/win32/intl/code-page-identifiers)** con las funciones [**SetConsoleCP**](setconsolecp.md) y [**SetConsoleOutputCP**](setconsoleoutputcp.md) .

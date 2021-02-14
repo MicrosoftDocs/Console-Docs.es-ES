@@ -31,12 +31,12 @@ api_location:
 api_type:
 - DllExport
 ms.localizationpriority: high
-ms.openlocfilehash: 42857417cedb661014de869536b798d29c9eb884
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
+ms.openlocfilehash: 0804e12ff7510cd41bec66e1a45f8a31add7c17a
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420214"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358755"
 ---
 # <a name="getstdhandle-function"></a>Función GetStdHandle
 
@@ -65,21 +65,21 @@ El dispositivo estándar. Este parámetro puede ser uno de los valores siguiente
 
 Si la función se ejecuta correctamente, el valor devuelto es un identificador del dispositivo especificado o un identificador redirigido establecido por una llamada anterior en [**SetStdHandle**](setstdhandle.md). El identificador tiene los derechos de acceso **GENERIC\_READ** y **GENERIC\_WRITE**, a menos que la aplicación haya usado **SetStdHandle** para establecer un identificador estándar con un acceso inferior.
 
-Si la función no se ejecuta correctamente, el valor devuelto es **INVALID\_HANDLE\_VALUE**. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se ejecuta correctamente, el valor devuelto es **INVALID\_HANDLE\_VALUE**. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 Si una aplicación no tiene identificadores estándar asociados, como un servicio que se ejecuta en un escritorio interactivo y no los ha redirigido, el valor devuelto es **NULL**.
 
 ## <a name="remarks"></a>Comentarios
 
-Las aplicaciones que necesitan leer o escribir en la consola pueden usar los identificadores devueltos por **GetStdHandle**. Cuando se crea una consola, el identificador de entrada estándar es un identificador del búfer de entrada de la consola, y los identificadores de salida estándar y de error estándar son identificadores del búfer de pantalla activo de la consola. Las funciones [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) y [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747), o cualquiera de las funciones de la consola que tienen acceso al búfer de entrada de la consola o un búfer de pantalla (por ejemplo, las funciones [**ReadConsoleInput**](readconsoleinput.md), [**WriteConsole**](writeconsole.md) o [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md)) pueden usar estos identificadores.
+Las aplicaciones que necesitan leer o escribir en la consola pueden usar los identificadores devueltos por **GetStdHandle**. Cuando se crea una consola, el identificador de entrada estándar es un identificador del búfer de entrada de la consola, y los identificadores de salida estándar y de error estándar son identificadores del búfer de pantalla activo de la consola. Las funciones [**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile) y [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile), o cualquiera de las funciones de la consola que tienen acceso al búfer de entrada de la consola o un búfer de pantalla (por ejemplo, las funciones [**ReadConsoleInput**](readconsoleinput.md), [**WriteConsole**](writeconsole.md) o [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md)) pueden usar estos identificadores.
 
-Los identificadores estándar de un proceso se pueden redirigir mediante una llamada a [**SetStdHandle**](setstdhandle.md), en cuyo caso **GetStdHandle** devuelve el identificador redirigido. Si se han redirigido los identificadores estándar, puede especificar el valor `CONIN$` en una llamada a la función [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) para obtener un identificador del búfer de entrada de la consola. De forma similar, puede especificar el valor `CONOUT$` para obtener un identificador para el búfer de pantalla activo de la consola.
+Los identificadores estándar de un proceso se pueden redirigir mediante una llamada a [**SetStdHandle**](setstdhandle.md), en cuyo caso **GetStdHandle** devuelve el identificador redirigido. Si se han redirigido los identificadores estándar, puede especificar el valor `CONIN$` en una llamada a la función [**CreateFile**](/windows/win32/api/fileapi/nf-fileapi-createfilea) para obtener un identificador del búfer de entrada de la consola. De forma similar, puede especificar el valor `CONOUT$` para obtener un identificador para el búfer de pantalla activo de la consola.
 
-Los identificadores estándar de un proceso en la entrada del método principal están dictaminados por la configuración de la marca [ **/SUBSYSTEM**](https://docs.microsoft.com/cpp/build/reference/subsystem-specify-subsystem) que se pasa al enlazador cuando se compiló la aplicación. Al especificar **/SUBSYSTEM:CONSOLE**, se solicita que el sistema operativo rellene los identificadores con una sesión de consola en el inicio, si el elemento primario aún no ha rellenado la tabla de identificadores estándar por herencia. Por el contrario, **/SUBSYSTEM:WINDOWS** implica que la aplicación no necesita una consola y que probablemente no usará los identificadores estándar. Puede encontrar más información sobre la herencia de identificadores en la documentación de [**STARTF\_USESTDHANDLES**](https://docs.microsoft.com/windows/win32/api/processthreadsapi/ns-processthreadsapi-startupinfoa).
+Los identificadores estándar de un proceso en la entrada del método principal están dictaminados por la configuración de la marca [ **/SUBSYSTEM**](/cpp/build/reference/subsystem-specify-subsystem) que se pasa al enlazador cuando se compiló la aplicación. Al especificar **/SUBSYSTEM:CONSOLE**, se solicita que el sistema operativo rellene los identificadores con una sesión de consola en el inicio, si el elemento primario aún no ha rellenado la tabla de identificadores estándar por herencia. Por el contrario, **/SUBSYSTEM:WINDOWS** implica que la aplicación no necesita una consola y que probablemente no usará los identificadores estándar. Puede encontrar más información sobre la herencia de identificadores en la documentación de [**STARTF\_USESTDHANDLES**](/windows/win32/api/processthreadsapi/ns-processthreadsapi-startupinfoa).
 
 Algunas aplicaciones funcionan fuera de los límites de su subsistema declarado; por ejemplo, una aplicación **/SUBSYSTEM:WINDOWS** puede comprobar o usar identificadores estándar para el registro o la depuración, pero funciona normalmente con una interfaz gráfica de usuario. Estas aplicaciones deberán sondear cuidadosamente el estado de los identificadores estándar en el inicio y usar [**AttachConsole**](attachconsole.md), [**AllocConsole**](allocconsole.md) y [**FreeConsole**](freeconsole.md) para agregar o quitar una consola si se desea.
 
-Algunas aplicaciones también pueden variar su comportamiento sobre el tipo de identificador heredado. La eliminación de la ambigüedad del tipo entre la consola, la canalización, el archivo y otros se pueden realizar con [**GetFileType**](https://docs.microsoft.com/windows/win32/api/fileapi/nf-fileapi-getfiletype).
+Algunas aplicaciones también pueden variar su comportamiento sobre el tipo de identificador heredado. La eliminación de la ambigüedad del tipo entre la consola, la canalización, el archivo y otros se pueden realizar con [**GetFileType**](/windows/win32/api/fileapi/nf-fileapi-getfiletype).
 
 ### <a name="attachdetach-behavior"></a>Comportamiento de la asociación o desasociación
 
@@ -112,16 +112,16 @@ Para un ejemplo, vea [Lectura de eventos de búfer de entrada](reading-input-buf
 
 [Identificadores de consola](console-handles.md)
 
-[**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858)
+[**CreateFile**](/windows/win32/api/fileapi/nf-fileapi-createfilea)
 
 [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md)
 
 [**PeekConsoleInput**](readconsoleinput.md)
 
-[**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467)
+[**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile)
 
 [**SetStdHandle**](setstdhandle.md)
 
 [**WriteConsole**](writeconsole.md)
 
-[**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747)
+[**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile)

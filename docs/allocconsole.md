@@ -30,12 +30,12 @@ api_location:
 api_type:
 - DllExport
 ms.localizationpriority: high
-ms.openlocfilehash: c63c9a176c0d8ca2ef4342f7bee1b427eae00014
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
+ms.openlocfilehash: 3b48570424a4c60a56094f5c41934f9946f67203
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420174"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357865"
 ---
 # <a name="allocconsole-function"></a>Función AllocConsole
 
@@ -55,7 +55,7 @@ Esta función no tiene parámetros.
 
 Si la función se realiza correctamente, el valor devuelto es distinto de cero.
 
-Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Comentarios
 
@@ -65,7 +65,7 @@ Si el proceso de llamada crea un proceso secundario, el elemento secundario here
 
 **AllocConsole** inicializa la entrada estándar, la salida estándar y los identificadores de error estándar para la nueva consola. El identificador de entrada estándar es un identificador del búfer de entrada de la consola, y los identificadores de salida estándar y de error estándar son identificadores del búfer de pantalla de la consola. Para recuperar estos identificadores, use la función [**GetStdHandle**](getstdhandle.md).
 
-Esta función se usa principalmente en una aplicación de interfaz gráfica de usuario (GUI) para crear una ventana de consola. Las aplicaciones de GUI se inicializan sin una consola. Las aplicaciones de consola se inicializan con una consola, a menos que se creen como procesos desasociados (llamando a la función [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) con la marca **DETACHED\_PROCESS**).
+Esta función se usa principalmente en una aplicación de interfaz gráfica de usuario (GUI) para crear una ventana de consola. Las aplicaciones de GUI se inicializan sin una consola. Las aplicaciones de consola se inicializan con una consola, a menos que se creen como procesos desasociados (llamando a la función [**CreateProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa) con la marca **DETACHED\_PROCESS**).
 
 ## <a name="requirements"></a>Requisitos
 
@@ -85,7 +85,7 @@ Esta función se usa principalmente en una aplicación de interfaz gráfica de u
 
 [**AttachConsole**](attachconsole.md)
 
-[**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425)
+[**CreateProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa)
 
 [**FreeConsole**](freeconsole.md)
 

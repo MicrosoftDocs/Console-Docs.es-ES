@@ -42,26 +42,26 @@ api_location:
 - Winuser.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 2c5d641140316089b38b836bf3fba7534ccd5600
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 2cd48537ef79f09024a55b32a98e2aa85fe76f62
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038333"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358055"
 ---
 # <a name="console-winevents"></a>WinEvents de consola
 
 > [!IMPORTANT]
-> WinEvents forman parte de **[Microsoft Active Accessibility](https://docs.microsoft.com/windows/win32/winauto/microsoft-active-accessibility)** Framework heredado. No se recomienda el desarrollo mediante estos eventos en favor del marco de **[automatización](https://docs.microsoft.com/windows/win32/winauto/entry-uiauto-win32)** de la interfaz de usuario de Microsoft, que proporciona un conjunto de interfaces más sólido y completo para que las aplicaciones de accesibilidad y automatización interactúen con la consola. 
+> WinEvents forman parte de **[Microsoft Active Accessibility](/windows/win32/winauto/microsoft-active-accessibility)** Framework heredado. No se recomienda el desarrollo mediante estos eventos en favor del marco de **[automatización](/windows/win32/winauto/entry-uiauto-win32)** de la interfaz de usuario de Microsoft, que proporciona un conjunto de interfaces más sólido y completo para que las aplicaciones de accesibilidad y automatización interactúen con la consola. 
 
 > [!WARNING]
 > El registro de estos eventos es una actividad global y afecta significativamente al rendimiento de todas las aplicaciones de línea de comandos que se ejecutan en un sistema al mismo tiempo, incluidos los servicios y las utilidades en segundo plano. El marco de automatización de la **interfaz de usuario de Microsoft** es específico de la sesión de consola y supera esta limitación.
 
-Las constantes de eventos siguientes se usan en el parámetro *Event* de la función de devolución de llamada [*WinEventProc*](https://msdn.microsoft.com/library/windows/desktop/dd373885(v=vs.85).aspx) . Para obtener más información, vea [WinEvents](https://msdn.microsoft.com/library/windows/desktop/dd373889).
+Las constantes de eventos siguientes se usan en el parámetro *Event* de la función de devolución de llamada [*WinEventProc*](/windows/win32/api/winuser/nc-winuser-wineventproc) . Para obtener más información, vea [WinEvents](https://msdn.microsoft.com/library/windows/desktop/dd373889).
 
-| Constante o valor | Description |
+| Constante o valor | Descripción |
 |-|-|
-| **EVENT_CONSOLE_CARET** 0x4001 | Se ha cambiado el símbolo de intercalación de la consola. El parámetro *idObject* es uno o varios de los siguientes valores: **CONSOLE_CARET_SELECTION** o **CONSOLE_CARET_VISIBLE** . El parámetro *idChild* es una estructura de **[coordenadas](coord-str.md)** que especifica la posición actual del cursor. |
+| **EVENT_CONSOLE_CARET** 0x4001 | Se ha cambiado el símbolo de intercalación de la consola. El parámetro *idObject* es uno o varios de los siguientes valores: **CONSOLE_CARET_SELECTION** o **CONSOLE_CARET_VISIBLE**. El parámetro *idChild* es una estructura de **[coordenadas](coord-str.md)** que especifica la posición actual del cursor. |
 | **EVENT_CONSOLE_END_APPLICATION** 0x4007 | Se ha salido de un proceso de consola. El parámetro *idObject* contiene el identificador de proceso del proceso terminado. |
 | **EVENT_CONSOLE_LAYOUT** 0x4005 | El diseño de la consola ha cambiado. |
 | **EVENT_CONSOLE_START_APPLICATION** 0x4006 | Se ha iniciado un nuevo proceso de consola. El parámetro *idObject* contiene el identificador de proceso del proceso recién creado. Si la aplicación es una aplicación de 16 bits, el parámetro *idChild* es **CONSOLE_APPLICATION_16BIT** y *idObject* es el identificador de proceso de la sesión de NTVDM asociada a la consola. |
@@ -73,6 +73,6 @@ Las constantes de eventos siguientes se usan en el parámetro *Event* de la func
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
 | Encabezado | Winuser. h |

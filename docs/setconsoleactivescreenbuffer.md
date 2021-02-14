@@ -28,12 +28,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 7eb27a383a0bdbfc985188eb477ab9a878f33274
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 72545409bfff6485a4e454d9a004f7f9fa0161e3
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039443"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357755"
 ---
 # <a name="setconsoleactivescreenbuffer-function"></a>SetConsoleActiveScreenBuffer función)
 
@@ -51,14 +51,14 @@ BOOL WINAPI SetConsoleActiveScreenBuffer(
 
 ## <a name="parameters"></a>Parámetros
 
-*hConsoleOutput* \[ de\]  
+*hConsoleOutput* \[in\]  
 Identificador del búfer de pantalla de la consola.
 
 ## <a name="return-value"></a>Valor devuelto
 
-Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
+Si la función se realiza correctamente, el valor devuelto es distinto de cero.
 
-Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Comentarios
 
@@ -74,13 +74,13 @@ Para obtener un ejemplo, vea [lectura y escritura de bloques de caracteres y atr
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
 | Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)
 

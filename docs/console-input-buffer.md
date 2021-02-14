@@ -13,18 +13,18 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 6e536658-8a27-478e-82ee-d1e11f351301
-ms.openlocfilehash: 9b210e07fd2531b2f58130f4b96ad31a374923f4
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: d5d3604d3d4f2738af01ae1bc051c10af6249c62
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039213"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358116"
 ---
 # <a name="console-input-buffer"></a>Búfer de entrada de la consola
 
 Cada consola tiene un búfer de entrada que contiene una cola de registros de eventos de entrada. Cuando la ventana de la consola tiene el foco de teclado, una consola da formato a cada evento de entrada (por ejemplo, una sola pulsación de tecla, un movimiento del mouse o un clic del botón del mouse) como un registro de entrada que coloca en el búfer de entrada de la consola.
 
-Las aplicaciones pueden acceder indirectamente a un búfer de entrada de la consola mediante las [funciones de e/s de la consola de alto nivel](high-level-console-input-and-output-functions.md), o directamente mediante las funciones de entrada de la [consola de bajo nivel](low-level-console-input-functions.md). Las funciones de entrada de alto nivel filtran y procesan los datos en el búfer de entrada, devolviendo solo una secuencia de caracteres de entrada. Las funciones de entrada de nivel inferior permiten a las aplicaciones leer registros de entrada directamente desde el búfer de entrada de una consola o colocar registros de entrada en el búfer de entrada. Para abrir un identificador de un búfer de entrada de la consola, especifique el valor de **CONIN $** en una llamada a la función [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) .
+Las aplicaciones pueden acceder indirectamente a un búfer de entrada de la consola mediante las [funciones de e/s de la consola de alto nivel](high-level-console-input-and-output-functions.md), o directamente mediante las funciones de entrada de la [consola de bajo nivel](low-level-console-input-functions.md). Las funciones de entrada de alto nivel filtran y procesan los datos en el búfer de entrada, devolviendo solo una secuencia de caracteres de entrada. Las funciones de entrada de nivel inferior permiten a las aplicaciones leer registros de entrada directamente desde el búfer de entrada de una consola o colocar registros de entrada en el búfer de entrada. Para abrir un identificador de un búfer de entrada de la consola, especifique el valor de **CONIN $** en una llamada a la función [**CreateFile**](/windows/win32/api/fileapi/nf-fileapi-createfilea) .
 
 Un registro de entrada es una estructura que contiene información sobre el tipo de evento que se ha producido (teclado, Mouse, cambio de tamaño de ventana, foco o evento de menú), así como detalles específicos sobre el evento. El miembro **EventType** en una estructura de [**\_ registro de entrada**](input-record-str.md) indica qué tipo de evento se incluye en el registro.
 

@@ -27,12 +27,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 4a83c91a60a26d8e962efdf10b127e97beb70a7f
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 677df94d6397c1515ad96757788c9a044b6ed87e
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039353"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358655"
 ---
 # <a name="setconsolescreenbufferinfoex-function"></a>SetConsoleScreenBufferInfoEx función)
 
@@ -51,17 +51,17 @@ BOOL WINAPI SetConsoleScreenBufferInfoEx(
 
 ## <a name="parameters"></a>Parámetros
 
-*hConsoleOutput* \[ de\]  
-Identificador del búfer de pantalla de la consola. El identificador debe tener el derecho de acceso de **\_ escritura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
+*hConsoleOutput* \[in\]  
+Identificador del búfer de pantalla de la consola. El identificador debe tener derecho de acceso de **GENERIC\_WRITE**. Para obtener más información, consulte [Seguridad y derechos de acceso del búfer de la consola](console-buffer-security-and-access-rights.md).
 
 *lpConsoleScreenBufferInfoEx* \[ de\]  
 Una [**estructura \_ \_ \_ INFOEX de búfer de pantalla**](console-screen-buffer-infoex.md) de la consola que contiene la información del búfer de pantalla de la consola.
 
 ## <a name="return-value"></a>Valor devuelto
 
-Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
+Si la función se realiza correctamente, el valor devuelto es distinto de cero.
 
-Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Comentarios
 
@@ -75,10 +75,10 @@ Si la función no se realiza correctamente, el valor devuelto es cero. Para obte
 | Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows Vista \[\] |
 | Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2008 \[\] |
 | Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)
 

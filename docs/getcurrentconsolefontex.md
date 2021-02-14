@@ -24,12 +24,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: e499cdb51a5ca71948dd40ebd3d4d151f2d71a8a
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: e7932d286723886f671be051294fcffb23155bf6
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038733"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358885"
 ---
 # <a name="getcurrentconsolefontex-function"></a>GetCurrentConsoleFontEx función)
 
@@ -49,20 +49,20 @@ BOOL WINAPI GetCurrentConsoleFontEx(
 
 ## <a name="parameters"></a>Parámetros
 
-*hConsoleOutput* \[ de\]  
-Identificador del búfer de pantalla de la consola. El identificador debe tener el derecho de acceso de **\_ lectura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
+*hConsoleOutput* \[in\]  
+Identificador del búfer de pantalla de la consola. El identificador debe tener derecho de acceso de **GENERIC\_READ**. Para obtener más información, consulte [Seguridad y derechos de acceso del búfer de la consola](console-buffer-security-and-access-rights.md).
 
 *bMaximumWindow* \[ de\]  
-Si este parámetro es **true** , se recupera la información de fuente para el tamaño máximo de la ventana. Si este parámetro es **false** , se recupera la información de fuente para el tamaño de la ventana actual.
+Si este parámetro es **true**, se recupera la información de fuente para el tamaño máximo de la ventana. Si este parámetro es **false**, se recupera la información de fuente para el tamaño de la ventana actual.
 
 *lpConsoleCurrentFontEx* \[ enuncia\]  
 Puntero a una estructura [**\_ \_ INFOEX de fuente de consola**](console-font-infoex.md) que recibe la información de fuente solicitada.
 
 ## <a name="return-value"></a>Valor devuelto
 
-Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
+Si la función se realiza correctamente, el valor devuelto es distinto de cero.
 
-Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 [!INCLUDE [no-vt-equiv-user-priv](./includes/no-vt-equiv-user-priv.md)]
 
@@ -73,10 +73,10 @@ Si la función no se realiza correctamente, el valor devuelto es cero. Para obte
 | Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows Vista \[\] |
 | Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2008 \[\] |
 | Encabezado | ConsoleApi3. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)
 

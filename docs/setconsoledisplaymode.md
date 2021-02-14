@@ -24,12 +24,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 52d7e50d7ced5615cb296c0590876e4604057e42
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: af61d897269311ccfa9db336083e898f6d75da80
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039393"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357705"
 ---
 # <a name="setconsoledisplaymode-function"></a>SetConsoleDisplayMode función)
 
@@ -49,7 +49,7 @@ BOOL WINAPI SetConsoleDisplayMode(
 
 ## <a name="parameters"></a>Parámetros
 
-*hConsoleOutput* \[ de\]  
+*hConsoleOutput* \[in\]  
 Identificador del búfer de pantalla de la consola.
 
 *dwFlags* \[ de\]  
@@ -65,11 +65,11 @@ Puntero a una estructura de [**coordenadas**](coord-str.md) que recibe las nueva
 
 ## <a name="return-value"></a>Valor devuelto
 
-Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
+Si la función se realiza correctamente, el valor devuelto es distinto de cero.
 
-Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-## <a name="remarks"></a>Observaciones
+## <a name="remarks"></a>Comentarios
 
 [!INCLUDE [no-vt-equiv-user-priv](./includes/no-vt-equiv-user-priv.md)]
 
@@ -80,10 +80,10 @@ Si la función no se realiza correctamente, el valor devuelto es cero. Para obte
 | Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows XP \[\] |
 | Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2003 \[\] |
 | Encabezado | ConsoleApi3. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)
 

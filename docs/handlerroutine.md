@@ -25,12 +25,12 @@ api_location:
 - WinCon.h
 api_type:
 - UserDefined
-ms.openlocfilehash: d078000b7c0acee73593543058f2195befc6f5e2
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: bd028892101b38ac7f0bfa307547ca4aa4cf5b0e
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037753"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358745"
 ---
 # <a name="handlerroutine-callback-function"></a>Función de devolución de llamada HandlerRoutine
 
@@ -54,30 +54,30 @@ Tipo de señal de control recibida por el controlador. Este parámetro puede ser
 | Valor | Significado |
 |-|-|
 | **CTRL_C_EVENT** 0 | Se recibió una señal <kbd>Ctrl</kbd> + <kbd>C</kbd> , ya sea desde la entrada del teclado o desde una señal generada por la función **[GenerateConsoleCtrlEvent](generateconsolectrlevent.md)** . |
-| **CTRL_BREAK_EVENT** 1 | <kbd>CTRL</kbd> + Se ha recibido una señal de <kbd>interrupción</kbd> de Ctrl, ya sea desde la entrada del teclado o desde una señal generada por **[GenerateConsoleCtrlEvent](generateconsolectrlevent.md)** . |
+| **CTRL_BREAK_EVENT** 1 | <kbd></kbd> + Se ha recibido una señal de <kbd>interrupción</kbd> de Ctrl, ya sea desde la entrada del teclado o desde una señal generada por **[GenerateConsoleCtrlEvent](generateconsolectrlevent.md)**. |
 | **CTRL_CLOSE_EVENT** 2 | Señal que el sistema envía a todos los procesos adjuntos a una consola cuando el usuario cierra la consola (haciendo clic en **cerrar** en el menú ventana de la ventana de la consola o haciendo clic en el comando **Finalizar tarea** del administrador de tareas). |
 | **CTRL_LOGOFF_EVENT** 5 | Señal que el sistema envía a todos los procesos de la consola cuando un usuario cierra la sesión. Esta señal no indica qué usuario está cerrando la sesión, por lo que no se puede realizar ninguna suposición.<br /><br />Tenga en cuenta que esta señal solo la reciben los servicios. Las aplicaciones interactivas se terminan al cerrar la sesión, por lo que no están presentes cuando el sistema envía esta señal. |
-| **CTRL_SHUTDOWN_EVENT** 6 | Señal que el sistema envía cuando el sistema se está cerrando. Las aplicaciones interactivas no están presentes en el momento en que el sistema envía esta señal, por lo que solo se pueden recibir servicios en esta situación. Los servicios también tienen su propio mecanismo de notificación para los eventos de cierre. Para obtener más información, consulte **[controlador](https://msdn.microsoft.com/library/windows/desktop/ms683240)** .<br /><br />Esta señal también puede ser generada por una aplicación mediante **[GenerateConsoleCtrlEvent](generateconsolectrlevent.md)** . |
+| **CTRL_SHUTDOWN_EVENT** 6 | Señal que el sistema envía cuando el sistema se está cerrando. Las aplicaciones interactivas no están presentes en el momento en que el sistema envía esta señal, por lo que solo se pueden recibir servicios en esta situación. Los servicios también tienen su propio mecanismo de notificación para los eventos de cierre. Para obtener más información, consulte **[controlador](/windows/win32/api/winsvc/nc-winsvc-lphandler_function)**.<br /><br />Esta señal también puede ser generada por una aplicación mediante **[GenerateConsoleCtrlEvent](generateconsolectrlevent.md)**. |
 
 ## <a name="return-value"></a>Valor devuelto
 
-Si la función controla la señal de control, debe devolver **true** . Si devuelve **false** , se usa la función de controlador siguiente en la lista de controladores para este proceso.
+Si la función controla la señal de control, debe devolver **true**. Si devuelve **false**, se usa la función de controlador siguiente en la lista de controladores para este proceso.
 
 ## <a name="remarks"></a>Comentarios
 
 Dado que el sistema crea un nuevo subproceso en el proceso para ejecutar la función de controlador, es posible que otro subproceso termine la función de controlador en el proceso. Asegúrese de sincronizar los subprocesos del proceso con el subproceso de la función de controlador.
 
-Cada proceso de consola tiene su propia lista de funciones de **HandlerRoutine** . Inicialmente, esta lista contiene solo una función de controlador predeterminada que llama a [**ExitProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682658). Un proceso de consola agrega o quita funciones de controlador adicionales mediante una llamada a la función [**SetConsoleCtrlHandler**](setconsolectrlhandler.md) , que no afecta a la lista de funciones de controlador para otros procesos. Cuando un proceso de consola recibe cualquiera de las señales de control, se llama a sus funciones de controlador en la última base de registro, que se llama primero, hasta que uno de los controladores devuelve **true** . Si ninguno de los controladores devuelve **true** , se llama al controlador predeterminado.
+Cada proceso de consola tiene su propia lista de funciones de **HandlerRoutine** . Inicialmente, esta lista contiene solo una función de controlador predeterminada que llama a [**ExitProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-exitprocess). Un proceso de consola agrega o quita funciones de controlador adicionales mediante una llamada a la función [**SetConsoleCtrlHandler**](setconsolectrlhandler.md) , que no afecta a la lista de funciones de controlador para otros procesos. Cuando un proceso de consola recibe cualquiera de las señales de control, se llama a sus funciones de controlador en la última base de registro, que se llama primero, hasta que uno de los controladores devuelve **true**. Si ninguno de los controladores devuelve **true**, se llama al controlador predeterminado.
 
-Las señales de evento **Ctrl \_ Close \_** , evento **Ctrl \_ Logoff \_** y **Ctrl \_ Shutdown \_** proporcionan al proceso una oportunidad de limpieza antes de la finalización. Un **HandlerRoutine** puede realizar cualquier limpieza necesaria y, a continuación, realizar una de las siguientes acciones:
+Las señales de evento **Ctrl \_ Close \_**, evento **Ctrl \_ Logoff \_** y **Ctrl \_ Shutdown \_** proporcionan al proceso una oportunidad de limpieza antes de la finalización. Un **HandlerRoutine** puede realizar cualquier limpieza necesaria y, a continuación, realizar una de las siguientes acciones:
 
-- Llame a la función [**ExitProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682658) para finalizar el proceso.
-- Devuelve **false** . Si ninguna de las funciones de controlador registradas devuelve **true** , el controlador predeterminado finaliza el proceso.
-- Devuelve **true** . En este caso, no se llama a ninguna otra función de controlador y el sistema finaliza el proceso.
+- Llame a la función [**ExitProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-exitprocess) para finalizar el proceso.
+- Devuelve **false**. Si ninguna de las funciones de controlador registradas devuelve **true**, el controlador predeterminado finaliza el proceso.
+- Devuelve **true**. En este caso, no se llama a ninguna otra función de controlador y el sistema finaliza el proceso.
 
-Un proceso puede usar la función [**SetProcessShutdownParameters**](https://msdn.microsoft.com/library/windows/desktop/ms686227) para evitar que el sistema muestre un cuadro de diálogo al usuario durante el cierre de sesión o apagado. En este caso, el sistema finaliza el proceso cuando **HandlerRoutine** devuelve **true** o cuando transcurre el período de tiempo de espera.
+Un proceso puede usar la función [**SetProcessShutdownParameters**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-setprocessshutdownparameters) para evitar que el sistema muestre un cuadro de diálogo al usuario durante el cierre de sesión o apagado. En este caso, el sistema finaliza el proceso cuando **HandlerRoutine** devuelve **true** o cuando transcurre el período de tiempo de espera.
 
-Cuando una aplicación de consola se ejecuta como un servicio, recibe un controlador de control de consola predeterminado modificado. Este controlador modificado no llama a [**ExitProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682658) al procesar las señales de evento **Ctrl \_ Logoff \_** y **Ctrl \_ Shutdown \_** . Esto permite que el servicio siga ejecutándose después de que el usuario cierre la sesión. Si el servicio instala su propio controlador de control de consola, se llama a este controlador antes del controlador predeterminado. Si el controlador instalado llama a **ExitProcess** al procesar la señal del **\_ \_ evento Ctrl Logoff** , el servicio se cierra cuando el usuario cierra la sesión.
+Cuando una aplicación de consola se ejecuta como un servicio, recibe un controlador de control de consola predeterminado modificado. Este controlador modificado no llama a [**ExitProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-exitprocess) al procesar las señales de evento **Ctrl \_ Logoff \_** y **Ctrl \_ Shutdown \_** . Esto permite que el servicio siga ejecutándose después de que el usuario cierre la sesión. Si el servicio instala su propio controlador de control de consola, se llama a este controlador antes del controlador predeterminado. Si el controlador instalado llama a **ExitProcess** al procesar la señal del **\_ \_ evento Ctrl Logoff** , el servicio se cierra cuando el usuario cierra la sesión.
 
 Tenga en cuenta que una biblioteca de terceros o DLL puede instalar un controlador de control de consola para la aplicación. Si lo hace, este controlador invalida el controlador predeterminado y puede hacer que la aplicación se cierre cuando el usuario cierra la sesión.
 
@@ -86,10 +86,10 @@ Tenga en cuenta que una biblioteca de terceros o DLL puede instalar un controlad
 | Evento                  | Circunstancias                   | Tiempo de espera                                                     |
 |------------------------|---------------------------------|-------------------------------------------------------------|
 | `CTRL_CLOSE_EVENT`     | _cualquier_                           | parámetro del sistema `SPI_GETHUNGAPPTIMEOUT` , 5.000 MS            |
-| `CTRL_LOGOFF_EVENT`    | _rápido_ [1] | clave del registro `CriticalAppShutdownTimeout` o 500 ms          |
+| `CTRL_LOGOFF_EVENT`    | _rápido_[1] | clave del registro `CriticalAppShutdownTimeout` o 500 ms          |
 | `CTRL_LOGOFF_EVENT`    | _ninguno de los anteriores_             | parámetro del sistema `SPI_GETWAITTOKILLTIMEOUT` , 5.000 MS         |
 | `CTRL_SHUTDOWN_EVENT`  | **proceso de servicio**             | parámetro del sistema `SPI_GETWAITTOKILLSERVICETIMEOUT` , 20000ms |
-| `CTRL_SHUTDOWN_EVENT`  | _rápido_ [1] | clave del registro `CriticalAppShutdownTimeout` o 500 ms          |
+| `CTRL_SHUTDOWN_EVENT`  | _rápido_[1] | clave del registro `CriticalAppShutdownTimeout` o 500 ms          |
 | `CTRL_SHUTDOWN_EVENT`  | _ninguno de los anteriores_             | parámetro del sistema `SPI_GETWAITTOKILLTIMEOUT` , 5.000 MS         |
 | `CTRL_C`, `CTRL_BREAK` | _cualquier_                           | **sin tiempo de espera**                                              |
 
@@ -99,22 +99,22 @@ _[1]: los eventos "rápidos" nunca se usan, pero todavía hay código para admit
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
-| Encabezado | ConsoleApi. h (a través de WinCon. h, include Windows. h) |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
+| Encabezado | ConsoleApi.h (a través de WinCon.h, incluido Windows.h) |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Identificadores de control de la consola](console-control-handlers.md)
 
 [Funciones de la consola](console-functions.md)
 
-[**ExitProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682658)
+[**ExitProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-exitprocess)
 
 [**GenerateConsoleCtrlEvent**](generateconsolectrlevent.md)
 
-[**GetProcessShutdownParameters**](https://msdn.microsoft.com/library/windows/desktop/ms683221)
+[**GetProcessShutdownParameters**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-getprocessshutdownparameters)
 
 [**SetConsoleCtrlHandler**](setconsolectrlhandler.md)
 
-[**SetProcessShutdownParameters**](https://msdn.microsoft.com/library/windows/desktop/ms686227)
+[**SetProcessShutdownParameters**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-setprocessshutdownparameters)

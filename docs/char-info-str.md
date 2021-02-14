@@ -28,14 +28,14 @@ api_location:
 - WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: b07938d6ac58744533711c91a04b1a0188f7daf6
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: a16fb23d148f75480437211204a0fd7c1f161bfe
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037383"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357855"
 ---
-# <a name="char_info-structure"></a>\_Estructura char info
+# `CHAR\_INFO structure`
 
 [!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
@@ -69,21 +69,21 @@ Atributos de carácter. Este miembro puede ser cero o cualquier combinación de 
 
 | Valor | Significado |
 |-|-|
-| **FOREGROUND_BLUE**`0x0001` | El color del texto contiene el azul. |
+| **FOREGROUND_BLUE**`0x0001` | El color del texto contiene azul. |
 | **FOREGROUND_GREEN**`0x0002` | El color del texto contiene verde. |
 | **FOREGROUND_RED**`0x0004` | El color del texto contiene rojo. |
 | **FOREGROUND_INTENSITY**`0x0008` | El color del texto se intensifica. |
-| **BACKGROUND_BLUE**`0x0010` | El color de fondo contiene el azul. |
+| **BACKGROUND_BLUE**`0x0010` | El color de fondo contiene azul. |
 | **BACKGROUND_GREEN**`0x0020` | El color de fondo contiene verde. |
 | **BACKGROUND_RED**`0x0040` | El color de fondo contiene rojo. |
-| **BACKGROUND_INTENSITY**`0x0080` | Se intensifica el color de fondo. |
+| **BACKGROUND_INTENSITY**`0x0080` | El color de fondo se intensifica. |
 | **COMMON_LVB_LEADING_BYTE**`0x0100` | Byte inicial. |
 | **COMMON_LVB_TRAILING_BYTE**`0x0200` | Byte final. |
 | **COMMON_LVB_GRID_HORIZONTAL**`0x0400` | Horizontal superior. |
 | **COMMON_LVB_GRID_LVERTICAL**`0x0800` | Vertical izquierda. |
 | **COMMON_LVB_GRID_RVERTICAL**`0x1000` | Vertical derecha. |
 | **COMMON_LVB_REVERSE_VIDEO**`0x4000` | Atributo de primer plano y fondo inverso. |
-| **COMMON_LVB_UNDERSCORE**`0x8000` | Subrayado. |
+| **COMMON_LVB_UNDERSCORE**`0x8000` | Guion bajo. |
 
 ## <a name="examples"></a>Ejemplos
 
@@ -93,8 +93,8 @@ Para obtener un ejemplo, vea [desplazarse por el contenido de un búfer de panta
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
 | Encabezado | WinCon. h (incluir Windows. h) |
 
 ## <a name="see-also"></a>Consulte también

@@ -24,12 +24,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 618661b8c59506e2ba5e1f2b2b283ccf823b831a
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 3c2dcce41994929292253793fe94512ab7bc5a01
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039383"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357655"
 ---
 # <a name="setconsolehistoryinfo-function"></a>SetConsoleHistoryInfo función)
 
@@ -52,13 +52,13 @@ Un puntero a una estructura de [**\_ \_ información del historial**](console-hi
 
 ## <a name="return-value"></a>Valor devuelto
 
-Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
+Si la función se realiza correctamente, el valor devuelto es distinto de cero.
 
-Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Comentarios
 
-Si el proceso de llamada no es un proceso de consola, se produce un error en la función y se establece el último código de error en **\_ acceso \_ denegado** .
+Si el proceso de llamada no es un proceso de consola, se produce un error en la función y se establece el último código de error en **\_ acceso \_ denegado**.
 
 [!INCLUDE [no-vt-equiv-shell-banner](./includes/no-vt-equiv-shell-banner.md)]
 
@@ -69,10 +69,10 @@ Si el proceso de llamada no es un proceso de consola, se produce un error en la 
 | Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows Vista \[\] |
 | Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2008 \[\] |
 | Encabezado | ConsoleApi3. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)
 

@@ -13,12 +13,12 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 41488614-ca7c-4207-b706-f7776423c7ba
-ms.openlocfilehash: c214a90147fae2fbf876746078ce0301af15b7ad
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: fc2969cb266479a0acdde890f4ad3710ca8d7e42
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038553"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357825"
 ---
 # <a name="low-level-console-input-functions"></a>Funciones de entrada de la consola de Low-Level
 
@@ -46,4 +46,4 @@ A continuación se muestran las descripciones de las funciones de entrada de la 
 | [**WriteConsoleInput**](writeconsoleinput.md) | Coloca los registros de entrada en el búfer de entrada detrás de los registros pendientes en el búfer. El búfer de entrada crece dinámicamente, si es necesario, para contener tantos registros como se escriban. Para usar esta función, el identificador de búfer de entrada especificado debe tener el \_ derecho de acceso de escritura genérico. |
 | [**FlushConsoleInputBuffer**](flushconsoleinputbuffer.md) | Descarta todos los eventos no leídos en el búfer de entrada. Para usar esta función, el identificador de búfer de entrada especificado debe tener el \_ derecho de acceso de escritura genérico. |
 
-Un subproceso del proceso de una aplicación puede realizar una operación de espera para esperar a que la entrada esté disponible en un búfer de entrada. Para iniciar una operación de espera, especifique un identificador para el búfer de entrada en una llamada a cualquiera de las [funciones de espera](https://msdn.microsoft.com/library/windows/desktop/ms687069). Estas funciones pueden devolver cuando se señala el estado de uno o varios objetos. El estado de un identificador de entrada de la consola se señaliza cuando hay registros sin leer en su búfer de entrada. El estado se restablece a no señalizado cuando el búfer de entrada se vacía. Si no hay ninguna entrada disponible, el subproceso que realiza la llamada entra en un estado de espera eficaz, lo que consume muy poco tiempo de procesador mientras espera a que se cumplan las condiciones de la operación de espera.
+Un subproceso del proceso de una aplicación puede realizar una operación de espera para esperar a que la entrada esté disponible en un búfer de entrada. Para iniciar una operación de espera, especifique un identificador para el búfer de entrada en una llamada a cualquiera de las [funciones de espera](/windows/win32/sync/wait-functions). Estas funciones pueden devolver cuando se señala el estado de uno o varios objetos. El estado de un identificador de entrada de la consola se señaliza cuando hay registros sin leer en su búfer de entrada. El estado se restablece a no señalizado cuando el búfer de entrada se vacía. Si no hay ninguna entrada disponible, el subproceso que realiza la llamada entra en un estado de espera eficaz, lo que consume muy poco tiempo de procesador mientras espera a que se cumplan las condiciones de la operación de espera.

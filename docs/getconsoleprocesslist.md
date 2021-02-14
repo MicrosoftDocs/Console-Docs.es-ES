@@ -25,12 +25,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: bfc16edccb2f1be2b22c81992800d8f62d86cf4f
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: b067d701b2568165a4cf0f9368c37a06ba6863c8
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037990"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358945"
 ---
 # <a name="getconsoleprocesslist-function"></a>GetConsoleProcessList función)
 
@@ -59,13 +59,13 @@ Si la función se ejecuta correctamente, el valor devuelto es menor o igual que 
 
 Si el búfer es demasiado pequeño para contener todos los identificadores de proceso válidos, el valor devuelto es el número necesario de elementos de matriz. La función habrá almacenado ningún identificador en el búfer. En esta situación, use el valor devuelto para asignar un búfer lo suficientemente grande como para almacenar toda la lista y volver a llamar a la función.
 
-Si el valor devuelto es cero, se ha producido un error en la función porque cada consola tiene al menos un proceso asociado. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si el valor devuelto es cero, se ha producido un error en la función porque cada consola tiene al menos un proceso asociado. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 Si `NULL` se proporcionó una lista de procesos o el número de procesos era 0, la llamada devolverá 0 y `GetLastError` devolverá `ERROR_INVALID_PARAMETER` . Proporcione un búfer de al menos un elemento para llamar a esta función. Asigne un búfer mayor y vuelva a llamar a si el código de retorno es mayor que la longitud del búfer proporcionado.
 
 ## <a name="remarks"></a>Comentarios
 
-Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como 0x0501 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como 0x0501 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](/windows/win32/winprog/using-the-windows-headers).
 
 [!INCLUDE [no-vt-equiv-local-context](./includes/no-vt-equiv-local-context.md)]
 
@@ -76,10 +76,10 @@ Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT*
 | Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows XP \[\] |
 | Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2003 \[\] |
 | Encabezado | ConsoleApi3. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [**AttachConsole**](attachconsole.md)
 

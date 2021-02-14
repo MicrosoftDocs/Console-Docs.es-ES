@@ -28,12 +28,12 @@ api_location:
 - WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 0a2ba8ecf8b07a83db54642c2399bb93d99b7aa2
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: bcc58b90e71b848e3b6e4b0bf5ba162323830529
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039533"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357805"
 ---
 # <a name="key_event_record-structure"></a>Estructura del registro de \_ eventos clave \_
 
@@ -58,13 +58,13 @@ typedef struct _KEY_EVENT_RECORD {
 ## <a name="members"></a>Miembros
 
 **bKeyDown**  
-Si se presiona la tecla, este miembro es **true** . De lo contrario, este miembro es **false** (se libera la tecla).
+Si se presiona la tecla, este miembro es **true**. De lo contrario, este miembro es **false** (se libera la tecla).
 
 **wRepeatCount**  
 Recuento de repeticiones, que indica que una clave se mantiene presionada. Por ejemplo, cuando se mantiene presionada una tecla, podría obtener cinco eventos con este miembro igual a 1, un evento con este miembro igual a 5 o varios eventos con este miembro mayor o igual que 1.
 
 **wVirtualKeyCode**  
-[Código de clave virtual](https://msdn.microsoft.com/library/windows/desktop/dd375731(v=vs.85).aspx) que identifica la clave especificada de una manera independiente del dispositivo.
+[Código de clave virtual](/windows/win32/inputdev/virtual-key-codes) que identifica la clave especificada de una manera independiente del dispositivo.
 
 **wVirtualScanCode**  
 Código de análisis virtual de la clave especificada que representa el valor dependiente del dispositivo generado por el hardware del teclado.
@@ -97,18 +97,18 @@ Estado de las teclas de control. Este miembro puede ser uno o varios de los valo
 
 Las claves mejoradas para los teclados de IBM® 101-y 102-Key son las teclas INS, SUPR, Inicio, fin, Re Pág, Av Pág y dirección en los clústeres a la izquierda del teclado. y la división (/) y escriba las teclas en el teclado.
 
-Los eventos de entrada de teclado se generan cuando se presiona o se suelta cualquier tecla, incluidas las teclas de control. Sin embargo, la tecla ALT cuando se presiona y se libera sin combinar con otro carácter, tiene un significado especial para el sistema y no se pasa a la aplicación. Además, la combinación de teclas CTRL + C no se pasa si el identificador de entrada está en modo procesado **( \_ habilitar \_ entrada procesada** ).
+Los eventos de entrada de teclado se generan cuando se presiona o se suelta cualquier tecla, incluidas las teclas de control. Sin embargo, la tecla ALT cuando se presiona y se libera sin combinar con otro carácter, tiene un significado especial para el sistema y no se pasa a la aplicación. Además, la combinación de teclas CTRL + C no se pasa si el identificador de entrada está en modo procesado **( \_ habilitar \_ entrada procesada**).
 
 ## <a name="examples"></a>Ejemplos
 
-Para obtener un ejemplo, vea [leer eventos de búfer de entrada](reading-input-buffer-events.md).
+Para un ejemplo, vea [Lectura de eventos de búfer de entrada](reading-input-buffer-events.md).
 
 ## <a name="requirements"></a>Requisitos
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
 | Encabezado | WinConTypes. h (a través de WinCon. h, include Windows. h) |
 
 ## <a name="see-also"></a>Consulte también

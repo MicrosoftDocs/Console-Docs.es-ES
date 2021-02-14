@@ -7,12 +7,12 @@ ms.topic: conceptual
 keywords: consola, terminal, terminal virtual, host de consola, línea de comandos, subsistema, hoja de ruta, ecosistema
 ms.prod: console
 ms.localizationpriority: high
-ms.openlocfilehash: e5d28a06789f230943d70a49e7c89642b17fdb5c
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
+ms.openlocfilehash: 3db266b761d4a8ee1fd8ec24d640bb277ab76edb
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420264"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357905"
 ---
 # <a name="windows-console-and-terminal-ecosystem-roadmap"></a>Hoja de ruta de la consola de Windows y del ecosistema de terminal
 
@@ -78,11 +78,11 @@ Los hitos históricos principales del subsistema de la consola tuvieron lugar en
 
 ### <a name="initial-implementation"></a>Implementación inicial
 
-**\[1989-década de 1990]** El sistema de host de consola inicial se implementó como una emulación del entorno de DOS en el sistema operativo Windows. Su código está entrelazado y coopera con el [símbolo del sistema](https://docs.microsoft.com/windows-server/administration/windows-commands/cmd), `cmd.exe`, que es una representación de ese entorno de DOS. El código del sistema host de la consola comparte responsabilidades y privilegios con el intérprete o shell del símbolo del sistema. También proporciona un nivel básico de servicios para otras utilidades de línea de comandos a fin de realizar servicios de una manera similar a la de CMD.
+**\[1989-década de 1990]** El sistema de host de consola inicial se implementó como una emulación del entorno de DOS en el sistema operativo Windows. Su código está entrelazado y coopera con el [símbolo del sistema](/windows-server/administration/windows-commands/cmd), `cmd.exe`, que es una representación de ese entorno de DOS. El código del sistema host de la consola comparte responsabilidades y privilegios con el intérprete o shell del símbolo del sistema. También proporciona un nivel básico de servicios para otras utilidades de línea de comandos a fin de realizar servicios de una manera similar a la de CMD.
 
 ### <a name="dbcs-for-cjk"></a>DBCS para CJK
 
-**\[1997-1999\]** En este momento, se introdujo la compatibilidad con [DBCS ](https://docs.microsoft.com/windows/win32/intl/double-byte-character-sets) ("conjunto de caracteres de doble byte") para admitir los mercados CJK (chino, japonés y coreano). Este trabajo dio como resultado una bifurcación de muchos de los métodos de escritura y lectura de la consola a fin de proporcionar versiones "occidentales" para tratar con caracteres de un solo byte, así como una representación alternativa para las versiones "orientales" en las que se requieren dos bytes para representar la gran variedad de caracteres. Esta bifurcación incluía la representación expandida de una celda en el entorno de la consola con una o dos celdas de ancho. La opción de una celda era estrecha (más alta que ancha) y, la de dos, era ancha, de ancho completo o bien un cuadrado en el que se podían inscribir ideogramas chinos, japoneses y coreanos comunes.
+**\[1997-1999\]** En este momento, se introdujo la compatibilidad con [DBCS](/windows/win32/intl/double-byte-character-sets) ("conjunto de caracteres de doble byte") para admitir los mercados CJK (chino, japonés y coreano). Este trabajo dio como resultado una bifurcación de muchos de los métodos de escritura y lectura de la consola a fin de proporcionar versiones "occidentales" para tratar con caracteres de un solo byte, así como una representación alternativa para las versiones "orientales" en las que se requieren dos bytes para representar la gran variedad de caracteres. Esta bifurcación incluía la representación expandida de una celda en el entorno de la consola con una o dos celdas de ancho. La opción de una celda era estrecha (más alta que ancha) y, la de dos, era ancha, de ancho completo o bien un cuadrado en el que se podían inscribir ideogramas chinos, japoneses y coreanos comunes.
 
 ### <a name="securityisolation"></a>Seguridad y aislamiento
 
@@ -94,7 +94,7 @@ Los hitos históricos principales del subsistema de la consola tuvieron lugar en
 
 ### <a name="virtual-terminal-client"></a>Cliente de terminal virtual
 
-**\[2015-2017\]** Con la llegada del [Subsistema de Windows para Linux](https://docs.microsoft.com/windows/wsl/), los esfuerzos de Microsoft por mejorar la experiencia de [Docker en Windows](https://docs.microsoft.com/dotnet/architecture/microservices/container-docker-introduction/docker-defined) y la adopción de [OpenSSH](https://docs.microsoft.com/windows-server/administration/openssh/openssh_overview) como la tecnología líder de ejecución remota de línea de comandos, se introdujeron las implementaciones iniciales de las [secuencias de terminal virtuales](console-virtual-terminal-sequences.md) en el host de consola. Ello permitió que la consola existente actuara como terminal, conectado directamente a esas aplicaciones nativas de Linux en sus respectivos entornos, que se representaran los atributos gráficos y de texto en la pantalla y que se devolviera la entrada del usuario en el dialecto adecuado.
+**\[2015-2017\]** Con la llegada del [Subsistema de Windows para Linux](/windows/wsl/), los esfuerzos de Microsoft por mejorar la experiencia de [Docker en Windows](/dotnet/architecture/microservices/container-docker-introduction/docker-defined) y la adopción de [OpenSSH](/windows-server/administration/openssh/openssh_overview) como la tecnología líder de ejecución remota de línea de comandos, se introdujeron las implementaciones iniciales de las [secuencias de terminal virtuales](console-virtual-terminal-sequences.md) en el host de consola. Ello permitió que la consola existente actuara como terminal, conectado directamente a esas aplicaciones nativas de Linux en sus respectivos entornos, que se representaran los atributos gráficos y de texto en la pantalla y que se devolviera la entrada del usuario en el dialecto adecuado.
 
 ### <a name="virtual-terminal-server"></a>Servidor de terminal virtual
 

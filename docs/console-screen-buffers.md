@@ -14,25 +14,25 @@ MSHAttr:
 - PreferredLib:/library/windows/desktop
 ms.assetid: f94995fc-5f5f-4fcd-969d-7e10020634c2
 ms.localizationpriority: high
-ms.openlocfilehash: 4c5740be3b60d54f9e7b586b41e962a4102222a0
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
+ms.openlocfilehash: 7d617b48676c0e4272d11dea3c1bd990f4334d11
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420204"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358095"
 ---
 # <a name="console-screen-buffers"></a>Búferes de pantalla de la consola
 
 Un *búfer de pantalla* es una matriz bidimensional de datos de caracteres y colores para la salida en una ventana de la consola. Una consola puede tener varios búferes de pantalla. El *búfer de pantalla activo* es el que se muestra en la pantalla.
 
-El sistema crea un búfer de pantalla cada vez que crea una nueva consola. Para abrir un identificador en el búfer de pantalla activo de la consola, especifique el valor **CONOUT$** en una llamada a la función [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858). Un proceso puede usar la función [**CreateConsoleScreenBuffer**](createconsolescreenbuffer.md) para crear búferes de pantalla adicionales para su consola. Un búfer de pantalla nuevo no está activo hasta que su identificador se especifica en una llamada a la función [**SetConsoleActiveScreenBuffer**](setconsoleactivescreenbuffer.md). Sin embargo, se puede tener acceso a los búferes de pantalla para leer y escribir, independientemente de si están activos o inactivos.
+El sistema crea un búfer de pantalla cada vez que crea una nueva consola. Para abrir un identificador en el búfer de pantalla activo de la consola, especifique el valor **CONOUT$** en una llamada a la función [**CreateFile**](/windows/win32/api/fileapi/nf-fileapi-createfilea). Un proceso puede usar la función [**CreateConsoleScreenBuffer**](createconsolescreenbuffer.md) para crear búferes de pantalla adicionales para su consola. Un búfer de pantalla nuevo no está activo hasta que su identificador se especifica en una llamada a la función [**SetConsoleActiveScreenBuffer**](setconsoleactivescreenbuffer.md). Sin embargo, se puede tener acceso a los búferes de pantalla para leer y escribir, independientemente de si están activos o inactivos.
 
 Cada búfer de pantalla tiene su propia matriz bidimensional de registros de información de caracteres. Los datos de cada carácter se almacenan en una estructura [**CHAR\_INFO**](char-info-str.md) que especifica el carácter Unicode o ANSI, y los colores de primer plano y de fondo en los que se muestra ese carácter.
 
 Se puede establecer una serie de propiedades asociadas a un búfer de pantalla, de forma independiente para cada búfer de pantalla. Esto significa que cambiar el búfer de pantalla activo puede tener un efecto drástico en la apariencia de la ventana de la consola. Las propiedades asociadas a un búfer de pantalla incluyen:
 
 - Tamaño del búfer de pantalla, en filas y columnas de caracteres.
-- Atributos de texto (colores de primer plano y de fondo para mostrar el texto que las funciones [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) o [**WriteConsole**](writeconsole.md) van a escribir).
+- Atributos de texto (colores de primer plano y de fondo para mostrar el texto que las funciones [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) o [**WriteConsole**](writeconsole.md) van a escribir).
 - Tamaño y ubicación de la ventana (la región rectangular del búfer de pantalla de la consola que se muestra en la ventana de la consola).
 - Posición del cursor, apariencia y visibilidad.
 - Modos de salida (**ENABLE\_PROCESSED\_OUTPUT** y **ENABLE\_WRAP\_AT\_EOL\_OUTPUT**). Para más información sobre los modos de salida de la consola, consulte [Modos de consola de nivel superior](high-level-console-modes.md).
@@ -77,7 +77,7 @@ Los atributos de caracteres se pueden dividir en dos clases: color y DBCS. Los s
 | **COMMON\_LVB\_REVERSE\_VIDEO** | Invierte atributos de primer plano y de fondo. |
 | **COMMON\_LVB\_UNDERSCORE** | Guion bajo. |
 
-Los atributos de primer plano especifican el color de texto. Los atributos de fondo especifican el color utilizado para rellenar el fondo de la celda. Los demás atributos se usan con [DBCS](https://msdn.microsoft.com/library/windows/desktop/dd317794).
+Los atributos de primer plano especifican el color de texto. Los atributos de fondo especifican el color utilizado para rellenar el fondo de la celda. Los demás atributos se usan con [DBCS](/windows/win32/intl/double-byte-character-sets).
 
 Una aplicación puede combinar las constantes de primer plano y de fondo para lograr distintos colores. Por ejemplo, la combinación siguiente produce texto cian brillante sobre un fondo azul.
 

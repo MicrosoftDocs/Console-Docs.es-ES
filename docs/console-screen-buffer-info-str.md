@@ -28,12 +28,12 @@ api_location:
 - WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 8b3a739a9f66e25687b60a3450c9381822c16e53
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 31ef1cf8e78029be48d5217cbc82f84663d627b5
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039183"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358125"
 ---
 # <a name="console_screen_buffer_info-structure"></a>\_Estructura de \_ información de búfer de pantalla de la consola \_
 
@@ -60,7 +60,7 @@ Una estructura de [**coordenadas**](coord-str.md) que contiene el tamaño del b�
 Una estructura de [**coordenadas**](coord-str.md) que contiene las coordenadas de columna y fila del cursor en el búfer de pantalla de la consola.
 
 **wAttributes**  
-Los atributos de los caracteres escritos en un búfer de pantalla por las funciones [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) y [**WriteConsole**](writeconsole.md) , o bien se repiten en un búfer de pantalla mediante las funciones [**readfile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) y [**ReadConsole**](readconsole.md) . Para obtener más información, vea [atributos de caracteres](console-screen-buffers.md#character-attributes).
+Los atributos de los caracteres escritos en un búfer de pantalla por las funciones [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) y [**WriteConsole**](writeconsole.md) , o bien se repiten en un búfer de pantalla mediante las funciones [**readfile**](/windows/win32/api/fileapi/nf-fileapi-readfile) y [**ReadConsole**](readconsole.md) . Para obtener más información, vea [atributos de caracteres](console-screen-buffers.md#character-attributes).
 
 **srWindow**  
 [**Pequeña estructura \_ Rect**](small-rect-str.md) que contiene las coordenadas del búfer de pantalla de la consola de las esquinas superior izquierda e inferior derecha de la ventana de presentación.
@@ -76,8 +76,8 @@ Para obtener un ejemplo, vea [desplazarse por el contenido de un búfer de panta
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
 | Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
 
 ## <a name="see-also"></a>Consulte también
@@ -88,10 +88,10 @@ Para obtener un ejemplo, vea [desplazarse por el contenido de un búfer de panta
 
 [**ReadConsole**](readconsole.md)
 
-[**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467)
+[**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile)
 
 [**PEQUEÑO \_ rectángulo**](small-rect-str.md)
 
 [**WriteConsole**](writeconsole.md)
 
-[**Escritura**](https://msdn.microsoft.com/library/windows/desktop/aa365747)
+[**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile)

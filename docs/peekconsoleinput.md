@@ -38,12 +38,12 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 9052f15b36e16dd2ddf7fe46d3d201aa21403f91
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 8ae6bb36007ede4015c91dfd4fe2a8ba8c898465
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039503"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358315"
 ---
 # <a name="peekconsoleinput-function"></a>PeekConsoleInput función)
 
@@ -63,7 +63,7 @@ BOOL WINAPI PeekConsoleInput(
 ## <a name="parameters"></a>Parámetros
 
 *hConsoleInput* \[ de\]  
-Identificador para el búfer de entrada de la consola. El identificador debe tener el derecho de acceso de **\_ lectura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
+Identificador para el búfer de entrada de la consola. El identificador debe tener derecho de acceso de **GENERIC\_READ**. Para obtener más información, consulte [Seguridad y derechos de acceso del búfer de la consola](console-buffer-security-and-access-rights.md).
 
 *lpBuffer* \[ enuncia\]  
 Puntero a una matriz de estructuras [**de \_ registros de entrada**](input-record-str.md) que recibe los datos del búfer de entrada.
@@ -76,9 +76,9 @@ Puntero a una variable que recibe el número de registros de entrada leídos.
 
 ## <a name="return-value"></a>Valor devuelto
 
-Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
+Si la función se realiza correctamente, el valor devuelto es distinto de cero.
 
-Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Comentarios
 
@@ -90,14 +90,14 @@ Si el número de registros solicitado supera el número de registros disponibles
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
-| Encabezado | ConsoleApi. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
+| Encabezado | ConsoleApi.h (a través de WinCon.h, incluido Windows.h) |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 | Nombres Unicode y ANSI | **PeekConsoleInputW** (Unicode) y **PeekConsoleInputA** (ANSI) |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)
 

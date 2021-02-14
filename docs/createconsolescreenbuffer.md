@@ -28,12 +28,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 0b8f5b33233f49167c67a47f33e5a95b8864f7bd
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 0e7e4606e561454a2037650cc8d1f3b685ff2d5d
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039140"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357965"
 ---
 # <a name="createconsolescreenbuffer-function"></a>CreateConsoleScreenBuffer función)
 
@@ -67,19 +67,19 @@ Este parámetro puede ser cero, lo que indica que no se puede compartir el búfe
 | **FILE_SHARE_WRITE** 0x00000002 | Se pueden realizar otras operaciones de apertura en el búfer de pantalla de la consola para el acceso de escritura. |
 
 *lpSecurityAttributes* \[ en, opcional\]  
-Puntero a una estructura [**de \_ atributos de seguridad**](https://msdn.microsoft.com/library/windows/desktop/aa379560) que determina si los procesos secundarios pueden heredar el identificador devuelto. Si *lpSecurityAttributes* es **null** , el identificador no se puede heredar. El miembro **lpSecurityDescriptor** de la estructura especifica un descriptor de seguridad para el nuevo búfer de pantalla de la consola. Si *lpSecurityAttributes* es **null** , el búfer de pantalla de la consola obtiene un descriptor de seguridad predeterminado. Las ACL del descriptor de seguridad predeterminado para un búfer de pantalla de la consola proceden del token principal o de suplantación del creador.
+Puntero a una estructura [**de \_ atributos de seguridad**](/previous-versions/windows/desktop/legacy/aa379560(v=vs.85)) que determina si los procesos secundarios pueden heredar el identificador devuelto. Si *lpSecurityAttributes* es **null**, el identificador no se puede heredar. El miembro **lpSecurityDescriptor** de la estructura especifica un descriptor de seguridad para el nuevo búfer de pantalla de la consola. Si *lpSecurityAttributes* es **null**, el búfer de pantalla de la consola obtiene un descriptor de seguridad predeterminado. Las ACL del descriptor de seguridad predeterminado para un búfer de pantalla de la consola proceden del token principal o de suplantación del creador.
 
 *dwFlags* \[ de\]  
 El tipo de búfer de pantalla de la consola que se va a crear. El único tipo de búfer de pantalla compatible es el **\_ \_ búfer TEXTMODE** de la consola.
 
 *lpScreenBufferData*  
-Sector debe ser **null** .
+Sector debe ser **null**.
 
 ## <a name="return-value"></a>Valor devuelto
 
 Si la función se ejecuta correctamente, el valor devuelto es un identificador del nuevo búfer de pantalla de la consola.
 
-Si se produce un error en la función, el valor devuelto es un **\_ \_ valor de identificador no válido** . Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se ejecuta correctamente, el valor devuelto es **INVALID\_HANDLE\_VALUE**. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Comentarios
 
@@ -89,15 +89,15 @@ El búfer de pantalla recién creado copiará algunas propiedades del búfer de 
 
 - `Font` -copiado del búfer de pantalla activo
 - `Display Window Size` -copiado del búfer de pantalla activo
-- `Buffer Size` -coincide con `Display Window Size` ( **no** copiado)
+- `Buffer Size` -coincide con `Display Window Size` (**no** copiado)
 - `Default Attributes` (colores): copiado del búfer de pantalla activo
 - `Default Popup Attributes` (colores): copiado del búfer de pantalla activo
 
 El proceso de llamada puede usar el identificador devuelto en cualquier función que requiera un identificador a un búfer de pantalla de la consola, de acuerdo con las limitaciones de acceso especificadas por el parámetro *dwDesiredAccess* .
 
-El proceso de llamada puede usar la función [**DuplicateHandle**](https://msdn.microsoft.com/library/windows/desktop/ms724251) para crear un controlador de búfer de pantalla duplicado que tenga un acceso o una herencia diferentes del identificador original. Sin embargo, **DuplicateHandle** no se puede usar para crear un duplicado que sea válido para un proceso diferente (excepto a través de la herencia).
+El proceso de llamada puede usar la función [**DuplicateHandle**](/windows/win32/api/handleapi/nf-handleapi-duplicatehandle) para crear un controlador de búfer de pantalla duplicado que tenga un acceso o una herencia diferentes del identificador original. Sin embargo, **DuplicateHandle** no se puede usar para crear un duplicado que sea válido para un proceso diferente (excepto a través de la herencia).
 
-Para cerrar el identificador de búfer de pantalla de la consola, use la función [**CloseHandle**](https://msdn.microsoft.com/library/windows/desktop/ms724211) .
+Para cerrar el identificador de búfer de pantalla de la consola, use la función [**CloseHandle**](/windows/win32/api/handleapi/nf-handleapi-closehandle) .
 
 [!INCLUDE [no-vt-equiv-alt-buf](./includes/no-vt-equiv-alt-buf.md)]
 
@@ -109,25 +109,25 @@ Para obtener un ejemplo, vea [lectura y escritura de bloques de caracteres y atr
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
 | Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)
 
 [Búferes de pantalla de la consola](console-screen-buffers.md)
 
-[**CloseHandle**](https://msdn.microsoft.com/library/windows/desktop/ms724211)
+[**CloseHandle**](/windows/win32/api/handleapi/nf-handleapi-closehandle)
 
-[**DuplicateHandle**](https://msdn.microsoft.com/library/windows/desktop/ms724251)
+[**DuplicateHandle**](/windows/win32/api/handleapi/nf-handleapi-duplicatehandle)
 
 [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md)
 
-[**atributos de seguridad \_**](https://msdn.microsoft.com/library/windows/desktop/aa379560)
+[**atributos de seguridad \_**](/previous-versions/windows/desktop/legacy/aa379560(v=vs.85))
 
 [**SetConsoleActiveScreenBuffer**](setconsoleactivescreenbuffer.md)
 

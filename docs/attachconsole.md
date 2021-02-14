@@ -28,12 +28,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: bfc71c10a02e9ed8a0bc18fd26cffa855012c692
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: a1be050dccc0c77b6ad448cc45e87906a115d82c
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037483"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357845"
 ---
 # <a name="attachconsole-function"></a>AttachConsole función)
 
@@ -59,19 +59,19 @@ Identificador del proceso cuya consola se va a usar. Este parámetro puede ser u
 
 ## <a name="return-value"></a>Valor devuelto
 
-Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
+Si la función se realiza correctamente, el valor devuelto es distinto de cero.
 
-Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Comentarios
 
 Un proceso se puede adjuntar a como máximo una consola. Si el proceso de llamada ya está asociado a una consola de, el código de error devuelto es **error de \_ acceso \_ denegado** ( `5` ). Si el proceso especificado no tiene una consola de, el código de error devuelto es un **error de \_ \_ identificador no válido** ( `6` ). Si el proceso especificado no existe, el código de error devuelto es un **parámetro de error \_ no válido \_** ( `87` ).
 
-Un proceso puede usar la función [**FreeConsole**](freeconsole.md) para desasociarse de su consola. Si otros procesos comparten la consola, la consola no se destruye, pero el proceso que llamó a **FreeConsole** no puede hacer referencia a ella. Una consola se cierra cuando el último proceso asociado a ella finaliza o llama a **FreeConsole** . Una vez que un proceso llama a **FreeConsole** , puede llamar a la función [**AllocConsole**](allocconsole.md) para crear una nueva consola o **AttachConsole** para asociar a otra consola.
+Un proceso puede usar la función [**FreeConsole**](freeconsole.md) para desasociarse de su consola. Si otros procesos comparten la consola, la consola no se destruye, pero el proceso que llamó a **FreeConsole** no puede hacer referencia a ella. Una consola se cierra cuando el último proceso asociado a ella finaliza o llama a **FreeConsole**. Una vez que un proceso llama a **FreeConsole**, puede llamar a la función [**AllocConsole**](allocconsole.md) para crear una nueva consola o **AttachConsole** para asociar a otra consola.
 
-Esta función es principalmente útil para las aplicaciones que se vincularon con [**/Subsystem: Windows**](https://docs.microsoft.com/cpp/build/reference/subsystem-specify-subsystem), que implica al sistema operativo que no se necesita una consola antes de entrar en el método Main del programa. En esa instancia, es probable que los identificadores estándar recuperados con [**GetStdHandle**](getstdhandle.md) no sean válidos en el inicio hasta que se llame a **AttachConsole** . La excepción a esto es si la aplicación se inicia con la herencia de identificadores por su proceso primario.
+Esta función es principalmente útil para las aplicaciones que se vincularon con [**/Subsystem: Windows**](/cpp/build/reference/subsystem-specify-subsystem), que implica al sistema operativo que no se necesita una consola antes de entrar en el método Main del programa. En esa instancia, es probable que los identificadores estándar recuperados con [**GetStdHandle**](getstdhandle.md) no sean válidos en el inicio hasta que se llame a **AttachConsole** . La excepción a esto es si la aplicación se inicia con la herencia de identificadores por su proceso primario.
 
-Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como `0x0501` o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como `0x0501` o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](/windows/win32/winprog/using-the-windows-headers).
 
 ## <a name="requirements"></a>Requisitos
 
@@ -79,11 +79,11 @@ Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT*
 |-|-|
 | Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows XP \[\] |
 | Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2003 \[\] |
-| Encabezado | ConsoleApi. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Encabezado | ConsoleApi.h (a través de WinCon.h, incluido Windows.h) |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)
 

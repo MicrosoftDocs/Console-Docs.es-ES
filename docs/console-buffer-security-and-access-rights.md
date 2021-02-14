@@ -13,24 +13,24 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: f9a50063-8fc8-4cd1-8f24-9ae3946d3119
-ms.openlocfilehash: dfafdbd59c2b06929c35612d7dcf03b24439eba2
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 94ceeef240f418052c64efc3de594debccb2c8d4
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93036983"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358265"
 ---
 # <a name="console-buffer-security-and-access-rights"></a>Seguridad y derechos de acceso del búfer de la consola
 
-El modelo de seguridad de Windows permite controlar el acceso a los búferes de entrada y de pantalla de la consola. Para obtener más información sobre la seguridad, vea [modelo de control de acceso](https://msdn.microsoft.com/library/windows/desktop/aa374876).
+El modelo de seguridad de Windows permite controlar el acceso a los búferes de entrada y de pantalla de la consola. Para obtener más información sobre la seguridad, vea [modelo de control de acceso](/windows/win32/secauthz/access-control-model).
 
 ## <a name="console-object-security-descriptors"></a>Descriptores de seguridad de objetos de consola
 
-Puede especificar un [descriptor de seguridad](https://msdn.microsoft.com/library/windows/desktop/aa379563) para los búferes de entrada y de pantalla de la consola cuando se llama a la función [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) o [**CreateConsoleScreenBuffer**](createconsolescreenbuffer.md) . Si especifica **null** , el objeto obtiene un descriptor de seguridad predeterminado. Las ACL del descriptor de seguridad predeterminado de un búfer de la consola proceden del token principal o de suplantación del creador.
+Puede especificar un [descriptor de seguridad](/windows/win32/secauthz/security-descriptors) para los búferes de entrada y de pantalla de la consola cuando se llama a la función [**CreateFile**](/windows/win32/api/fileapi/nf-fileapi-createfilea) o [**CreateConsoleScreenBuffer**](createconsolescreenbuffer.md) . Si especifica **null**, el objeto obtiene un descriptor de seguridad predeterminado. Las ACL del descriptor de seguridad predeterminado de un búfer de la consola proceden del token principal o de suplantación del creador.
 
-Los identificadores devueltos por [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858), [**CreateConsoleScreenBuffer**](createconsolescreenbuffer.md)y [**GetStdHandle**](getstdhandle.md) tienen derechos de acceso **genéricos de \_ lectura** y **\_ escritura** .
+Los identificadores devueltos por [**CreateFile**](/windows/win32/api/fileapi/nf-fileapi-createfilea), [**CreateConsoleScreenBuffer**](createconsolescreenbuffer.md)y [**GetStdHandle**](getstdhandle.md) tienen derechos de acceso **genéricos de \_ lectura** y **\_ escritura** .
 
-Entre los derechos de acceso válidos se incluyen los [derechos de acceso](https://msdn.microsoft.com/library/windows/desktop/aa446632)genéricos de **\_ lectura** y **\_ escritura** genéricos.
+Entre los derechos de acceso válidos se incluyen los [derechos de acceso](/windows/win32/secauthz/generic-access-rights)genéricos de **\_ lectura** y **\_ escritura** genéricos.
 
 | Valor | Significado |
 |-|-|
@@ -38,9 +38,9 @@ Entre los derechos de acceso válidos se incluyen los [derechos de acceso](https
 | **Genérico \_ ESCRITURA** (0x40000000L) | Solicita acceso de escritura al búfer de pantalla de la consola, lo que permite que el proceso escriba datos en el búfer. |
 
 > [!NOTE]
-> Las **[aplicaciones de consola de plataforma universal de Windows](https://docs.microsoft.com/windows/uwp/launch-resume/console-uwp)** y las que tienen un nivel de **[integridad](https://docs.microsoft.com/windows/win32/secauthz/mandatory-integrity-control)** inferior al de la consola conectada no podrán leer el búfer de salida y escribir en el búfer de entrada, incluso si los descriptores de seguridad anteriores lo permiten normalmente. Para obtener más información, consulte la explicación de **[verbos equivocada de forma incorrecta](#wrong-way-verbs)** .
+> Las **[aplicaciones de consola de plataforma universal de Windows](/windows/uwp/launch-resume/console-uwp)** y las que tienen un nivel de **[integridad](/windows/win32/secauthz/mandatory-integrity-control)** inferior al de la consola conectada no podrán leer el búfer de salida y escribir en el búfer de entrada, incluso si los descriptores de seguridad anteriores lo permiten normalmente. Para obtener más información, consulte la explicación de **[verbos equivocada de forma incorrecta](#wrong-way-verbs)** .
 
-## <a name="wrong-way-verbs"></a>Wrong-Way verbos)
+## <a name="wrong-way-verbs"></a>Verbos con dirección incorrecta
 
 Algunas operaciones en los objetos de consola se denegarán aunque el objeto tenga un descriptor de seguridad que se indique específicamente para permitir la lectura o escritura. Esto se refiere específicamente a las aplicaciones de línea de comandos que se ejecutan en un contexto con privilegios reducidos que comparten una sesión de consola creada por una aplicación de línea de comandos en un contexto más permisivo.
 
@@ -48,8 +48,8 @@ El término "verbos equivocado" se ha diseñado para aplicarse a la operación q
 
 Los dos escenarios en los que se puede encontrar se encuentran:
 
-1. **[Plataforma universal de Windows aplicaciones de consola](https://docs.microsoft.com/windows/uwp/launch-resume/console-uwp)** . Puesto que son primos de otras aplicaciones Plataforma universal de Windows, tienen una promesa de que están aisladas de otras aplicaciones y proporcionan garantías a los usuarios sobre los efectos de su funcionamiento.
-1. Cualquier aplicación de consola iniciada intencionadamente con un **[nivel de integridad](https://docs.microsoft.com/windows/win32/secauthz/mandatory-integrity-control)** inferior al de la sesión existente, que se puede lograr con el **[etiquetado o la manipulación de tokens durante CreateProcess](https://docs.microsoft.com/previous-versions/dotnet/articles/bb625960(v=msdn.10))** .
+1. **[Plataforma universal de Windows aplicaciones de consola](/windows/uwp/launch-resume/console-uwp)**. Puesto que son primos de otras aplicaciones Plataforma universal de Windows, tienen una promesa de que están aisladas de otras aplicaciones y proporcionan garantías a los usuarios sobre los efectos de su funcionamiento.
+1. Cualquier aplicación de consola iniciada intencionadamente con un **[nivel de integridad](/windows/win32/secauthz/mandatory-integrity-control)** inferior al de la sesión existente, que se puede lograr con el **[etiquetado o la manipulación de tokens durante CreateProcess](/previous-versions/dotnet/articles/bb625960(v=msdn.10))**.
 
 Si se detecta alguno de estos escenarios, la consola aplicará la marca "verbos-Way" a la conexión de la aplicación de línea de comandos y rechazará las llamadas a las siguientes API para reducir la superficie de comunicación entre los niveles:
 

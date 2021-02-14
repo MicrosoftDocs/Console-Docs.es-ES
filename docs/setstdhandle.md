@@ -30,12 +30,12 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 36531872df90239e2b909c80fb75ad3011280c78
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 317acd84289e5138e1a947251e745077ba581083
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039303"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358515"
 ---
 # <a name="setstdhandle-function"></a>SetStdHandle función)
 
@@ -52,48 +52,48 @@ BOOL WINAPI SetStdHandle(
 
 ## <a name="parameters"></a>Parámetros
 
-*nStdHandle* \[ de\]  
+*nStdHandle* \[in\]  
 El dispositivo estándar para el que se establecerá el identificador. Este parámetro puede ser uno de los valores siguientes.
 
 | Valor | Significado |
 |-|-|
-| **STD_INPUT_HANDLE** (DWORD)-10 | El dispositivo de entrada estándar. Inicialmente, es el búfer de entrada de la consola, `CONIN$` . |
-| **STD_OUTPUT_HANDLE** (DWORD)-11 | El dispositivo de salida estándar. Inicialmente, es el búfer de pantalla de la consola activo, `CONOUT$` . |
-| **STD_ERROR_HANDLE** (DWORD)-12 | El dispositivo de error estándar. Inicialmente, es el búfer de pantalla de la consola activo, `CONOUT$` . |
+| **STD_INPUT_HANDLE** (DWORD) -10 | El dispositivo de entrada estándar. Inicialmente, es el búfer de entrada de la consola, `CONIN$`. |
+| **STD_OUTPUT_HANDLE** (DWORD) -11 | El dispositivo de salida estándar. Inicialmente, es el búfer de pantalla activo de la consola, `CONOUT$`. |
+| **STD_ERROR_HANDLE** (DWORD) -12 | El dispositivo de error estándar. Inicialmente, es el búfer de pantalla activo de la consola, `CONOUT$`. |
 
 *hHandle* \[ de\]  
 Identificador del dispositivo estándar.
 
 ## <a name="return-value"></a>Valor devuelto
 
-Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
+Si la función se realiza correctamente, el valor devuelto es distinto de cero.
 
-Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Comentarios
 
-Es posible que los identificadores estándar de un proceso se hayan Redirigido mediante una llamada a **SetStdHandle** , en cuyo caso [**GetStdHandle**](getstdhandle.md) devolverá el identificador redirigido. Si se han redirigido los identificadores estándar, puede especificar el valor de CONIN $ en una llamada a la función [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) para obtener un identificador para el búfer de entrada de la consola. De forma similar, puede especificar el valor de CONOUT $ para obtener un identificador para el búfer de pantalla activo de la consola.
+Es posible que los identificadores estándar de un proceso se hayan Redirigido mediante una llamada a **SetStdHandle**, en cuyo caso [**GetStdHandle**](getstdhandle.md) devolverá el identificador redirigido. Si se han redirigido los identificadores estándar, puede especificar el valor de CONIN $ en una llamada a la función [**CreateFile**](/windows/win32/api/fileapi/nf-fileapi-createfilea) para obtener un identificador para el búfer de entrada de la consola. De forma similar, puede especificar el valor de CONOUT $ para obtener un identificador para el búfer de pantalla activo de la consola.
 
 ## <a name="examples"></a>Ejemplos
 
-Para obtener un ejemplo, consulte [creación de un proceso secundario con entrada y salida redirigidas](https://msdn.microsoft.com/library/windows/desktop/ms682499).
+Para obtener un ejemplo, consulte [creación de un proceso secundario con entrada y salida redirigidas](/windows/win32/procthread/creating-a-child-process-with-redirected-input-and-output).
 
 ## <a name="requirements"></a>Requisitos
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
-| Encabezado | ProcessEnv. h (a través de Winbase. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
+| Encabezado | ProcessEnv.h (via Winbase.h, include Windows.h) |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)
 
 [Identificadores de consola](console-handles.md)
 
-[**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858)
+[**CreateFile**](/windows/win32/api/fileapi/nf-fileapi-createfilea)
 
 [**GetStdHandle**](getstdhandle.md)

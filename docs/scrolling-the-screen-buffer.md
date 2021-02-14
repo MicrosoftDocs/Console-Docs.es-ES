@@ -13,12 +13,12 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: c8404e78-9807-4bed-bc12-25377fa96151
-ms.openlocfilehash: 1582b6232461469e10048ed8711c766a6821264f
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 4c55a40f43827deeacfd1302d507732ec9bcc248
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037603"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358665"
 ---
 # <a name="scrolling-the-screen-buffer"></a>Desplazarse por el búfer de pantalla
 
@@ -32,14 +32,14 @@ El rectángulo de la ventana puede cambiar para mostrar diferentes partes del b�
 
   ![movimiento panorámico de la ventana del búfer de pantalla alrededor del búfer grande](images/cscon-01.png)
 
-- Cuando se usa la función [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) para escribir en un búfer de pantalla con Wrap en el modo de salida de final de línea (EOL) habilitado, el rectángulo de la ventana se desplaza automáticamente, por lo que siempre se muestra el cursor.
+- Cuando se usa la función [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) para escribir en un búfer de pantalla con Wrap en el modo de salida de final de línea (EOL) habilitado, el rectángulo de la ventana se desplaza automáticamente, por lo que siempre se muestra el cursor.
 - Cuando la función [**SetConsoleCursorPosition**](setconsolecursorposition.md) especifica una nueva posición del cursor que está fuera de los límites del rectángulo de la ventana actual, el rectángulo de la ventana se desplaza automáticamente para mostrar el cursor.
 - Cuando el usuario cambia el tamaño de la ventana de la consola o usa las barras de desplazamiento de la ventana, puede cambiar el rectángulo de la ventana del búfer de pantalla activo. Este cambio no se registra como un evento de cambio de tamaño de ventana en el búfer de entrada.
 
 En cada una de estas situaciones, el rectángulo de la ventana se desplaza para mostrar una parte diferente del búfer de pantalla de la consola, pero el contenido del búfer de pantalla de la consola permanece en la misma posición. Las siguientes situaciones pueden hacer que el contenido del búfer de la pantalla de la consola cambie:
 
 - Cuando se llama a la función [**ScrollConsoleScreenBuffer**](scrollconsolescreenbuffer.md) , se copia un bloque rectangular de una parte de un búfer de pantalla en otro.
-- Cuando se usa [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) para escribir en un búfer de pantalla con Wrap en el modo de salida EOL habilitado, el contenido del búfer de pantalla de la consola se desplaza automáticamente cuando se encuentra el final del búfer de pantalla de la consola. Este desplazamiento descarta la fila superior del búfer de pantalla de la consola.
+- Cuando se usa [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) para escribir en un búfer de pantalla con Wrap en el modo de salida EOL habilitado, el contenido del búfer de pantalla de la consola se desplaza automáticamente cuando se encuentra el final del búfer de pantalla de la consola. Este desplazamiento descarta la fila superior del búfer de pantalla de la consola.
 
 [**ScrollConsoleScreenBuffer**](scrollconsolescreenbuffer.md) especifica el rectángulo del búfer de pantalla de la consola que se mueve y las nuevas coordenadas de la esquina superior izquierda en la que se copia el rectángulo. Esta función puede desplazar una parte o todo el contenido del búfer de pantalla de la consola.
 
@@ -47,4 +47,4 @@ En la ilustración se muestra una operación [**ScrollConsoleScreenBuffer**](scr
 
 ![desplazar el contenido de la ventana del búfer de pantalla hacia arriba para descartar](images/cscon-02.png)
 
-Los efectos de [**ScrollConsoleScreenBuffer**](scrollconsolescreenbuffer.md) se pueden limitar especificando un rectángulo de recorte opcional para que el contenido del búfer de pantalla de la consola fuera del rectángulo de recorte no se modifique. El efecto del recorte es crear una subventana (el rectángulo de recorte) cuyo contenido se desplaza sin afectar al resto del búfer de la pantalla de la consola. Para obtener un ejemplo en el que se usa **ScrollConsoleScreenBuffer** , vea [desplazarse por el contenido de un búfer de pantalla](scrolling-a-screen-buffer-s-contents.md).
+Los efectos de [**ScrollConsoleScreenBuffer**](scrollconsolescreenbuffer.md) se pueden limitar especificando un rectángulo de recorte opcional para que el contenido del búfer de pantalla de la consola fuera del rectángulo de recorte no se modifique. El efecto del recorte es crear una subventana (el rectángulo de recorte) cuyo contenido se desplaza sin afectar al resto del búfer de la pantalla de la consola. Para obtener un ejemplo en el que se usa **ScrollConsoleScreenBuffer**, vea [desplazarse por el contenido de un búfer de pantalla](scrolling-a-screen-buffer-s-contents.md).

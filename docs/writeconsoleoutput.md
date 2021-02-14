@@ -36,12 +36,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: b67f741aafcb067e85d339d550646261a46c273a
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 1f10285cfc5c671ac5d31b8a575e84b1fd0f6a14
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037263"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100359035"
 ---
 # <a name="writeconsoleoutput-function"></a>WriteConsoleOutput función)
 
@@ -63,10 +63,10 @@ BOOL WINAPI WriteConsoleOutput(
 
 ## <a name="parameters"></a>Parámetros
 
-*hConsoleOutput* \[ de\]  
-Identificador del búfer de pantalla de la consola. El identificador debe tener el derecho de acceso de **\_ escritura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
+*hConsoleOutput* \[in\]  
+Identificador del búfer de pantalla de la consola. El identificador debe tener derecho de acceso de **GENERIC\_WRITE**. Para obtener más información, consulte [Seguridad y derechos de acceso del búfer de la consola](console-buffer-security-and-access-rights.md).
 
-*lpBuffer* \[ de\]  
+*lpBuffer* \[in\]  
 Los datos que se van a escribir en el búfer de pantalla de la consola. Este puntero se trata como el origen de una matriz bidimensional de estructuras [**de \_ información de char**](char-info-str.md) cuyo tamaño se especifica mediante el parámetro *dwBufferSize* .
 
 *dwBufferSize* \[ de\]  
@@ -80,9 +80,9 @@ Puntero a una estructura [**\_ Rect pequeña**](small-rect-str.md) . En la entra
 
 ## <a name="return-value"></a>Valor devuelto
 
-Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
+Si la función se realiza correctamente, el valor devuelto es distinto de cero.
 
-Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Comentarios
 
@@ -92,7 +92,7 @@ Las celdas del rectángulo de destino cuya ubicación de origen correspondiente 
 
 Antes de que **WriteConsoleOutput** devuelva, establece los miembros de *lpWriteRegion* en el rectángulo del búfer de pantalla real afectado por la operación de escritura. Este rectángulo refleja las celdas del rectángulo de destino para las que existe una celda correspondiente en el búfer de origen, porque **WriteConsoleOutput** recorta las dimensiones del rectángulo de destino en los límites del búfer de pantalla de la consola.
 
-Si el rectángulo especificado por *lpWriteRegion* se encuentra completamente fuera de los límites del búfer de pantalla de la consola, o si el rectángulo correspondiente se coloca completamente fuera de los límites del búfer de origen, no se escribe ningún dato. En este caso, la función devuelve con los miembros de la estructura a la que apunta el conjunto de parámetros *lpWriteRegion* , de modo que el miembro de la **derecha** es menor que el **izquierdo** , o el miembro **inferior** es menor que la **parte superior** . Para determinar el tamaño del búfer de pantalla de la consola, use la función [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md) .
+Si el rectángulo especificado por *lpWriteRegion* se encuentra completamente fuera de los límites del búfer de pantalla de la consola, o si el rectángulo correspondiente se coloca completamente fuera de los límites del búfer de origen, no se escribe ningún dato. En este caso, la función devuelve con los miembros de la estructura a la que apunta el conjunto de parámetros *lpWriteRegion* , de modo que el miembro de la **derecha** es menor que el **izquierdo**, o el miembro **inferior** es menor que la **parte superior**. Para determinar el tamaño del búfer de pantalla de la consola, use la función [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md) .
 
 **WriteConsoleOutput** no tiene ningún efecto en la posición del cursor.
 
@@ -109,14 +109,14 @@ Para obtener un ejemplo, vea [lectura y escritura de bloques de caracteres y atr
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
 | Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 | Nombres Unicode y ANSI | **WriteConsoleOutputW** (Unicode) y **WriteConsoleOutputA** (ANSI) |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)
 

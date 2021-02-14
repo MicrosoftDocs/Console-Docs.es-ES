@@ -29,12 +29,12 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 54667d92509687111cb562f517d488c8adbc2181
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 3f98797b0662dadcf696f76ffda5f42e759bf930
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038880"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357294"
 ---
 # <a name="getconsolemode-function"></a>GetConsoleMode función)
 
@@ -51,8 +51,8 @@ BOOL WINAPI GetConsoleMode(
 
 ## <a name="parameters"></a>Parámetros
 
-*hConsoleHandle* \[ de\]  
-Identificador para el búfer de entrada de la consola o el búfer de pantalla de la consola. El identificador debe tener el derecho de acceso de **\_ lectura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
+*hConsoleHandle* \[in\]  
+Identificador para el búfer de entrada de la consola o el búfer de pantalla de la consola. El identificador debe tener derecho de acceso de **GENERIC\_READ**. Para obtener más información, consulte [Seguridad y derechos de acceso del búfer de la consola](console-buffer-security-and-access-rights.md).
 
 *lpMode* \[ enuncia\]  
 Puntero a una variable que recibe el modo actual del búfer especificado.
@@ -61,9 +61,9 @@ Puntero a una variable que recibe el modo actual del búfer especificado.
 
 ## <a name="return-value"></a>Valor devuelto
 
-Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
+Si la función se realiza correctamente, el valor devuelto es distinto de cero.
 
-Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Comentarios
 
@@ -73,19 +73,19 @@ Para cambiar los modos de e/s de una consola, llame a la función [**SetConsoleM
 
 ## <a name="examples"></a>Ejemplos
 
-Para obtener un ejemplo, vea [leer eventos de búfer de entrada](reading-input-buffer-events.md).
+Para un ejemplo, vea [Lectura de eventos de búfer de entrada](reading-input-buffer-events.md).
 
 ## <a name="requirements"></a>Requisitos
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
-| Encabezado | ConsoleApi. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
+| Encabezado | ConsoleApi.h (a través de WinCon.h, incluido Windows.h) |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)
 
@@ -95,10 +95,10 @@ Para obtener un ejemplo, vea [leer eventos de búfer de entrada](reading-input-b
 
 [**PeekConsoleInput**](readconsoleinput.md)
 
-[**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467)
+[**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile)
 
 [**SetConsoleMode**](setconsolemode.md)
 
 [**WriteConsole**](writeconsole.md)
 
-[**Escritura**](https://msdn.microsoft.com/library/windows/desktop/aa365747)
+[**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile)

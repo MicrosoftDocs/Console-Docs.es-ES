@@ -32,12 +32,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: ad12ff7b931b6bbc36a7fb0e9e0ee2ac3512a1f5
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 3c4fc202601cec9257b6cf95efdd460c64122b80
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038003"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100359005"
 ---
 # <a name="getconsoleoriginaltitle-function"></a>GetConsoleOriginalTitle función)
 
@@ -66,15 +66,15 @@ Tamaño del búfer de *lpConsoleTitle* , en caracteres.
 
 Si la función se ejecuta correctamente, el valor devuelto es la longitud de la cadena copiada en el búfer, en caracteres.
 
-Si el búfer no es lo suficientemente grande como para almacenar el título, el valor devuelto es cero y [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360) devuelve el **error \_ Success** .
+Si el búfer no es lo suficientemente grande como para almacenar el título, el valor devuelto es cero y [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) devuelve el **error \_ Success**.
 
-Si se produce un error en la función, el valor devuelto es cero y [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360) devuelve el código de error.
+Si se produce un error en la función, el valor devuelto es cero y [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) devuelve el código de error.
 
 ## <a name="remarks"></a>Comentarios
 
 Para establecer el título de una ventana de la consola, use la función [**SetConsoleTitle**](setconsoletitle.md) . Para recuperar la cadena de título actual, utilice la función [**GetConsoleTitle**](getconsoletitle.md) .
 
-Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como 0x0600 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT** como 0x0600 o posterior. Para obtener más información, consulte [uso de los encabezados de Windows](/windows/win32/winprog/using-the-windows-headers).
 
 > [!TIP]
 > No se recomienda esta API y no tiene un **[terminal virtual](console-virtual-terminal-sequences.md)** equivalente. Esta decisión alinea intencionadamente la plataforma de Windows con otros sistemas operativos. Es posible que las aplicaciones remotas mediante utilidades y transportes multiplataforma como SSH no funcionen según lo esperado si se usa esta API.
@@ -86,11 +86,11 @@ Para compilar una aplicación que usa esta función, defina **\_ Win32 \_ WinNT*
 | Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows Vista \[\] |
 | Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows Server 2008 \[\] |
 | Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 | Nombres Unicode y ANSI | **GetConsoleOriginalTitleW** (Unicode) y **GetConsoleOriginalTitleA** (ANSI) |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)
 

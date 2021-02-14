@@ -13,12 +13,12 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 0226cd94-86d0-452b-80e6-e0fed8af0a62
-ms.openlocfilehash: 13ad97a30459ba3abd0ed197352e69e6e8b45d47
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: a520c1688bf9e682e5c6696738f5b81d30679d7b
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037073"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358485"
 ---
 # <a name="using-the-high-level-input-and-output-functions"></a>Usar las funciones de entrada y salida de High-Level
 
@@ -26,7 +26,7 @@ ms.locfileid: "93037073"
 
 En el ejemplo siguiente se usan las funciones de e/s de la consola de alto nivel para la e/s de la consola. Para obtener más información sobre las funciones de e/s de la consola de alto nivel, consulte [e/s de la consola de alto nivel](high-level-console-i-o.md).
 
-En el ejemplo se da por supuesto que los modos de e/s predeterminados están en vigor inicialmente para las primeras llamadas a las funciones [**readfile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) y [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) . A continuación, se cambia el modo de entrada para activar el modo de entrada sin conexión y el modo de entrada de Eco para la segunda llamada a **readfile** y **WriteFile** . La función [**SetConsoleTextAttribute**](setconsoletextattribute.md) se usa para establecer los colores en los que se mostrará el texto escrito posteriormente. Antes de salir, el programa restaura el modo de entrada de la consola original y los atributos de color.
+En el ejemplo se da por supuesto que los modos de e/s predeterminados están en vigor inicialmente para las primeras llamadas a las funciones [**readfile**](/windows/win32/api/fileapi/nf-fileapi-readfile) y [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) . A continuación, se cambia el modo de entrada para activar el modo de entrada sin conexión y el modo de entrada de Eco para la segunda llamada a **readfile** y **WriteFile**. La función [**SetConsoleTextAttribute**](setconsoletextattribute.md) se usa para establecer los colores en los que se mostrará el texto escrito posteriormente. Antes de salir, el programa restaura el modo de entrada de la consola original y los atributos de color.
 
 La función del ejemplo `NewLine` se usa cuando se deshabilita el modo de entrada de línea. Controla los retornos de carro moviendo la posición del cursor a la primera celda de la fila siguiente. Si el cursor ya está en la última fila del búfer de pantalla de la consola, el contenido del búfer de pantalla de la consola se desplaza una línea hacia arriba.
 

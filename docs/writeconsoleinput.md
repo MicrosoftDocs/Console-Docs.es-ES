@@ -36,12 +36,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: dc2c7930ab76587edc9ae1991d4493c858b0ec30
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: e4b9cdae52da2e23ff93e1904c4cb24ebac62831
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039293"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357785"
 ---
 # <a name="writeconsoleinput-function"></a>WriteConsoleInput función)
 
@@ -63,9 +63,9 @@ BOOL WINAPI WriteConsoleInput(
 ## <a name="parameters"></a>Parámetros
 
 *hConsoleInput* \[ de\]  
-Identificador para el búfer de entrada de la consola. El identificador debe tener el derecho de acceso de **\_ escritura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
+Identificador para el búfer de entrada de la consola. El identificador debe tener derecho de acceso de **GENERIC\_WRITE**. Para obtener más información, consulte [Seguridad y derechos de acceso del búfer de la consola](console-buffer-security-and-access-rights.md).
 
-*lpBuffer* \[ de\]  
+*lpBuffer* \[in\]  
 Puntero a una matriz de estructuras [**de \_ registros de entrada**](input-record-str.md) que contienen datos que se van a escribir en el búfer de entrada.
 
 *nLength* \[ de\]  
@@ -76,9 +76,9 @@ Puntero a una variable que recibe el número de registros de entrada escritos re
 
 ## <a name="return-value"></a>Valor devuelto
 
-Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
+Si la función se realiza correctamente, el valor devuelto es distinto de cero.
 
-Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Comentarios
 
@@ -93,14 +93,14 @@ Si la función no se realiza correctamente, el valor devuelto es cero. Para obte
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
 | Encabezado | ConsoleApi2. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 | Nombres Unicode y ANSI | **WriteConsoleInputW** (Unicode) y **WriteConsoleInputA** (ANSI) |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)
 
@@ -108,7 +108,7 @@ Si la función no se realiza correctamente, el valor devuelto es cero. Para obte
 
 [Funciones de entrada de la consola de bajo nivel](low-level-console-input-functions.md)
 
-[**MapVirtualKey**](https://msdn.microsoft.com/library/windows/desktop/ms646306)
+[**MapVirtualKey**](/windows/win32/api/winuser/nf-winuser-mapvirtualkeya)
 
 [**PeekConsoleInput**](peekconsoleinput.md)
 
@@ -118,4 +118,4 @@ Si la función no se realiza correctamente, el valor devuelto es cero. Para obte
 
 [**SetConsoleOutputCP**](setconsoleoutputcp.md)
 
-[**VkKeyScan**](https://msdn.microsoft.com/library/windows/desktop/ms646329)
+[**VkKeyScan**](/windows/win32/api/winuser/nf-winuser-vkkeyscana)

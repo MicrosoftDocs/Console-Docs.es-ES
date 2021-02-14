@@ -27,12 +27,12 @@ api_location:
 - WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: ef89d1bf47a4153d44140d3f9f4845bb7496680e
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 3ab4424be99ba9eceda54db1ebf7c7e13560f722
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039263"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358155"
 ---
 # <a name="console_font_infoex-structure"></a>\_ \_ Estructura INFOEX de la consola
 
@@ -65,7 +65,7 @@ Tamaño de esta estructura, en bytes. Este miembro debe establecerse en `sizeof(
 Una estructura de [**coordenadas**](coord-str.md) que contiene el ancho y el alto de cada carácter de la fuente, en unidades lógicas. El miembro **X** contiene el ancho, mientras que el miembro **Y** contiene el alto.
 
 **FontFamily**  
-El paso y la familia de la fuente. Para obtener información sobre los valores posibles para este miembro, vea la descripción del miembro **tmPitchAndFamily** de la estructura [**TEXTMETRIC**](https://msdn.microsoft.com/library/windows/desktop/dd145132) .
+El paso y la familia de la fuente. Para obtener información sobre los valores posibles para este miembro, vea la descripción del miembro **tmPitchAndFamily** de la estructura [**TEXTMETRIC**](/windows/win32/api/wingdi/ns-wingdi-textmetrica) .
 
 **FontWeight**  
 Espesor de la fuente. El peso puede oscilar entre 100 y 1000, en múltiplos de 100. Por ejemplo, el peso normal es 400, mientras que 700 está en negrita.

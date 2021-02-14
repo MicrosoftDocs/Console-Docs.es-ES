@@ -19,12 +19,12 @@ api_location:
 - KernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: b015f224684a53a8bb654f04b1797ac1af794fc3
-ms.sourcegitcommit: f16996b9c7deead9bcfa44954be93a6ba087abcb
+ms.openlocfilehash: 91958b23348895f7454c9228e3c730d231dc4f0b
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97601482"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357945"
 ---
 # <a name="createpseudoconsole-function"></a>CreatePseudoConsole función)
 
@@ -48,10 +48,10 @@ HRESULT WINAPI CreatePseudoConsole(
 Dimensiones de la ventana o búfer en el recuento de caracteres que se usarán para la creación inicial de pseudoconsole. Se puede ajustar más adelante con [ResizePseudoConsole](resizepseudoconsole.md).
 
 *hInput* \[ de\]  
-Identificador abierto de un flujo de datos que representa la entrada del usuario en el dispositivo. Esto está restringido actualmente a la e/s [sincrónica](https://docs.microsoft.com/windows/desktop/Sync/synchronization-and-overlapped-input-and-output) .
+Identificador abierto de un flujo de datos que representa la entrada del usuario en el dispositivo. Esto está restringido actualmente a la e/s [sincrónica](/windows/desktop/Sync/synchronization-and-overlapped-input-and-output) .
 
 *hOutput* \[ de\]  
-Identificador abierto de un flujo de datos que representa la salida de la aplicación del dispositivo. Esto está restringido actualmente a la e/s [sincrónica](https://docs.microsoft.com/windows/desktop/Sync/synchronization-and-overlapped-input-and-output) .
+Identificador abierto de un flujo de datos que representa la salida de la aplicación del dispositivo. Esto está restringido actualmente a la e/s [sincrónica](/windows/desktop/Sync/synchronization-and-overlapped-input-and-output) .
 
 *dwFlags* \[ de\]  
 El valor puede ser uno de los siguientes:

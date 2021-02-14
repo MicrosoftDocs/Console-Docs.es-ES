@@ -37,12 +37,12 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: f38994156a8c8e58c952a2ffc3d5d9531ec027e7
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 757d770bc7fea543d15678af5f80f15c17dd0e82
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037773"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358285"
 ---
 # <a name="readconsole-function"></a>ReadConsole función)
 
@@ -63,7 +63,7 @@ BOOL WINAPI ReadConsole(
 ## <a name="parameters"></a>Parámetros
 
 *hConsoleInput* \[ de\]  
-Identificador para el búfer de entrada de la consola. El identificador debe tener el derecho de acceso de **\_ lectura genérico** . Para obtener más información, consulte [seguridad y derechos de acceso de búfer](console-buffer-security-and-access-rights.md)de la consola.
+Identificador para el búfer de entrada de la consola. El identificador debe tener derecho de acceso de **GENERIC\_READ**. Para obtener más información, consulte [Seguridad y derechos de acceso del búfer de la consola](console-buffer-security-and-access-rights.md).
 
 *lpBuffer* \[ enuncia\]  
 Un puntero a un búfer que recibe los datos leídos del búfer de entrada de la consola.
@@ -75,21 +75,21 @@ Número de caracteres que se van a leer. El tamaño del búfer al que apunta el 
 Puntero a una variable que recibe el número de caracteres leídos realmente.
 
 *pInputControl* \[ en, opcional\]  
-Puntero a una estructura [**de \_ \_ control READCONSOLE de consola**](console-readconsole-control.md) que especifica un carácter de control para indicar el final de la operación de lectura. Este parámetro puede ser **null** .
+Puntero a una estructura [**de \_ \_ control READCONSOLE de consola**](console-readconsole-control.md) que especifica un carácter de control para indicar el final de la operación de lectura. Este parámetro puede ser **NULL**.
 
-Este parámetro requiere una entrada Unicode de forma predeterminada. En el modo ANSI, establezca este parámetro en **null** .
+Este parámetro requiere una entrada Unicode de forma predeterminada. En el modo ANSI, establezca este parámetro en **null**.
 
 ## <a name="return-value"></a>Valor devuelto
 
-Si la función se ejecuta correctamente, el valor devuelto es distinto de cero.
+Si la función se realiza correctamente, el valor devuelto es distinto de cero.
 
-Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Si la función no se realiza correctamente, el valor devuelto es cero. Para obtener información de error extendida, llame a [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## <a name="remarks"></a>Comentarios
 
-**ReadConsole** lee la entrada del teclado desde el búfer de entrada de la consola. Se comporta como la función [**readfile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) , salvo que puede leer en modo Unicode (caracteres anchos) o ANSI. Para tener aplicaciones que mantengan un único conjunto de orígenes compatibles con ambos modos, use **ReadConsole** en lugar de **readfile** . Aunque **ReadConsole** solo se puede usar con un identificador de búfer de entrada de la consola, **readfile** se puede usar con otros identificadores (como archivos o canalizaciones). **ReadConsole** produce un error si se usa con un identificador estándar que se ha redirigido para que sea distinto de un identificador de consola.
+**ReadConsole** lee la entrada del teclado desde el búfer de entrada de la consola. Se comporta como la función [**readfile**](/windows/win32/api/fileapi/nf-fileapi-readfile) , salvo que puede leer en modo Unicode (caracteres anchos) o ANSI. Para tener aplicaciones que mantengan un único conjunto de orígenes compatibles con ambos modos, use **ReadConsole** en lugar de **readfile**. Aunque **ReadConsole** solo se puede usar con un identificador de búfer de entrada de la consola, **readfile** se puede usar con otros identificadores (como archivos o canalizaciones). **ReadConsole** produce un error si se usa con un identificador estándar que se ha redirigido para que sea distinto de un identificador de consola.
 
-Todos los modos de entrada que afectan al comportamiento de [**readfile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) tienen el mismo efecto en **ReadConsole** . Para recuperar y establecer los modos de entrada de un búfer de entrada de la consola, use las funciones [**GetConsoleMode**](getconsolemode.md) y [**SetConsoleMode**](setconsolemode.md) .
+Todos los modos de entrada que afectan al comportamiento de [**readfile**](/windows/win32/api/fileapi/nf-fileapi-readfile) tienen el mismo efecto en **ReadConsole**. Para recuperar y establecer los modos de entrada de un búfer de entrada de la consola, use las funciones [**GetConsoleMode**](getconsolemode.md) y [**SetConsoleMode**](setconsolemode.md) .
 
 Si el búfer de entrada contiene eventos de entrada distintos de los eventos de teclado (como eventos del mouse o eventos de cambio de tamaño de ventana), se descartan. Estos eventos solo se pueden leer mediante la función [**ReadConsoleInput**](readconsoleinput.md) .
 
@@ -103,14 +103,14 @@ El parámetro *pInputControl* se puede usar para habilitar las reactivaciones in
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Cliente mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Professional \[\] |
-| Servidor mínimo compatible | Solo aplicaciones de escritorio de Windows 2000 Server \[\] |
-| Encabezado | ConsoleApi. h (a través de WinCon. h, include Windows. h) |
-| Biblioteca | Kernel32. lib |
+| Cliente mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Professional |
+| Servidor mínimo compatible | \[Solo aplicaciones de escritorio\] de Windows 2000 Server |
+| Encabezado | ConsoleApi.h (a través de WinCon.h, incluido Windows.h) |
+| Biblioteca | Kernel32.lib |
 | Archivo DLL | Kernel32.dll |
 | Nombres Unicode y ANSI | **ReadConsoleW** (Unicode) y **ReadConsoleA** (ANSI) |
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 [Funciones de la consola](console-functions.md)
 
@@ -122,7 +122,7 @@ El parámetro *pInputControl* se puede usar para habilitar las reactivaciones in
 
 [**PeekConsoleInput**](readconsoleinput.md)
 
-[**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467)
+[**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile)
 
 [**SetConsoleCP**](setconsolecp.md)
 
